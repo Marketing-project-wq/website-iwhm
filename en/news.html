@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News — Indonesia Women Half Marathon 2026</title>
+  <meta name="description" content="The latest news on the preparation and lineup of Indonesia Women Half Marathon 2026.">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" data-include="header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow">Info</span>
+        <h1>News</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="news__grid" data-news-cards></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-include="footer"></footer>
+
+  <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+    <div class="modal" data-include="modal-register"></div>
+  </div>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var D = window.D;
+      var newsGrid = document.querySelector('[data-news-cards]');
+      if (!D || !newsGrid) return;
+      D.NEWS.forEach(function (item) {
+        var d = new Date(item.date);
+        var dateLabel = d.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+        var card = document.createElement('article');
+        card.className = 'news-card';
+        card.innerHTML =
+          '<p class="news-card__date">' + dateLabel + '</p>' +
+          '<h2 class="news-card__title">' + item.title[D.LANG] + '</h2>' +
+          '<p class="news-card__excerpt">' + item.excerpt[D.LANG] + '</p>';
+        newsGrid.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>

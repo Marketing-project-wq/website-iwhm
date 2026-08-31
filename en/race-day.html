@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Race Day — Indonesia Women Half Marathon 2026</title>
+  <meta name="description" content="Race Day for Indonesia Women Half Marathon 2026: Sunday, 22 November 2026, 04:00–10:00 WIB at Plaza Parkir Timur, GBK Senayan, Jakarta.">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" data-include="header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow">Race</span>
+        <h1>Race Day</h1>
+        <p data-bind="EVENT.venueNote"></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <dl class="fact-list about-facts">
+          <div><dt>Date</dt><dd data-bind="EVENT.raceDay"></dd></div>
+          <div><dt>Operating hours</dt><dd data-bind="EVENT.hours"></dd></div>
+          <div><dt>Venue</dt><dd data-bind="EVENT.venue"></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Race Village</h2>
+          <p>An activation area around the venue, open to participants and visitors.</p>
+        </div>
+        <ul class="facility-list" data-facility="village" style="max-width: var(--container-narrow);"></ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <div class="section__heading">
+          <h2>Cheering Zone</h2>
+        </div>
+        <p>A dedicated cheering zone along the route — where family, friends, and communities show up to keep every runner going.</p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container prose">
+        <div class="section__heading">
+          <h2>Route &amp; Facilities</h2>
+        </div>
+        <p>The route map and facility details along the course (water stations, medical support, baggage) will be announced once course verification is complete. <span class="badge badge--tbc">Pending confirmation</span></p>
+        <!-- TODO: add the route map per category and facility details once available -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-include="footer"></footer>
+
+  <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+    <div class="modal" data-include="modal-register"></div>
+  </div>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var D = window.D;
+      var list = document.querySelector('[data-facility="village"]');
+      if (!D || !list) return;
+      D.FACILITIES.village.forEach(function (item) {
+        var li = document.createElement('li');
+        li.textContent = item[D.LANG];
+        list.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

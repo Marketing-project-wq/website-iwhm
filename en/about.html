@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About IWHM — Indonesia Women Half Marathon 2026</title>
+  <meta name="description" content="Indonesia Women Half Marathon (IWHM) is a women's running event that celebrates strength, resilience, and unity. With 5K, 10K, and Half Marathon categories, the event encourages women to challenge themselves, support each other, and grow together.">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" data-include="header"></header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow">About IWHM</span>
+        <h1>A Race That Doesn't Start at the Start Line</h1>
+      </div>
+    </section>
+
+    <!-- DRAFT-COPY: §9.4 part 1, pending client approval — EN is an adaptation of the approved ID text -->
+    <section class="story-section story-section--ink">
+      <div class="container prose">
+        <blockquote class="story-quote" data-bind="EVENT.description"></blockquote>
+        <p>But a runner's journey rarely begins at the start line. It begins months earlier — on that first Sunday morning that feels too early, at the third kilometer that feels too far, in the small decision to leave the house anyway when no one is asking you to.</p>
+      </div>
+    </section>
+
+    <!-- DRAFT-COPY: §9.4 part 2, pending client approval -->
+    <section class="story-section story-section--paper">
+      <div class="container prose">
+        <h2 class="story-section__title">Three Distances, the Same Question</h2>
+        <p>5K, 10K, and Half Marathon aren't rungs on a ladder you have to climb in order. They're three different ways of asking yourself the same thing: how far am I capable of going?</p>
+        <p>For some, the answer is the first five kilometers of their life. For others, it's however many Half Marathons they've already run. The weight of the question doesn't change. Neither does the courage it takes to sign up.</p>
+      </div>
+    </section>
+
+    <!-- DRAFT-COPY: §9.4 part 3, pending client approval — the emotional core of the page -->
+    <section class="story-section story-section--violet">
+      <div class="container prose">
+        <h2 class="story-section__title">Racing, Without Racing Each Other</h2>
+        <p>There's a podium at IWHM, and there are runners who come to win it. But between the start line and the finish, something else happens too.</p>
+        <p>Someone slows down so the runner beside her doesn't fall behind. Someone screams from the Cheering Zone for a stranger. Someone has already finished, but chooses to stay near the finish line — not for the medal, but for a friend who hasn't crossed it yet.</p>
+        <p>None of this ever shows up in the finishing times.</p>
+      </div>
+    </section>
+
+    <!-- DRAFT-COPY: §9.4 part 4, pending client approval -->
+    <section class="story-section story-section--ink">
+      <div class="container prose">
+        <h2 class="story-section__title">Continuing the Movement, Redefining the Journey</h2>
+        <p>IWHM 2026 continues what was built in 2025 — and pushes itself to go further. Not just a longer distance or a bigger field, but how deeply a running event can matter to the people living it.</p>
+        <p>Because beyond the medals and the kilometers, what's most worth celebrating is the strength, confidence, and togetherness that grows along the way. That's what makes this journey impossible to stop.</p>
+        <span class="story-hashtag" data-bind="EVENT.hashtag"></span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Who's Running</h2>
+          <p>IWHM is open to women from all backgrounds — athletes, recreational runners, running communities, and students.</p>
+        </div>
+        <dl class="about-facts">
+          <div class="card" style="background:var(--paper-2)">
+            <dt style="font-size:var(--step--1);color:var(--ink-2);font-weight:600;">Participant segments</dt>
+            <dd style="font-family:var(--font-display);font-weight:600;margin-top:.3em;">Athletes, runners, running communities, students</dd>
+          </div>
+          <div class="card" style="background:var(--paper-2)">
+            <dt style="font-size:var(--step--1);color:var(--ink-2);font-weight:600;">Age range</dt>
+            <dd style="font-family:var(--font-display);font-weight:600;margin-top:.3em;" data-bind="EVENT.ageRange"></dd>
+          </div>
+          <div class="card" style="background:var(--paper-2)">
+            <dt style="font-size:var(--step--1);color:var(--ink-2);font-weight:600;">Partner community network</dt>
+            <dd style="font-family:var(--font-display);font-weight:600;margin-top:.3em;" data-bind="EVENT.communities"></dd>
+          </div>
+        </dl>
+        <div style="margin-top: var(--space-l);">
+          <a href="/en/categories.html" class="btn btn--primary">See Categories &amp; Podium</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-include="footer"></footer>
+
+  <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+    <div class="modal" data-include="modal-register"></div>
+  </div>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

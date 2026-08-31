@@ -139,6 +139,55 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  /* — hreflang: id<->en saling menunjuk + x-default ke ID (§8) — */
+  function addHreflangTags() {
+    if (!window.D || !window.D.SITE_URL) return;
+    var currentFile = location.pathname.split('/').pop() || 'index.html';
+    var base = window.D.SITE_URL;
+    [
+      ['id', base + '/id/' + currentFile],
+      ['en', base + '/en/' + currentFile],
+      ['x-default', base + '/id/' + currentFile]
+    ].forEach(function (pair) {
+      var link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', pair[0]);
+      link.setAttribute('href', pair[1]);
+      document.head.appendChild(link);
+    });
+  }
+
+  /* — JSON-LD SportsEvent, dihitung dari window.D supaya tidak pernah drift
+     dari data.js (§10). Domain SITE_URL masih placeholder Railway, §13 no.4. — */
+  function addSportsEventJsonLd() {
+    if (!window.D) return;
+    var D = window.D;
+    var currentFile = location.pathname.split('/').pop() || 'index.html';
+    var raceDayEnd = D.EVENT.raceDayISO ? D.EVENT.raceDayISO.replace('T04:00:00', 'T10:00:00') : undefined;
+    var data = {
+      '@context': 'https://schema.org',
+      '@type': 'SportsEvent',
+      name: 'Indonesia Women Half Marathon 2026',
+      startDate: D.EVENT.raceDayISO,
+      endDate: raceDayEnd,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      location: {
+        '@type': 'Place',
+        name: D.EVENT.venue ? D.EVENT.venue[D.LANG] : undefined,
+        address: { '@type': 'PostalAddress', addressLocality: 'Jakarta', addressCountry: 'ID' }
+      },
+      organizer: { '@type': 'Organization', name: '20FIT | EVENT' },
+      description: D.EVENT.description ? D.EVENT.description[D.LANG] : undefined,
+      inLanguage: D.LANG,
+      url: D.SITE_URL ? (D.SITE_URL + '/' + D.LANG + '/' + currentFile) : undefined
+    };
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
+  }
+
   /* — data-bind: mengisi teks dari window.D tanpa hardcode fakta di HTML (§1.7) —
      <span data-bind="EVENT.raceDay"></span> → dibaca dari D.EVENT.raceDay,
      otomatis pilih .id/.en kalau nilainya objek dwibahasa. */
@@ -167,6 +216,8 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     bindData();
+    addHreflangTags();
+    addSportsEventJsonLd();
     includePartials().then(function () {
       initNavToggle();
       initSubmenuToggles();
