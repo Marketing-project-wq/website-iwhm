@@ -74,25 +74,26 @@
       D.TICKETS.filter(function (t) { return !t.hidden; }).forEach(function (tier) {
         var priceHtml = tier.price
           ? '<span>' + tier.price + '</span>'
-          : '<span>Segera diumumkan</span><span class="badge badge--tbc">Menunggu konfirmasi</span>';
+          : '<span>Segera diumumkan</span> <span class="badge badge--tbc">Menunggu konfirmasi</span>';
         var periodHtml = tier.period
           ? '<span>' + tier.period + '</span>'
-          : '<span class="badge badge--tbc">Periode menunggu konfirmasi</span>';
+          : '<span class="badge badge--tbc">Menunggu konfirmasi</span>';
         var discountHtml = tier.discount > 0
           ? '<span class="ticket-row__discount">-' + tier.discount + '%</span>' : '';
-        var audienceHtml = tier.audience
-          ? '<p style="font-size:var(--step--1);color:var(--ink-2);margin-top:.3em;">' + tier.audience[D.LANG] + '</p>' : '';
+        var audienceRow = tier.audience
+          ? '<div><dt>Target</dt><dd>' + tier.audience[D.LANG] + '</dd></div>' : '';
         var row = document.createElement('div');
         row.className = 'ticket-row';
         row.style.flexDirection = 'column';
-        row.style.alignItems = 'flex-start';
+        row.style.alignItems = 'stretch';
+        row.style.gap = 'var(--space-s)';
         row.innerHTML =
-          '<div style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:var(--space-s);">' +
           '<span class="ticket-row__name">' + tier.name[D.LANG] + discountHtml + '</span>' +
-          '<span class="ticket-row__price">' + priceHtml + '</span>' +
-          '</div>' +
-          '<div style="font-size:var(--step--1); margin-top:.4em;">' + periodHtml + '</div>' +
-          audienceHtml;
+          '<dl class="fact-list" style="grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); display: grid; gap: var(--space-m);">' +
+            '<div><dt>Harga</dt><dd style="font-size:var(--step-0);">' + priceHtml + '</dd></div>' +
+            '<div><dt>Periode</dt><dd style="font-size:var(--step-0);">' + periodHtml + '</dd></div>' +
+            audienceRow +
+          '</dl>';
         list.appendChild(row);
       });
     });
