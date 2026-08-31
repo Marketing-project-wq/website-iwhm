@@ -55,6 +55,10 @@
     }
   };
 
+  // Domain final BELUM ada (§13 no.4, blocking). Dipakai untuk hreflang & JSON-LD
+  // sementara — GANTI begitu domain kustom tersedia.
+  var SITE_URL = 'https://website-iwhm-production.up.railway.app';
+
   var REGISTRATION_URL  = null;               // TODO: URL pendaftaran resmi (§13 no.2)
   // Tanggal pembukaan registrasi BELUM ditentukan — jangan isi tebakan apa pun
   // (klien mengoreksi klaim "Agustus 2026" sebelumnya, itu salah).
@@ -261,6 +265,6 @@
     PODIUM: PODIUM, FACILITIES: FACILITIES, RULES_SECTIONS: RULES_SECTIONS,
     CONTACT: CONTACT, LEGAL_ENTITY_NAME: LEGAL_ENTITY_NAME, FAQ: FAQ,
     PARTNER_TIERS: PARTNER_TIERS, PRIVACY_SECTIONS: PRIVACY_SECTIONS,
-    REGISTRATION_URL: REGISTRATION_URL, APP_LINKS: APP_LINKS
+    REGISTRATION_URL: REGISTRATION_URL, APP_LINKS: APP_LINKS, SITE_URL: SITE_URL
   };
 })();

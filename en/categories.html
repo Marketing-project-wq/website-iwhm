@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Categories &amp; Podium — Indonesia Women Half Marathon 2026</title>
+  <meta name="description" content="Half Marathon, 10K, and 5K at Indonesia Women Half Marathon 2026 — category descriptions and the Open and Master podium structure.">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" data-include="header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow">Race</span>
+        <h1>Categories &amp; Podium</h1>
+        <p>Three categories, three different ways to test how far you can go.</p>
+      </div>
+    </section>
+
+    <section class="container" data-category-detail></section>
+  </main>
+
+  <footer class="site-footer" data-include="footer"></footer>
+
+  <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+    <div class="modal" data-include="modal-register"></div>
+  </div>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var D = window.D;
+      if (!D) return;
+      var wrap = document.querySelector('[data-category-detail]');
+      if (!wrap) return;
+
+      D.CATEGORIES.forEach(function (cat) {
+        var distance = cat.distanceKm
+          ? cat.distanceKm + ' KM'
+          : '<span class="badge badge--tbc">Distance not yet confirmed</span>';
+        var cot = cat.cot
+          ? cat.cot
+          : '<span class="badge badge--tbc">Cut-off time not yet confirmed</span>';
+
+        var podiumRows = D.PODIUM.tiers.map(function (tier) {
+          var placesRow = '';
+          for (var p = 1; p <= D.PODIUM.places; p++) {
+            placesRow += '<tr><td>' + D.PODIUM.tierLabel[tier][D.LANG] + ' ' + p + '</td><td>' +
+              (D.PODIUM.prize || '<span class="badge badge--tbc">Pending confirmation</span>') + '</td></tr>';
+          }
+          return placesRow;
+        }).join('');
+
+        var section = document.createElement('article');
+        section.className = 'category-detail';
+        section.innerHTML =
+          '<div class="category-detail__head"><h2 class="category-detail__name">' + cat.fullName[D.LANG] + '</h2></div>' +
+          '<p class="category-detail__tagline">' + cat.tagline[D.LANG] + '</p>' +
+          '<p class="category-detail__desc">' + cat.desc[D.LANG] + '</p>' +
+          '<div class="category-detail__meta">' +
+            '<span class="badge" style="background:var(--paper-2);color:var(--ink);">Distance: ' + distance + '</span>' +
+            '<span class="badge" style="background:var(--paper-2);color:var(--ink);">Cut-off time: ' + cot + '</span>' +
+          '</div>' +
+          '<div class="podium-table-wrap"><table class="podium-table">' +
+            '<thead><tr><th>Podium</th><th>Prize</th></tr></thead>' +
+            '<tbody>' + podiumRows + '</tbody>' +
+          '</table></div>' +
+          (D.PODIUM.masterAgeFrom ? '' : '<p style="margin-top:var(--space-xs);"><span class="badge badge--tbc">Master age threshold pending confirmation</span></p>');
+        wrap.appendChild(section);
+      });
+    });
+  </script>
+</body>
+</html>
