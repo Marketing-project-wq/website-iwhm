@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrasi &amp; Harga — Indonesia Women Half Marathon 2026</title>
+  <meta name="description" content="Fase pendaftaran Indonesia Women Half Marathon 2026: Super Early Bird, Early Bird, General Sales, dan Partnership Program.">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Langsung ke konten utama</a>
+
+  <header class="site-header" data-include="header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow">Registrasi</span>
+        <h1>Fase Pendaftaran &amp; Harga</h1>
+        <p>Harga tiap fase masih menunggu konfirmasi. Diskon dan target pesertanya sudah pasti — daftar lebih awal untuk potongan lebih besar.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="tickets-preview__list" data-ticket-tiers-full style="max-width: var(--container-narrow);"></div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container prose">
+        <div class="section__heading">
+          <h2>Cara Mendaftar</h2>
+        </div>
+        <ol style="display:grid; gap: var(--space-s); padding-left: 1.25em;">
+          <li>Pilih kategori (Half Marathon, 10K, atau 5K) dan perhatikan fase harga yang sedang berjalan.</li>
+          <li>Klik tombol <strong>Daftar Sekarang</strong> untuk menuju platform pendaftaran resmi.</li>
+          <li>Lengkapi data diri dan selesaikan pembayaran sesuai instruksi di platform tersebut.</li>
+          <li>Simpan bukti pendaftaran — informasi Race Pack Collection akan dikirimkan menyusul.</li>
+        </ol>
+        <div style="margin-top: var(--space-l);">
+          <a href="#" class="btn btn--primary" data-register data-cta="tickets-page">Daftar Sekarang</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-include="footer"></footer>
+
+  <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+    <div class="modal">
+      <button class="modal__close" data-modal-close aria-label="Tutup">&times;</button>
+      <h3 id="register-modal-title">Pendaftaran belum dibuka</h3>
+      <p>Pendaftaran dibuka <span data-bind="REGISTRATION_OPEN_LABEL"></span>. Pantau halaman ini atau ikuti media sosial resmi IWHM untuk info terbaru.</p>
+    </div>
+  </div>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var D = window.D;
+      var list = document.querySelector('[data-ticket-tiers-full]');
+      if (!D || !list) return;
+      D.TICKETS.filter(function (t) { return !t.hidden; }).forEach(function (tier) {
+        var priceHtml = tier.price
+          ? '<span>' + tier.price + '</span>'
+          : '<span>Segera diumumkan</span> <span class="badge badge--tbc">Menunggu konfirmasi</span>';
+        var periodHtml = tier.period
+          ? '<span>' + tier.period + '</span>'
+          : '<span class="badge badge--tbc">Menunggu konfirmasi</span>';
+        var discountHtml = tier.discount > 0
+          ? '<span class="ticket-row__discount">-' + tier.discount + '%</span>' : '';
+        var audienceRow = tier.audience
+          ? '<div><dt>Target</dt><dd>' + tier.audience[D.LANG] + '</dd></div>' : '';
+        var row = document.createElement('div');
+        row.className = 'ticket-row';
+        row.style.flexDirection = 'column';
+        row.style.alignItems = 'stretch';
+        row.style.gap = 'var(--space-s)';
+        row.innerHTML =
+          '<span class="ticket-row__name">' + tier.name[D.LANG] + discountHtml + '</span>' +
+          '<dl class="fact-list" style="grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); display: grid; gap: var(--space-m);">' +
+            '<div><dt>Harga</dt><dd style="font-size:var(--step-0);">' + priceHtml + '</dd></div>' +
+            '<div><dt>Periode</dt><dd style="font-size:var(--step-0);">' + periodHtml + '</dd></div>' +
+            audienceRow +
+          '</dl>';
+        list.appendChild(row);
+      });
+    });
+  </script>
+</body>
+</html>

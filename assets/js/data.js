@@ -27,6 +27,7 @@
     quotaLabel: { id: '4.000', en: '4,000' },
     ageRange: '17–45',
     communities: '45++',
+    networkReach: { id: '6.000++ orang', en: '6,000++ people' }, // §3.8, halaman partner saja
     theme:    { id: null, en: 'Continuing the Movement, Redefining the Journey' },
     hashtag:  '#UnstoppableHerJourney',
 
@@ -149,9 +150,103 @@
 
   var PARTNERS = [];       // kosong sampai sponsorship dikonfirmasi (§13 no.3)
 
+  // Podium — sama untuk ketiga kategori, deck tidak membedakan (hal.34).
+  var PODIUM = {
+    tiers: ['open', 'master'],
+    tierLabel: { open: { id: 'Open', en: 'Open' }, master: { id: 'Master', en: 'Master' } },
+    places: 3,
+    masterAgeFrom: null,   // TODO §13 no.9
+    prize: null            // TODO §13 no.10
+  };
+
+  // Race Pack Collection & Race Village (§3.7, hal.25/31).
+  var FACILITIES = {
+    rpc: [
+      { id: 'Sports apparel & equipment pop-up store', en: 'Sports apparel & equipment pop-up store' },
+      { id: 'Culinary tenant', en: 'Culinary tenant' },
+      { id: 'Sports treatment', en: 'Sports treatment' },
+      { id: 'Beauty treatment', en: 'Beauty treatment' },
+      { id: 'Photo spot', en: 'Photo spot' },
+      { id: 'Beauty pop-up corner', en: 'Beauty pop-up corner' }
+    ],
+    village: [
+      { id: 'Sports apparel & equipment pop-up store', en: 'Sports apparel & equipment pop-up store' },
+      { id: 'Culinary tenant', en: 'Culinary tenant' },
+      { id: 'Entertainment', en: 'Entertainment' },
+      { id: 'Recovery area', en: 'Recovery area' },
+      { id: 'Interactive booth', en: 'Interactive booth' },
+      { id: 'Photo spot', en: 'Photo spot' }
+    ]
+  };
+
+  // Peraturan & Ketentuan — TIDAK ADA satupun teks resmi di deck (§7.8).
+  // Render judul bab saja + badge "Menunggu naskah resmi". Jangan isi badan teks.
+  var RULES_SECTIONS = [
+    { key: 'eligibility', title: { id: 'Kelayakan Peserta', en: 'Participant Eligibility' } },
+    { key: 'age-verification', title: { id: 'Verifikasi Usia', en: 'Age Verification' } },
+    { key: 'bib-transfer', title: { id: 'Transfer BIB', en: 'BIB Transfer' } },
+    { key: 'refund', title: { id: 'Kebijakan Refund', en: 'Refund Policy' } },
+    { key: 'prohibited', title: { id: 'Larangan', en: 'Prohibited Actions' } },
+    { key: 'disqualification', title: { id: 'Diskualifikasi', en: 'Disqualification' } },
+    { key: 'force-majeure', title: { id: 'Force Majeure', en: 'Force Majeure' } }
+  ];
+
+  // Kontak resmi — TIDAK ADA di deck (§13 no.6). Semua null → render TBC.
+  var CONTACT = {
+    email: null,
+    whatsapp: null,
+    instagram: null,
+    tiktok: null
+  };
+
+  // Nama badan hukum penyelenggara — TIDAK ADA di deck (§13 no.30).
+  var LEGAL_ENTITY_NAME = null;
+
+  // Struktur tier mitra (pola Borobudur, §7.12) — label generik, kosong sampai
+  // sponsorship terkonfirmasi (§4). Isi nama/logo lewat PARTNERS, bukan di sini.
+  var PARTNER_TIERS = [
+    { key: 'presenting', label: { id: 'Presenting Partner', en: 'Presenting Partner' } },
+    { key: 'official', label: { id: 'Mitra Resmi', en: 'Official Partner' } },
+    { key: 'community', label: { id: 'Mitra Komunitas', en: 'Community Partner' } },
+    { key: 'media', label: { id: 'Mitra Media', en: 'Media Partner' } }
+  ];
+
+  // Kerangka bab privasi — deck tidak memuat naskah privasi apa pun (§7.14).
+  var PRIVACY_SECTIONS = [
+    { key: 'data-collected', title: { id: 'Data yang Dikumpulkan', en: 'Data We Collect' } },
+    { key: 'data-use', title: { id: 'Penggunaan Data', en: 'How We Use Data' } },
+    { key: 'data-sharing', title: { id: 'Pembagian Data ke Pihak Ketiga', en: 'Third-Party Data Sharing' } },
+    { key: 'data-retention', title: { id: 'Penyimpanan Data', en: 'Data Retention' } },
+    { key: 'user-rights', title: { id: 'Hak Pengguna', en: 'User Rights' } },
+    { key: 'contact', title: { id: 'Kontak Terkait Privasi', en: 'Privacy Contact' } }
+  ];
+
+  // FAQ — hanya pertanyaan yang bisa dijawab dari fakta terkonfirmasi (§7.9).
+  // Jangan tambah pertanyaan Road to Event / sesi latihan mingguan (§3.6).
+  var FAQ = [
+    { key: 'categories',
+      q: { id: 'Kategori apa saja yang tersedia di IWHM 2026?', en: 'What categories are available at IWHM 2026?' },
+      a: { id: 'Ada tiga kategori: Half Marathon, 10K, dan 5K.', en: 'There are three categories: Half Marathon, 10K, and 5K.' } },
+    { key: 'when-where',
+      q: { id: 'Kapan dan di mana race day berlangsung?', en: 'When and where does race day take place?' },
+      a: { id: 'Race day berlangsung ' + EVENT.raceDay.id + ', pukul ' + EVENT.hours.id + ', di ' + EVENT.venue.id + '.',
+           en: 'Race day takes place on ' + EVENT.raceDay.en + ', ' + EVENT.hours.en + ', at ' + EVENT.venue.en + '.' } },
+    { key: 'who',
+      q: { id: 'Siapa saja yang boleh mengikuti IWHM 2026?', en: 'Who can join IWHM 2026?' },
+      a: { id: 'IWHM terbuka untuk perempuan berusia ' + EVENT.ageRange + ' tahun — mulai dari atlet, pelari, komunitas lari, hingga mahasiswi.',
+           en: 'IWHM is open to women aged ' + EVENT.ageRange + ' — from athletes and runners to running communities and students.' } },
+    { key: 'rpc',
+      q: { id: 'Kapan Race Pack Collection berlangsung?', en: 'When is Race Pack Collection?' },
+      a: { id: WEEKEND[0].when.id + ', ' + WEEKEND[0].where.id + '.',
+           en: WEEKEND[0].when.en + ', ' + WEEKEND[0].where.en + '.' } }
+  ];
+
   window.D = {
     LANG: LANG, EVENT: EVENT, CATEGORIES: CATEGORIES, TICKETS: TICKETS,
     TIMELINE: TIMELINE, WEEKEND: WEEKEND, NEWS: NEWS, PARTNERS: PARTNERS,
+    PODIUM: PODIUM, FACILITIES: FACILITIES, RULES_SECTIONS: RULES_SECTIONS,
+    CONTACT: CONTACT, LEGAL_ENTITY_NAME: LEGAL_ENTITY_NAME, FAQ: FAQ,
+    PARTNER_TIERS: PARTNER_TIERS, PRIVACY_SECTIONS: PRIVACY_SECTIONS,
     REGISTRATION_URL: REGISTRATION_URL, REGISTRATION_OPEN: REGISTRATION_OPEN,
     REGISTRATION_OPEN_LABEL: REGISTRATION_OPEN_LABEL
   };

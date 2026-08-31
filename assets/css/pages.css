@@ -306,6 +306,73 @@
   color: var(--ink-2);
 }
 
+/* — Kategori & Podium (categories.html) — */
+.category-detail {
+  padding-block: var(--space-xl);
+  border-bottom: 1px solid var(--paper-line);
+}
+.category-detail:last-child { border-bottom: none; }
+.category-detail__head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-s);
+  margin-bottom: var(--space-xs);
+}
+.category-detail__name { color: var(--violet); }
+.category-detail__tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  margin-bottom: var(--space-xs);
+}
+.category-detail__desc { max-width: var(--container-narrow); margin-bottom: var(--space-m); }
+.category-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-bottom: var(--space-m);
+}
+
+/* — Tentang (about.html) — empat bagian, latar bergantian — */
+.story-section {
+  padding-block: var(--space-2xl);
+}
+.story-section--ink { background: var(--ink); color: var(--paper); }
+.story-section--violet { background: var(--gradient-violet); color: var(--paper); }
+.story-section--paper { background: var(--paper); color: var(--ink); }
+.story-section__title { margin-bottom: var(--space-m); }
+.story-section--ink .story-section__title,
+.story-section--violet .story-section__title { color: var(--paper); }
+.story-section p {
+  font-size: var(--step-1);
+  margin-bottom: var(--space-s);
+}
+.story-quote {
+  border-left: 4px solid var(--citrus);
+  padding-left: var(--space-m);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  margin-bottom: var(--space-l);
+}
+.story-section--violet {
+  padding-block: var(--space-3xl);
+}
+.story-hashtag {
+  display: inline-block;
+  margin-top: var(--space-m);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--citrus);
+}
+.about-facts {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-l);
+}
+@media (min-width: 768px) { .about-facts { grid-template-columns: repeat(3, 1fr); } }
+
 /* — Berita — */
 .news {
   padding-block: var(--space-2xl);
