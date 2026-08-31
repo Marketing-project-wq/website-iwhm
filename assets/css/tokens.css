@@ -1,0 +1,72 @@
+/* ============================================================
+   tokens.css — Design tokens · IWHM 2026 (Jakarta Series)
+   Palet §6.1 (hasil sampling piksel deck 150 DPI; verifikasi brand
+   book — QUESTIONS A3). Kontras mengikuti §6.2. Tipografi §6.3.
+   ============================================================ */
+:root {
+  /* — Palet inti (§6.1) — */
+  --violet:      #A120EF;
+  --lime:        #C1FF72;
+  --ink:         #1E0728;
+  --mauve:       #C8A2C9;
+  --periwinkle:  #8B71D5;
+  --paper:       #FFFFFF;
+
+  /* — Turunan fungsional — */
+  --paper-2:     #F7F2FA;            /* panel lembut di latar terang */
+  --ink-2:       #2A0E3A;            /* blok gelap sekunder */
+  --muted:       #4D3A58;            /* teks muted di paper (≈11:1, aman) */
+  --line:        #E7DCEE;            /* garis halus di paper */
+  --line-ink:    rgba(255,255,255,.16);
+  --violet-ink:  #6A11A0;            /* violet gelap utk link/border di paper */
+
+  /* — Tipografi (§6.3) — */
+  --font-display: 'Archivo', 'Arial Narrow', Arial, sans-serif;
+  --font-body:    'Barlow', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --display-stretch: 118%;          /* CyGrotesk Wide → Archivo wdth (pending Q A2) */
+  --display-weight: 800;
+
+  /* Skala tipe fluid */
+  --step--1: clamp(.83rem, .80rem + .15vw, .92rem);
+  --step-0:  clamp(1rem, .96rem + .2vw, 1.13rem);
+  --step-1:  clamp(1.2rem, 1.12rem + .4vw, 1.5rem);
+  --step-2:  clamp(1.44rem, 1.3rem + .7vw, 2rem);
+  --step-3:  clamp(1.73rem, 1.5rem + 1.15vw, 2.66rem);
+  --step-4:  clamp(2.07rem, 1.7rem + 1.85vw, 3.55rem);
+  --step-5:  clamp(2.49rem, 1.95rem + 2.7vw, 4.7rem);
+  --step-6:  clamp(2.99rem, 2.2rem + 3.95vw, 6.25rem);
+
+  /* — Spasi — */
+  --space-3xs:.25rem; --space-2xs:.5rem; --space-xs:.75rem;
+  --space-s:1rem; --space-m:1.5rem; --space-l:2.25rem;
+  --space-xl:3.5rem; --space-2xl:5rem; --space-3xl:7.5rem;
+
+  /* — Layout — */
+  --container: 78rem;
+  --container-narrow: 40rem;         /* ≤ ~70ch untuk naskah panjang (§7.2) */
+  --gutter: clamp(1.1rem, .6rem + 2.2vw, 2.75rem);
+
+  /* — Radius — */
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --radius-l: 26px;
+
+  /* Placeholder kelopak organik — BUKAN siluet logo resmi.
+     Ganti dengan clip-path dari SVG logo begitu tersedia (§6.4, Q A1). */
+  --petal-i: 63% 37% 54% 46% / 55% 52% 48% 45%;
+  --petal-w: 42% 58% 63% 37% / 45% 38% 62% 55%;
+  --petal-h: 38% 62% 45% 55% / 60% 42% 58% 40%;
+  --petal-m: 58% 42% 39% 61% / 43% 57% 43% 57%;
+
+  /* — Elevasi (hemat; hindari abu seragam, §6.5#5) — */
+  --shadow-1: 0 1px 0 var(--line), 0 12px 34px -20px rgba(30,7,40,.45);
+  --shadow-violet: 0 20px 44px -24px rgba(161,32,239,.6);
+
+  /* — Motion (§6.6) — */
+  --dur: .22s;
+  --ease: cubic-bezier(.2,.6,.2,1);
+
+  /* — z-index — */
+  --z-header: 100;
+  --z-modal: 1000;
+}

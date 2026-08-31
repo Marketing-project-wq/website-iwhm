@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IWHM 2026 — Indonesia Women Half Marathon | Jakarta Series</title>
+  <!-- Deskripsi resmi §3.10 (final, dari klien). Juga disimpan di data.js EVENT.description. -->
+  <meta name="description" content="Indonesia Women Half Marathon (IWHM) adalah event lari perempuan yang merayakan kekuatan, ketangguhan, dan kebersamaan. Dengan kategori 5K, 10K, dan Half Marathon, IWHM mengajak perempuan untuk menantang diri, saling menguatkan, dan tumbuh bersama.">
+  <meta name="theme-color" content="#A120EF">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23A120EF'/%3E%3Ctext x='16' y='22' font-size='15' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EIW%3C/text%3E%3C/svg%3E">
+
+  <!-- Font di-self-host (§6.3) — tanpa request eksternal. -->
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <!-- TODO (Tahap 4 SEO): canonical, hreflang id/en/x-default, Open Graph, JSON-LD SportsEvent -->
+</head>
+<body data-page="home">
+  <div data-partial="header"></div>
+
+  <main id="main">
+
+    <!-- ══ HERO ══ -->
+    <section class="hero sec--paper">
+      <div class="container hero__grid">
+        <div class="hero__content stack" style="--flow:1.15rem">
+          <p class="eyebrow">Indonesia Women Half Marathon · Jakarta Series</p>
+
+          <!-- DRAFT-COPY: menunggu approval klien — headline & subhead hero §9.3.
+               Dua opsi headline (utama + alternatif) ada di data.js; ajukan keduanya ke klien. -->
+          <h1 class="hero__title" data-bind="heroHeadline"></h1>
+          <p class="hero__sub" data-bind="heroSub"></p>
+
+          <!-- Fakta pasti (§3.2, dikonfirmasi klien) — diisi dari data.js, tanpa badge -->
+          <p class="hero__facts">
+            <span data-bind="raceDay"></span>
+            <span class="dot" aria-hidden="true">·</span>
+            <span class="place" data-bind="venue"></span>
+          </p>
+
+          <div class="countdown" data-countdown aria-label="Hitung mundur menuju race day"></div>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary" data-register href="#">Daftar Sekarang</a>
+            <a class="btn btn--ghost" href="about.html">Baca cerita lengkapnya</a>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__photo media-placeholder petal--m" role="img"
+               aria-label="Key visual IWHM — foto berlisensi menyusul">
+            <span class="media-placeholder__tag">Key visual menyusul</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PENGANTAR (§9.3.2) ══ -->
+    <section class="section sec--ink round-top">
+      <div class="container-narrow intro-block stack" style="--flow:1.5rem">
+        <!-- DRAFT-COPY: menunggu approval klien — blok pengantar §9.3.2 -->
+        <p>IWHM adalah event lari perempuan dengan tiga kategori — 5K, 10K, dan Half Marathon.
+           Ketiganya berangkat dari premis yang sama: perjalanan seorang pelari dimulai jauh
+           sebelum garis start, dan tidak pernah benar-benar ditempuh sendirian.</p>
+        <div class="cluster">
+          <a class="btn btn--ghost" href="about.html">Baca cerita lengkapnya</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ KATEGORI ══ -->
+    <section class="section sec--paper">
+      <div class="container">
+        <div class="sec-head">
+          <h2 class="sec-head__title">Kategori Lomba</h2>
+          <p class="sec-head__intro">Tiga jarak resmi: 5K, 10K, dan Half Marathon.</p>
+        </div>
+        <!-- DRAFT-COPY: menunggu approval klien — one-liner kategori §9.5 (teks dari data.js CATEGORIES[].tagline) -->
+        <div class="cat-grid" data-category-cards></div>
+      </div>
+    </section>
+
+    <!-- ══ FACT STRIP ══ -->
+    <section class="section sec--violet round-top">
+      <div class="container">
+        <div class="fact-strip" data-fact-strip></div>
+      </div>
+    </section>
+
+    <!-- ══ AKHIR PEKAN LOMBA ══ -->
+    <section class="section sec--paper2">
+      <div class="container">
+        <div class="sec-head">
+          <h2 class="sec-head__title">Akhir Pekan Lomba</h2>
+          <p class="sec-head__intro">Tiga agenda yang membentuk race weekend IWHM.</p>
+        </div>
+        <div class="wk-grid" data-weekend></div>
+      </div>
+    </section>
+
+    <!-- ══ FASE PENDAFTARAN ══ -->
+    <section class="section sec--paper">
+      <div class="container">
+        <div class="sec-head">
+          <h2 class="sec-head__title">Fase Pendaftaran</h2>
+          <p class="sec-head__intro">Fase harga sepanjang periode pendaftaran. Harga diumumkan menyusul.</p>
+        </div>
+        <div class="tk-grid" data-ticket-preview></div>
+        <div class="cluster" style="margin-block-start:var(--space-l)">
+          <a class="btn btn--primary" data-register href="#">Daftar Sekarang</a>
+          <a class="btn btn--ghost" href="tickets.html">Lihat semua fase</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MITRA ══ -->
+    <section class="section sec--paper2">
+      <div class="container">
+        <div class="sec-head">
+          <h2 class="sec-head__title">Mitra</h2>
+          <p class="sec-head__intro">Ruang untuk mitra dan pendukung IWHM.</p>
+        </div>
+        <div class="partner-grid" data-partners></div>
+      </div>
+    </section>
+
+    <!-- ══ BERITA ══ -->
+    <section class="section sec--paper">
+      <div class="container">
+        <div class="sec-head">
+          <h2 class="sec-head__title">Berita Terbaru</h2>
+        </div>
+        <div class="news-grid" data-news></div>
+        <div class="cluster" style="margin-block-start:var(--space-l)">
+          <a class="btn btn--ghost" href="news.html">Semua berita</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA PENUTUP ══ -->
+    <section class="section sec--ink round-top">
+      <div class="container stack" style="--flow:1rem">
+        <h2>Daftar IWHM 2026 — Jakarta Series</h2>
+        <p class="lead">Tersedia untuk kategori 5K, 10K, dan Half Marathon.</p>
+        <div class="cluster">
+          <a class="btn btn--primary" data-register href="#">Daftar Sekarang</a>
+          <a class="btn btn--ghost" href="schedule.html">Lihat Jadwal Lengkap</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-partial="footer" class="site-footer"></div>
+
+  <script src="../assets/js/data.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/countdown.js" defer></script>
+</body>
+</html>
