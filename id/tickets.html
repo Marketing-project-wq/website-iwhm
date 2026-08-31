@@ -40,15 +40,23 @@
       <div class="container prose">
         <div class="section__heading">
           <h2>Cara Mendaftar</h2>
+          <p>Alur ini berlaku begitu pendaftaran resmi dibuka.</p>
         </div>
         <ol style="display:grid; gap: var(--space-s); padding-left: 1.25em;">
           <li>Pilih kategori (Half Marathon, 10K, atau 5K) dan perhatikan fase harga yang sedang berjalan.</li>
-          <li>Klik tombol <strong>Daftar Sekarang</strong> untuk menuju platform pendaftaran resmi.</li>
-          <li>Lengkapi data diri dan selesaikan pembayaran sesuai instruksi di platform tersebut.</li>
+          <li>Unduh aplikasi mitra bank resmi IWHM untuk melakukan pendaftaran.</li>
+          <li>Lengkapi data diri di aplikasi tersebut, lalu selesaikan pembayaran melalui Virtual Account.</li>
           <li>Simpan bukti pendaftaran — informasi Race Pack Collection akan dikirimkan menyusul.</li>
         </ol>
-        <div style="margin-top: var(--space-l);">
-          <a href="#" class="btn btn--primary" data-register data-cta="tickets-page">Daftar Sekarang</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose" style="text-align:center;">
+        <h2>Belum Bisa Daftar Sekarang?</h2>
+        <p>Pendaftaran belum dibuka. Unduh aplikasi 20FIT supaya kamu jadi yang pertama tahu begitu pendaftaran IWHM 2026 dibuka.</p>
+        <div style="margin-top: var(--space-m);">
+          <a href="#" class="btn btn--primary" data-register data-cta="tickets-page">Ikuti Kabarnya</a>
         </div>
       </div>
     </section>
@@ -57,11 +65,7 @@
   <footer class="site-footer" data-include="footer"></footer>
 
   <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
-    <div class="modal">
-      <button class="modal__close" data-modal-close aria-label="Tutup">&times;</button>
-      <h3 id="register-modal-title">Pendaftaran belum dibuka</h3>
-      <p>Pendaftaran dibuka <span data-bind="REGISTRATION_OPEN_LABEL"></span>. Pantau halaman ini atau ikuti media sosial resmi IWHM untuk info terbaru.</p>
-    </div>
+    <div class="modal" data-include="modal-register"></div>
   </div>
 
   <script src="/assets/js/data.js"></script>

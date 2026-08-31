@@ -416,3 +416,10 @@
   line-height: 1;
   padding: .25em .5em;
 }
+.modal__store-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-m);
+}
+.modal__store-buttons .btn { flex: 1 1 auto; }
