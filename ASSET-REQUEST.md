@@ -1,4 +1,4 @@
-# ASSET-REQUEST — IWHM 2026 (Jakarta Series)
+# ASSET-REQUEST — IWHM 2026 (Jakarta Series) · brief v1.2
 
 > Aset yang dibutuhkan untuk produksi, dengan **dimensi & format persis**.
 > **Status inventaris repo saat ini: KOSONG** — tidak ada logo, KV, font, foto, peta, maupun
@@ -27,8 +27,7 @@
 | Hero KV (landscape) | WebP + JPG fallback | 2560×1440 (16:9) | 🟡 | Masuk ke dalam mask kelopak di hero |
 | Hero KV (mobile crop) | WebP + JPG | 1080×1350 (4:5) | 🟡 | Crop portrait untuk <768px |
 | Foto kategori ×3 (HM/10K/5K) | WebP + JPG | 1200×1500 (4:5 portrait) | 🟡 | Di-mask kelopak berbeda per kategori |
-| Foto About | WebP + JPG | 1600×1200 | 🟢 | Cerita tema / komunitas |
-| Foto Road to IWHM (Sister Strides) | WebP + JPG | 1600×1000 | 🟢 | |
+| Foto About | WebP + JPG | 1600×1200 | 🟢 | Cerita tema / komunitas (naskah 4 bagian §9.4) |
 | Foto Race Pack / Shake Out Run | WebP + JPG | 1600×1000 ×2 | 🟢 | |
 | Foto Race Village / Cheering Zone | WebP + JPG | 1600×1000 ×2 | 🟢 | |
 | Galeri | WebP + JPG | 1200×800, min. 8–12 frame | 🟢 | Grid; sertakan bukti hak pakai |

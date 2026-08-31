@@ -1,6 +1,12 @@
-# DESIGN-PLAN — IWHM 2026 (Jakarta Series)
+# DESIGN-PLAN — IWHM 2026 (Jakarta Series) · brief v1.2
 
 > Rencana desain sebelum coding. Dikritik terhadap anti-pattern §6.5 di bagian akhir.
+>
+> **Navigasi (v1.2, pola Borobudur) — 6 item top-level, tanpa "Program":**
+> `Beranda · Tentang · Lomba ▾ (Kategori & Podium · Jadwal · Race Pack Collection · Race Day ·
+> Peraturan & Ketentuan) · Info ▾ (Tanya Jawab · Berita · Galeri) · Mitra · Kontak` + `[ID|EN]` +
+> `[Daftar Sekarang]`. `about.html` kini top-level. **Tanpa dropdown kosong.**
+> **Tanggal & venue race day = fakta pasti (Minggu 29 Nov 2026 · Plaza Barat GBK), tanpa badge TBC.**
 
 ## 1 — Palet (6 token, terukur dari deck §6.1)
 
@@ -28,19 +34,20 @@ hanya untuk teks ≥24px / ≥18.7px bold; teks normal di violet selalu paper pu
 
 **Konsep utama — "Poster type-forward" (dipilih).** Type dominan agar hero tetap kuat **sebelum**
 foto berlisensi tersedia (foto = blocker, §6/§7). Foto masuk ke dalam mask kelopak, bisa diganti
-placeholder tanpa merusak komposisi.
+placeholder tanpa merusak komposisi. **Headline = naskah §9.3 (dua opsi, `DRAFT-COPY`)** — keduanya
+diajukan ke klien lewat screenshot di GATE 1, tidak dipilih sendiri.
 ```
 ┌───────────────────────────────────────────────┐
-│ [logo]                        nav        ID|EN │
+│ [logo]                    nav ▾          ID|EN │
 │                                                │
-│  INDONESIA WOMEN            ╭─────────────╮     │
-│  HALF MARATHON             (  foto/KV di   )    │  ← foto dalam mask
-│  ‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑           (  MASK KELOPAK )    │    kelopak "M"
-│  Continuing the Movement,   ╰────┬────────╯     │
-│  Redefining the Journey          │ 29 NOV 2026  │  ← chip lime + badge
-│                                  │ [Mnggu knfrm]│    "Menunggu konfirmasi"
+│  Sebelum matahari terbit,   ╭─────────────╮    │  ← H1 opsi A (§9.3)
+│  Senayan sudah bergerak.   (  foto/KV di   )   │    (opsi B: "Menantang diri.
+│  ‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑           (  MASK KELOPAK )   │     Saling menguatkan…")
+│  IWHM 2026 — 5K, 10K, HM.   ╰────┬────────╯    │  ← subhead
+│  Perayaan kekuatan…              │             │
+│  Minggu, 29 Nov 2026 · Plaza Barat GBK  ← FAKTA │  (tanpa badge)
 │  [ 90 : 12 : 44 : 08 ]  ← countdown (lime/ink)  │
-│  [ Daftar Sekarang ]  [ Lihat Jadwal ]          │
+│  [ Daftar Sekarang ]  [ Baca cerita ]           │
 └───────────────────────────────────────────────┘
    Latar: paper putih + satu blok violet solid (bukan gradasi).
 ```

@@ -1,18 +1,20 @@
-# FACT-LEDGER — IWHM 2026 (Jakarta Series)
+# FACT-LEDGER — IWHM 2026 (Jakarta Series) · brief v1.2
 
 > **Rujukan tunggal saat menulis konten.** Jangan menulis dari ingatan — setiap
 > angka, tanggal, harga, jarak, dan nama venue di situs harus punya baris di sini.
-> **Sumber fakta:** `SPORTFEST__JHR__IWHM_*.pdf` (36 hal.; suffix nama file diredaksi §1.4) — *catatan: file PDF
-> TIDAK ada di repo; seluruh fakta di bawah disalin dari tabel §3 brief.*
+> **Sumber A:** `SPORTFEST__JHR__IWHM_*.pdf` (36 hal.; suffix nama file diredaksi §1.4) — *tidak ada di repo.*
+> **Sumber B:** Deskripsi & konfirmasi resmi klien, 31 Agu 2026 (§3.2, §3.10).
 >
-> **Legenda status:** ✅ `CONFIRMED-DECK` · ⚠️ `CONFLICT` · 🟡 `TBC` · 🔴 `NOT-IN-DECK`
+> **Legenda:** ✅ `CONFIRMED-DECK` · ✅ `CONFIRMED-KLIEN` · 🟡 `TBC` · 🔴 `NOT-IN-DECK`
+> Status ⚠️ `CONFLICT` **sudah tidak ada** per v1.2 (tanggal & venue diselesaikan klien).
 >
-> **Aturan render:** status ✅ → tulis apa adanya. Status ⚠️/🟡/🔴 → render nilai
-> default (jika ada) **+ badge `Menunggu konfirmasi`/`TBC` yang terlihat + komentar
-> `<!-- TODO … -->`**. Jangan pernah isi placeholder yang terlihat seperti fakta nyata.
+> **Aturan render:** ✅ → tulis lugas tanpa hedging. 🟡/🔴 → nilai default (bila ada) **+ badge
+> `Menunggu konfirmasi`/`TBC` + komentar `<!-- TODO … -->`**. Jangan isi placeholder yang terlihat nyata.
 >
-> **Redaksi sponsor (§1.4):** nama bank calon sponsor tidak ditulis di file manapun,
-> termasuk ledger ini. Referensi ke sponsor memakai **nomor halaman deck** saja.
+> **Redaksi sponsor (§1.4):** nama bank calon sponsor tidak ditulis di file mana pun — referensi memakai nomor halaman deck.
+>
+> **14 halaman × 2 bahasa = 28 file.** Slug: `index · about · categories · schedule · tickets ·
+> race-pack · race-day · rules · faq · news · gallery · partners · contact · privacy`.
 
 ---
 
@@ -20,111 +22,98 @@
 
 | Fakta | Nilai | Sumber | Status | Dipakai di halaman |
 |---|---|---|---|---|
-| Nama resmi | Indonesia Women Half Marathon | hal. 1 | ✅ | header, footer, index, about, SEO |
-| Singkatan | IWHM | hal. 1 | ✅ | semua halaman |
-| Tahun/edisi | 2026 | hal. 6 | ✅ | header, index, about, SEO |
-| Series | Jakarta Series | hal. 9 | ✅ | index, about |
-| Penyelenggara | 20FIT \| EVENT | semua hal. | ✅ | footer, about, contact |
-| Tema | "Continuing the Movement, Redefining the Journey" | hal. 5 | ✅ | index (hero), about |
-| Hashtag utama | #UnstoppableHerJourney | hal. 5 | ✅ | index, about, footer |
-| Hashtag sekunder | #RiseWithEveryStride | hal. 19, 30 | ✅ | road-to-event, race-day |
+| Nama resmi | Indonesia Women Half Marathon | hal. 1 | ✅ deck | header, footer, index, about, SEO |
+| Singkatan | IWHM | hal. 1 | ✅ deck | semua halaman |
+| Tahun/edisi | 2026 | hal. 6 | ✅ deck | header, index, about, SEO |
+| Series | Jakarta Series | hal. 9 | ✅ deck | index, about |
+| Penyelenggara | 20FIT \| EVENT | semua hal. | ✅ deck | footer, about, contact |
+| Tema | "Continuing the Movement, Redefining the Journey" | hal. 5 | ✅ deck | index (hero), about (judul bagian 4) |
+| Hashtag utama | #UnstoppableHerJourney | hal. 5 | ✅ deck | index, about, footer |
+| Hashtag sekunder | #RiseWithEveryStride | hal. 19, 30 | ✅ deck | race-day, footer |
 | Nama domain | — | — | 🔴 | SEO/canonical/sitemap/OG (semua) |
 
----
-
-## 2 — Race Day  ⚠️ berisi 2 konflik sumber
+## 2 — Race Day  ✅ dikonfirmasi klien (konflik selesai)
 
 | Fakta | Nilai | Sumber | Status | Dipakai di halaman |
 |---|---|---|---|---|
-| Tanggal race day | **29 Nov 2026** (default) / 22 Nov 2026 (alt) | hal. 9+29 / hal. 6 | ⚠️ **CONFLICT** | index (hero+countdown), schedule, race-day |
-| Venue race day | **Plaza Barat GBK Senayan** (default) / Plaza Parkir Timur GBK (alt) | hal. 29 / hal. 6 | ⚠️ **CONFLICT** | index, schedule, race-day |
-| Jam operasional | 04.00 – 10.00 WIB | hal. 29 | ✅ | schedule, race-day |
-| Jam start per kategori | — | — | 🔴 | categories, schedule, race-day |
-| Kuota peserta | 4.000 female runners | hal. 6 | ✅ | index (fact strip), about, categories |
-| Segmen peserta | Female athletes, runners, running community, student | hal. 6 | ✅ | about, categories |
-| Rentang usia | 17 – 45 tahun | hal. 6 | ✅ | index (fact strip), about, categories |
-| Catatan venue | "Venue is subject to change" | hal. 6 | ✅ | index, schedule, race-day |
+| Tanggal race day | **Minggu, 29 November 2026** | hal. 9+29 + **klien 31 Agu 2026** | ✅ klien | index (hero+countdown), schedule, race-day |
+| Venue race day | **Plaza Barat, GBK Senayan, Jakarta** | hal. 29 + **klien 31 Agu 2026** | ✅ klien | index (hero), schedule, race-day |
+| Jam operasional | 04.00 – 10.00 WIB | hal. 29 | ✅ deck | schedule, race-day |
+| Jam start per kategori | — | — | 🔴 | categories, schedule, race-day (TBC) |
+| Kuota peserta | 4.000 female runners | hal. 6 | ✅ deck | index (fact strip), about, categories |
+| Segmen peserta | Female athletes, runners, running community, student | hal. 6 | ✅ deck | about, categories |
+| Rentang usia | 17 – 45 tahun | hal. 6 | ✅ deck | index (fact strip), about, categories |
+| Catatan venue | "Venue is subject to change" | hal. 6 | ✅ deck (opsional) | **race-day saja**, sebagai disclaimer kecil (bukan badge TBC) — konfirmasi apakah masih perlu |
 
-**Penanganan konflik (wajib):** default **versi A — 29 Nov 2026, Plaza Barat** (konsisten
-dengan RPC 27–28 Nov + Shake Out Run 28 Nov = satu race weekend). Semua tampilan tanggal &
-venue diberi badge `Menunggu konfirmasi` + komentar:
-`<!-- CONFLICT: deck hal.6 = 22 Nov / Plaza Parkir Timur; hal.9+29 = 29 Nov / Plaza Barat. Default 29 Nov. Konfirmasi ke klien. -->`
-Catatan: 22 & 29 Nov 2026 sama-sama Minggu — label "SUNDAY" di deck tidak menyelesaikan konflik.
-
----
+> **Konflik SELESAI (v1.2):** deck hal. 6 ("22 Nov / Plaza Parkir Timur") **tidak berlaku** — klien
+> konfirmasi versi A. Tanggal & venue tampil sebagai fakta pasti: **tanpa badge TBC, tanpa hedging,
+> tanpa komentar konflik.** Jika ada sisa badge "Menunggu konfirmasi" pada tanggal/venue → hapus.
+> "Venue is subject to change" boleh dicantumkan kecil di Race Day sebagai disclaimer standar
+> (berbeda dari TBC) — pending konfirmasi klien (Q P13).
 
 ## 3 — Kategori Lomba
 
-| Kategori | Deskripsi (EN, hal. 7) | Jarak | Podium (hal. 34) | Dipakai di halaman |
+| Kategori | Deskripsi faktual (EN, hal. 7) | Jarak | Podium (hal. 34) | Dipakai di halaman |
 |---|---|---|---|---|
 | HM | "Designed for committed runners ready to go the distance. Experience the full journey of strength, focus, and accomplishment on a professionally measured route." | 🔴 tidak disebut | Open 1–3, Master 1–3 | index (kartu), categories |
 | 10K | "For runners seeking a balanced mix of endurance and speed. Push your limits and feel the thrill of personal progress on a vibrant and inspiring course." | 10 km (implisit) | Open 1–3, Master 1–3 | index (kartu), categories |
 | 5K | "A perfect start for first-time runners or those looking to enjoy a spirited run with friends. Celebrate movement, confidence, and community in a supportive environment." | 5 km (implisit) | Open 1–3, Master 1–3 | index (kartu), categories |
 
-🔴 **NOT-IN-DECK (render TBC di `categories`):** jarak HM dalam angka (JANGAN tulis "21,0975 km"),
-cut-off time per kategori, batas usia Master, nilai hadiah podium, kuota per kategori, elevation/rute.
-Deskripsi ID belum ada di deck → tulis versi ID natural lebih dulu (§9), bukan terjemahan harfiah.
+- **One-liner kategori (§9.5, status `DRAFT-COPY`)** dipakai **di atas** deskripsi faktual, tidak menggantikannya. Urutan tampil ikut deck: HM → 10K → 5K.
+- 🔴 **NOT-IN-DECK (render TBC di `categories`):** jarak HM angka (JANGAN "21,0975 km"/"21K"), COT, batas usia Master, hadiah, kuota per kategori, elevation/rute.
+- Deskripsi ID belum ada di deck → tulis ID natural (§9), bukan terjemahan harfiah.
 
----
+## 3.10 — Deskripsi Resmi IWHM  ✅ `CONFIRMED-KLIEN` (FINAL, jangan diubah)
 
-## 4 — Timeline
+Teks otoritatif dari klien (31 Agu 2026). Disimpan sebagai `EVENT.description` di `data.js`; dipakai
+di meta description, OG description, JSON-LD, dan **satu** blok kutipan di halaman About (persis, sekali per bahasa).
+
+- **EN:** "Indonesia Women Half Marathon (IWHM) is a women's running event that celebrates strength,
+  resilience, and unity. With 5K, 10K, and Half Marathon categories, the event encourages women to
+  challenge themselves, support each other, and grow together."
+- **ID:** "Indonesia Women Half Marathon (IWHM) adalah event lari perempuan yang merayakan kekuatan,
+  ketangguhan, dan kebersamaan. Dengan kategori 5K, 10K, dan Half Marathon, IWHM mengajak perempuan
+  untuk menantang diri, saling menguatkan, dan tumbuh bersama."
+
+**Tiga pilar naratif** (semua copy harus terlacak ke salah satunya): **Strength/Kekuatan** (*challenge
+themselves*) · **Resilience/Ketangguhan** (*grow together*) · **Unity/Kebersamaan** (*support each other*).
+
+## 4 — Timeline (TANPA Road to Event)
 
 | Fase | Tanggal | Sumber | Status | Dipakai di halaman |
 |---|---|---|---|---|
-| Teaser / Kick Off (Press Conference) | Agu 2026 | hal. 9, 10 | ✅ | schedule, index, news |
-| Open Registration | Agu 2026 | hal. 9 | ✅ | schedule, tickets, index |
-| Road to Event | **Agu – Nov 2026** (default) | hal. 9 (Agu–Okt) / hal. 19 (Agu–Nov) | ⚠️ CONFLICT ringan | schedule, road-to-event |
-| Race Pack Collection | 27 – 28 Nov 2026, 10.00 – 20.00 WIB | hal. 9, 24 | ✅ | schedule, race-pack, index |
-| Lokasi RPC | Menteng Prada, Jakarta Pusat | hal. 24 | ✅ | race-pack, schedule |
-| Shake Out Run | 28 Nov 2026, 05.30 – 08.00 WIB, Menteng Prada | hal. 26 | ✅ | race-pack, schedule |
-| Race Day | lihat §2 di atas | — | ⚠️ | schedule, race-day, index |
+| Teaser / Kick Off (Press Conference) | Agu 2026 | hal. 9, 10 | ✅ deck | schedule, index, news |
+| Open Registration | Agu 2026 | hal. 9 | ✅ deck | schedule, tickets, index, news |
+| Race Pack Collection | 27 – 28 Nov 2026, 10.00 – 20.00 WIB | hal. 9, 24 | ✅ deck | schedule, race-pack, index |
+| Lokasi RPC | Menteng Prada, Jakarta Pusat | hal. 24 | ✅ deck | race-pack, schedule |
+| Shake Out Run | 28 Nov 2026, 05.30 – 08.00 WIB, Menteng Prada | hal. 26 | ✅ deck | race-pack, schedule, index |
+| Race Day | Minggu, 29 Nov 2026, 04.00–10.00 WIB, Plaza Barat GBK | hal. 9, 29 + klien | ✅ klien | schedule, race-day, index |
 
-Konflik Road to Event → default **Agustus – November 2026** (rentang lebih panjang, konsisten
-dengan race day akhir November) + komentar TODO.
-
----
+> Urutan situs: Kick Off (Agu) → Open Registration (Agu) → RPC (27–28 Nov) → Shake Out Run (28 Nov) →
+> Race Day (29 Nov). **Jangan** tambahkan fase perantara untuk "mengisi" jarak Agu–Nov; biarkan apa adanya.
 
 ## 5 — Harga & Fase Promo
 
-| # | Nama fase (render) | Diskon | Target | Sumber | Status harga/periode |
+| # | Nama fase (render) | Diskon | Target | Sumber | Harga/periode |
 |---|---|---|---|---|---|
-| 1 | **Partner Exclusive Pre-Sale** *(disamarkan)* | 40% | — | hal. 15 | 🔴 harga & periode TBC — pertimbangkan **sembunyikan** (`hidden:true`) |
+| 1 | **Partner Exclusive Pre-Sale** *(disamarkan)* | 40% | — | hal. 15 | 🔴 TBC — `hidden:true`, pertimbangkan sembunyikan |
 | 2 | Super Early Bird | 35% | Peserta IWHM 2025 | hal. 15 | 🔴 TBC |
 | 3 | Early Bird | 30% | Publik, periode terbatas | hal. 15 | 🔴 TBC |
 | 4 | General Sales | 0% | Publik, harga normal | hal. 15 | 🔴 TBC |
 | 5 | Partnership Program | 20% | Komunitas, influencer, media partner | hal. 15 | 🔴 TBC |
 
-**Dipakai di halaman:** tickets (5 kartu), index (preview fase).
-🔴 **HARGA DASAR TIDAK ADA DI DECK.** Angka "Dari IDR 385K" (hal. 14) hanya mockup ilustrasi
-(*"Visuals are for illustration purposes only"*) → **JANGAN dipakai sebagai harga.** Kolom harga &
-periode = `Segera diumumkan` / `To be announced` + badge TBC.
-Fase #1: deck menamainya dengan nama bank calon sponsor (hal. 15, belum terkonfirmasi) → render
-"Partner Exclusive Pre-Sale" + komentar:
-`<!-- Nama fase disamarkan: deck menyebut sponsor yang belum terkonfirmasi. Konfirmasi penamaan final ke klien. -->`
+**Dipakai di halaman:** tickets (kartu), index (preview).
+🔴 **HARGA DASAR TIDAK ADA DI DECK.** "Dari IDR 385K" (hal. 14) hanya mockup ilustrasi → **JANGAN dipakai.**
+Kolom harga/periode = `Segera diumumkan`/`To be announced` + badge TBC. Fase #1 deck menamai dengan bank
+calon sponsor (hal. 15) → render "Partner Exclusive Pre-Sale" + komentar penyamaran.
 
----
+## 6 — Road to IWHM  ⛔ DI LUAR SCOPE (v1.2)
 
-## 6 — Road to IWHM
-
-| Fakta | Nilai | Sumber | Status | Dipakai di halaman |
-|---|---|---|---|---|
-| Program lari mingguan | Sister Strides (Sunday Run Session) | hal. 22 | ✅ | road-to-event |
-| Kota | Jakarta, BSD, Bekasi | hal. 19 | ✅ | road-to-event |
-| Frekuensi | Setiap Minggu | hal. 19 | ✅ | road-to-event |
-| Periode | Agustus – November 2026 | hal. 19 | ✅ | road-to-event |
-| Catatan | "Dates and venues are subject to change" | hal. 19 | ✅ | road-to-event |
-| Program talk | Well & Wealthy | hal. 20 | ✅ | road-to-event |
-| Durasi sesi | ±65 menit | hal. 20 | ✅ | road-to-event |
-| Format | 45 mnt Body & Movement + 20 mnt Money & Mindset | hal. 20 | ✅ | road-to-event |
-| Tema 1 | Start Strong — rutin lari + dana darurat & kebiasaan menabung | hal. 20 | 🟡 `Draft program` | road-to-event |
-| Tema 2 | Pace Yourself — pace & rest day + budgeting & cash flow | hal. 20 | 🟡 `Draft program` | road-to-event |
-| Tema 3 | Fuel Right — nutrisi pelari + menumbuhkan uang | hal. 20 | 🟡 `Draft program` | road-to-event |
-| Jadwal sesi (tanggal/venue) | — | — | 🔴 | road-to-event (TBC) |
-
-Bagian "Money & Mindset" di deck dipandu financial advisor sponsor → di situs tulis netral
-**"pembicara keuangan perempuan"**. Jangan sebut nama bank.
-
----
+**Jangan bangun halaman, teaser, menu, timeline, atau naskahnya.** Materi (Sister Strides, Well &
+Wealthy, jadwal Jakarta/BSD/Bekasi) diarsipkan utuh di **Lampiran C brief** — jangan dihapus dari brief.
+Konsekuensi: 14 halaman (bukan 15); menu "Program" hilang; About = 4 bagian; istilah *Sister Strides* &
+*Well & Wealthy* keluar dari daftar istilah. Angka **45++ komunitas lari tetap dipakai** — itu fakta
+jaringan mitra (§8), bukan bagian program Road to Event.
 
 ## 7 — Aktivasi & Fasilitas
 
@@ -134,10 +123,8 @@ Bagian "Money & Mindset" di deck dipandu financial advisor sponsor → di situs 
 | Race Village | Sports apparel & equipment pop-up store, culinary tenant, entertainment, recovery area, interactive booth, photo spot | hal. 31 | race-day |
 | Cheering Zone | Zona sorak berdedikasi di sepanjang rute | hal. 30 | race-day |
 
-🔴 **NOT-IN-DECK (render TBC):** isi race pack (jersey, medali, BIB, goodie bag), desain
-medali/jersey, water station, medical support, baggage, penitipan anak, syarat pengambilan RPC.
-
----
+🔴 **NOT-IN-DECK (render TBC):** isi race pack (jersey, medali, BIB, goodie bag), desain medali/jersey,
+water station, medical support, baggage, penitipan anak, syarat pengambilan RPC.
 
 ## 8 — Skala Komunitas & Sosial Media
 
@@ -150,30 +137,17 @@ medali/jersey, water station, medical support, baggage, penitipan anak, syarat p
 | Profile visit | >175.000 | hal. 4 | Des 2024 – Mei 2025 | **partners saja** + label periode |
 | Content interaction | >62.000 | hal. 4 | Des 2024 – Mei 2025 | **partners saja** + label periode |
 
-⚠️ Angka sosmed = performa **kampanye edisi sebelumnya (Des 2024 – Mei 2025)**, bukan 2026.
-Jika ditampilkan publik **wajib** diberi label periode. Rekomendasi: taruh di halaman `partners`,
-bukan `index`.
-
----
+⚠️ Angka sosmed = performa **kampanye edisi sebelumnya (Des 2024 – Mei 2025)**. Jika publik → **wajib**
+label periode. Taruh di `partners`, bukan `index`.
 
 ## 9 — Copy Tema (hal. 5) — RUSAK DI SUMBER
 
-Teks deck terpotong di awal:
-> *"…ether in 2025, this year celebrates growth, courage, and the unstoppable spirit of women who
-> keep moving forward. Because beyond the medals and miles, the Unstoppable Her Journey is about the
-> strength, confidence, and sisterhood we build along the way — and the power within that makes us
-> unstoppable."*
+Deck terpotong di awal; render mulai "This year celebrates growth…" + `<!-- TODO: minta kalimat pembuka
+lengkap ke klien — copy deck hal.5 terpotong -->`. Dipakai (parafrase) di about bagian 4.
+**Status naskah:** deskripsi §3.10 = **FINAL**; naskah storytelling §9.3–9.5 = **`DRAFT-COPY`** (tandai
+tiap blok `<!-- DRAFT-COPY: menunggu approval klien -->`).
 
-Kata pertama hilang (kemungkinan "…brought thousands of women tog**ether** in 2025…").
-**JANGAN tebak sebagai copy final.** Render mulai "This year celebrates growth…" + komentar:
-`<!-- TODO: minta kalimat pembuka lengkap ke klien — copy deck hal.5 terpotong -->`
-**Dipakai di halaman:** index (pengantar tema), about.
-
----
-
-## 10 — DAFTAR LARANGAN (tidak boleh jadi konten publik)  §4
-
-Halaman deck berikut **tidak boleh** masuk situs. Nama sponsor diredaksi (nomor halaman saja).
+## 10 — DAFTAR LARANGAN (§4, nama sponsor diredaksi)
 
 | Hal. deck | Isi (diredaksi) | Alasan |
 |---|---|---|
@@ -184,15 +158,12 @@ Halaman deck berikut **tidak boleh** masuk situs. Nama sponsor diredaksi (nomor 
 | 32, 33 | "Dedicated spot for brand experience/branding" | Materi jualan ke sponsor |
 | 4 | Statistik sosmed | Hanya di `partners` + label periode |
 
-Penambahan sponsor (jika terkonfirmasi) dilakukan lewat `data.js → PARTNERS`, **bukan** menulis
-ulang halaman.
+Sponsor (bila terkonfirmasi) masuk lewat `data.js → PARTNERS`, **bukan** menulis ulang halaman.
 
----
+## Register Konflik (status v1.2)
 
-## Register Konflik (ringkasan untuk QA)
-
-| # | Konflik | Default dipakai | Badge | Halaman terdampak |
-|---|---|---|---|---|
-| C1 | Tanggal race day 22 vs 29 Nov | **29 Nov 2026** | Menunggu konfirmasi | index, schedule, race-day |
-| C2 | Venue Plaza Barat vs Plaza Parkir Timur | **Plaza Barat GBK** | Menunggu konfirmasi | index, schedule, race-day |
-| C3 | Road to Event Agu–Okt vs Agu–Nov | **Agu – Nov 2026** | (komentar TODO) | schedule, road-to-event |
+| # | Konflik | Status | Catatan |
+|---|---|---|---|
+| C1 | Tanggal race day 22 vs 29 Nov | ✅ **SELESAI** | Klien konfirmasi 29 Nov 2026; deck hal.6 void |
+| C2 | Venue Plaza Barat vs Plaza Parkir Timur | ✅ **SELESAI** | Klien konfirmasi Plaza Barat GBK; deck hal.6 void |
+| C3 | Road to Event Agu–Okt vs Agu–Nov | ⏸️ **PARKIR** | Materi di luar scope (Lampiran C); selesaikan bila diaktifkan kembali |
