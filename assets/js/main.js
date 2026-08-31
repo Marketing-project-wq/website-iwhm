@@ -74,6 +74,17 @@
     });
   }
 
+  function initAccordions() {
+    document.querySelectorAll('.accordion-item__trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.accordion-item');
+        var open = item.getAttribute('data-open') === 'true';
+        item.setAttribute('data-open', open ? 'false' : 'true');
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+    });
+  }
+
   function setFooterYear() {
     var el = document.querySelector('[data-year]');
     if (el) el.textContent = new Date().getFullYear();
@@ -111,6 +122,7 @@
       initNavToggle();
       initSubmenuToggles();
       initRegisterModal();
+      initAccordions();
       setFooterYear();
       document.dispatchEvent(new CustomEvent('partials:ready'));
     });

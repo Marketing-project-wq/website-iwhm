@@ -222,6 +222,175 @@
   color: rgba(255,255,255,.6);
 }
 
+/* — Page hero (banner halaman interior, bukan Beranda) — */
+.page-hero {
+  background: var(--gradient-violet);
+  color: var(--paper);
+  padding-block: var(--space-2xl) var(--space-l);
+}
+.page-hero__eyebrow {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--citrus);
+  margin-bottom: var(--space-2xs);
+}
+.page-hero h1 { color: var(--paper); }
+.page-hero p {
+  max-width: var(--container-narrow);
+  color: rgba(255,255,255,.88);
+  margin-top: var(--space-xs);
+  font-size: var(--step-1);
+}
+
+.section {
+  padding-block: var(--space-2xl);
+}
+.section--alt { background: var(--paper-2); }
+.section__heading { margin-bottom: var(--space-l); max-width: var(--container-narrow); }
+
+/* — Accordion (FAQ) — */
+.accordion { display: grid; gap: var(--space-xs); }
+.accordion-item {
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.accordion-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  background: var(--paper);
+  border: none;
+  padding: var(--space-s) var(--space-m);
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-0);
+}
+.accordion-item__icon {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+.accordion-item[data-open="true"] .accordion-item__icon { transform: rotate(45deg); }
+.accordion-item__panel {
+  padding: 0 var(--space-m);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition), padding var(--transition);
+  color: var(--ink-2);
+}
+.accordion-item[data-open="true"] .accordion-item__panel {
+  padding: 0 var(--space-m) var(--space-m);
+  max-height: 40em;
+}
+
+/* — Tabel podium — */
+.podium-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+}
+.podium-table th, .podium-table td {
+  text-align: left;
+  padding: var(--space-xs) var(--space-s);
+  border-bottom: 1px solid var(--paper-line);
+}
+.podium-table th {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--violet);
+}
+.podium-table-wrap { overflow-x: auto; }
+
+/* — Timeline vertikal (Jadwal) — */
+.timeline-list { list-style: none; padding: 0; display: grid; gap: 0; }
+.timeline-item {
+  position: relative;
+  padding: 0 0 var(--space-l) var(--space-l);
+  border-left: 2px solid var(--paper-line);
+}
+.timeline-item:last-child { border-color: transparent; padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -7px; top: 2px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--violet);
+}
+.timeline-item__date { font-weight: 700; color: var(--violet); font-size: var(--step--1); }
+.timeline-item__title { margin-block: .2em; }
+.timeline-item__place { color: var(--ink-2); font-size: var(--step--1); }
+
+/* — Daftar fasilitas — */
+.facility-list { list-style: none; padding: 0; display: grid; gap: var(--space-xs); }
+.facility-list li {
+  display: flex; align-items: center; gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-s);
+  background: var(--paper-2);
+  border-radius: var(--radius-s);
+}
+.facility-list li::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--violet);
+  flex-shrink: 0;
+}
+
+/* — Empty state (Mitra, Galeri, dsb.) — */
+.empty-state {
+  text-align: center;
+  padding: var(--space-l);
+  background: var(--paper-2);
+  border-radius: var(--radius-l);
+}
+.empty-state p { max-width: var(--container-narrow); margin-inline: auto; color: var(--ink-2); }
+
+/* — Tier mitra (kosong sampai dikonfirmasi) — */
+.tier-block {
+  padding: var(--space-m);
+  border: 1px dashed var(--paper-line);
+  border-radius: var(--radius-m);
+  margin-bottom: var(--space-s);
+}
+.tier-block__label {
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--violet);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* — Galeri (placeholder grid) — */
+.gallery-grid {
+  display: grid;
+  gap: var(--space-xs);
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 960px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+.gallery-grid__item {
+  aspect-ratio: 1;
+  border-radius: var(--radius-m);
+  background: var(--paper-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mauve);
+  font-size: var(--step--1);
+}
+
+/* — Fact list (definisi TBC/pasti) — */
+.fact-list { display: grid; gap: var(--space-s); }
+.fact-list dt { font-size: var(--step--1); color: var(--ink-2); font-weight: 600; }
+.fact-list dd { margin: .1em 0 0; font-family: var(--font-display); font-weight: 600; font-size: var(--step-0); }
+
 /* — Modal (data-register, §8) — */
 .modal-overlay {
   position: fixed; inset: 0;

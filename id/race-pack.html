@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Race Pack Collection — Indonesia Women Half Marathon 2026</title>
+  <meta name="description" content="Jadwal, lokasi, dan aktivasi Race Pack Collection serta Shake Out Run Indonesia Women Half Marathon 2026 di Menteng Prada, Jakarta Pusat.">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Langsung ke konten utama</a>
+
+  <header class="site-header" data-include="header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow">Lomba</span>
+        <h1>Race Pack Collection</h1>
+        <p>Ambil race pack-mu dan rasakan aktivasi IWHM sebelum hari lomba tiba.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <dl class="fact-list about-facts">
+          <div><dt>Tanggal</dt><dd data-bind="WEEKEND.0.when"></dd></div>
+          <div><dt>Lokasi</dt><dd data-bind="WEEKEND.0.where"></dd></div>
+          <div><dt>Shake Out Run</dt><dd data-bind="WEEKEND.1.when"></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Ada Apa di Lokasi</h2>
+        </div>
+        <ul class="facility-list" data-facility="rpc" style="max-width: var(--container-narrow);"></ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <div class="section__heading">
+          <h2>Shake Out Run</h2>
+          <p>Sesi lari ringan sehari sebelum race day, di lokasi yang sama dengan Race Pack Collection.</p>
+        </div>
+        <dl class="fact-list">
+          <div><dt>Jadwal</dt><dd data-bind="WEEKEND.1.when"></dd></div>
+          <div><dt>Lokasi</dt><dd data-bind="WEEKEND.1.where"></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container prose">
+        <div class="section__heading">
+          <h2>Isi Race Pack &amp; Syarat Pengambilan</h2>
+        </div>
+        <p>Detail isi race pack dan syarat pengambilan akan diumumkan mendekati race day. <span class="badge badge--tbc">Menunggu konfirmasi</span></p>
+        <!-- TODO: konfirmasi isi race pack (jersey, medali, BIB, goodie bag) dan syarat pengambilan ke klien -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-include="footer"></footer>
+
+  <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+    <div class="modal">
+      <button class="modal__close" data-modal-close aria-label="Tutup">&times;</button>
+      <h3 id="register-modal-title">Pendaftaran belum dibuka</h3>
+      <p>Pendaftaran dibuka <span data-bind="REGISTRATION_OPEN_LABEL"></span>. Pantau halaman ini atau ikuti media sosial resmi IWHM untuk info terbaru.</p>
+    </div>
+  </div>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var D = window.D;
+      var list = document.querySelector('[data-facility="rpc"]');
+      if (!D || !list) return;
+      D.FACILITIES.rpc.forEach(function (item) {
+        var li = document.createElement('li');
+        li.textContent = item[D.LANG];
+        list.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
