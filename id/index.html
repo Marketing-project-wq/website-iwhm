@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indonesia Women Half Marathon 2026 — Jakarta Series</title>
+  <meta name="description" content="Indonesia Women Half Marathon (IWHM) adalah event lari perempuan yang merayakan kekuatan, ketangguhan, dan kebersamaan. Dengan kategori 5K, 10K, dan Half Marathon, IWHM mengajak perempuan untuk menantang diri, saling menguatkan, dan tumbuh bersama.">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/pages.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Langsung ke konten utama</a>
+
+  <header class="site-header" data-include="header"></header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <!-- DRAFT-COPY: headline/sub §9.3, menunggu approval klien (QUESTIONS.md #17) -->
+    <section class="hero">
+      <img class="hero__corner-loop" src="/assets/img/graphics/supergraphic-loop-09.svg" width="1920" height="1080" alt="" aria-hidden="true">
+      <div class="container hero__grid">
+        <div>
+          <span class="hero__eyebrow">Jakarta Series</span>
+          <h1 class="hero__title" data-bind="EVENT.heroHeadline"></h1>
+          <p class="hero__sub" data-bind="EVENT.heroSub"></p>
+
+          <p class="hero__fact">
+            <span data-bind="EVENT.raceDay"></span>
+            <span class="hero__fact-sep" aria-hidden="true">·</span>
+            <span data-bind="EVENT.venue"></span>
+          </p>
+
+          <div class="countdown" data-countdown aria-label="Hitung mundur menuju race day">
+            <div class="countdown__unit"><span class="countdown__value" data-cd-days>00</span><span class="countdown__label">Hari</span></div>
+            <div class="countdown__unit"><span class="countdown__value" data-cd-hours>00</span><span class="countdown__label">Jam</span></div>
+            <div class="countdown__unit"><span class="countdown__value" data-cd-minutes>00</span><span class="countdown__label">Menit</span></div>
+            <div class="countdown__unit"><span class="countdown__value" data-cd-seconds>00</span><span class="countdown__label">Detik</span></div>
+          </div>
+
+          <div class="hero__cta">
+            <a href="#" class="btn btn--on-violet" data-register data-cta="hero">Daftar Sekarang</a>
+            <a href="/id/schedule.html" class="btn btn--secondary-on-violet">Lihat Jadwal Lengkap</a>
+          </div>
+        </div>
+
+        <div class="hero__art">
+          <img class="hero__art-loop" src="/assets/img/graphics/supergraphic-loop-11.svg" width="1920" height="1080" alt="">
+          <img class="hero__art-element" src="/assets/img/graphics/element-05.webp" width="448" height="480" alt="" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <!-- DRAFT-COPY: §9.3.2, menunggu approval klien -->
+    <section class="intro">
+      <div class="container">
+        <p class="prose" data-bind="EVENT.introText" style="font-family: var(--font-display); font-weight: 600;"></p>
+        <a href="/id/about.html" class="intro__cta">Baca cerita lengkapnya →</a>
+      </div>
+    </section>
+
+    <!-- KATEGORI -->
+    <section class="categories">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Tiga Kategori, Satu Perjalanan</h2>
+        </div>
+        <div class="categories__grid" data-category-cards></div>
+      </div>
+    </section>
+
+    <!-- STRIP FAKTA -->
+    <section class="stats">
+      <div class="container stats__grid">
+        <div class="stats__item">
+          <div class="stats__value" data-bind="EVENT.quotaLabel"></div>
+          <div class="stats__label">Female runners</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__value" data-stat="categories-count"></div>
+          <div class="stats__label">Kategori lomba</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__value" data-bind="EVENT.communities"></div>
+          <div class="stats__label">Komunitas mitra</div>
+        </div>
+        <div class="stats__item">
+          <div class="stats__value" data-bind="EVENT.ageRange"></div>
+          <div class="stats__label">Rentang usia</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RACE WEEKEND -->
+    <section class="weekend">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Race Weekend</h2>
+        </div>
+        <div class="weekend__grid" data-weekend-cards></div>
+      </div>
+    </section>
+
+    <!-- TIKET PREVIEW -->
+    <section class="tickets-preview">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Fase Pendaftaran</h2>
+        </div>
+        <div class="tickets-preview__list" data-ticket-tiers></div>
+        <div class="tickets-preview__cta">
+          <a href="/id/tickets.html" class="btn btn--secondary">Lihat Semua Fase &amp; Cara Daftar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MITRA (kosong sampai dikonfirmasi) -->
+    <section class="partners-empty">
+      <div class="container">
+        <h2>Mitra</h2>
+        <p>Mitra resmi IWHM akan diumumkan menjelang race day. <a href="/id/partners.html">Lihat halaman Mitra</a>.</p>
+      </div>
+    </section>
+
+    <!-- BERITA -->
+    <section class="news">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Berita Terbaru</h2>
+        </div>
+        <div class="news__grid" data-news-cards></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" data-include="footer"></footer>
+
+  <!-- Modal pendaftaran (§8: data-register) -->
+  <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+    <div class="modal">
+      <button class="modal__close" data-modal-close aria-label="Tutup">&times;</button>
+      <h3 id="register-modal-title">Pendaftaran belum dibuka</h3>
+      <p>Pendaftaran dibuka <span data-bind="REGISTRATION_OPEN_LABEL"></span>. Pantau halaman ini atau ikuti media sosial resmi IWHM untuk info terbaru.</p>
+    </div>
+  </div>
+
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/countdown.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var D = window.D;
+      if (!D) return;
+
+      var elementArt = { hm: 'element-01.webp', '10k': 'element-04.webp', '5k': 'element-06.webp' };
+
+      // — Kartu kategori (§8 data-category-cards) —
+      var catGrid = document.querySelector('[data-category-cards]');
+      if (catGrid) {
+        D.CATEGORIES.forEach(function (cat) {
+          var art = elementArt[cat.key] || 'element-01.webp';
+          var distance = cat.distanceKm
+            ? '<span>' + cat.distanceKm + ' KM</span>'
+            : '<span class="badge badge--tbc">Jarak TBC</span>';
+          var card = document.createElement('article');
+          card.className = 'category-card category-card--' + cat.accent;
+          card.innerHTML =
+            '<img class="category-card__art" src="/assets/img/graphics/' + art + '" width="96" height="96" alt="" loading="lazy">' +
+            '<h3 class="category-card__name">' + cat.name + '</h3>' +
+            '<div class="category-card__distance">' + distance + '</div>' +
+            '<p class="category-card__tagline">' + cat.tagline[D.LANG] + '</p>' +
+            '<p class="category-card__desc">' + cat.desc[D.LANG] + '</p>';
+          catGrid.appendChild(card);
+        });
+      }
+
+      // — Jumlah kategori untuk strip fakta —
+      var catCountEl = document.querySelector('[data-stat="categories-count"]');
+      if (catCountEl) catCountEl.textContent = D.CATEGORIES.length;
+
+      // — Kartu race weekend —
+      var weekendGrid = document.querySelector('[data-weekend-cards]');
+      if (weekendGrid) {
+        D.WEEKEND.forEach(function (item) {
+          var card = document.createElement('div');
+          card.className = 'weekend-card';
+          card.innerHTML =
+            '<h3 class="weekend-card__title">' + item.title[D.LANG] + '</h3>' +
+            '<p class="weekend-card__when">' + item.when[D.LANG] + '</p>' +
+            '<p class="weekend-card__where">' + item.where[D.LANG] + '</p>';
+          weekendGrid.appendChild(card);
+        });
+      }
+
+      // — Fase tiket (§8 data-ticket-tiers) —
+      var ticketList = document.querySelector('[data-ticket-tiers]');
+      if (ticketList) {
+        D.TICKETS.filter(function (t) { return !t.hidden; }).forEach(function (tier) {
+          var priceHtml = tier.price
+            ? '<span>' + tier.price + '</span>'
+            : '<span>Segera diumumkan</span><span class="badge badge--tbc">Menunggu konfirmasi</span>';
+          var discountHtml = tier.discount > 0
+            ? '<span class="ticket-row__discount">-' + tier.discount + '%</span>' : '';
+          var row = document.createElement('div');
+          row.className = 'ticket-row';
+          row.innerHTML =
+            '<span class="ticket-row__name">' + tier.name[D.LANG] + discountHtml + '</span>' +
+            '<span class="ticket-row__price">' + priceHtml + '</span>';
+          ticketList.appendChild(row);
+        });
+      }
+
+      // — Berita —
+      var newsGrid = document.querySelector('[data-news-cards]');
+      if (newsGrid) {
+        D.NEWS.forEach(function (item) {
+          var d = new Date(item.date);
+          var dateLabel = d.toLocaleDateString(D.LANG === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+          var card = document.createElement('article');
+          card.className = 'news-card';
+          card.innerHTML =
+            '<p class="news-card__date">' + dateLabel + '</p>' +
+            '<h3 class="news-card__title">' + item.title[D.LANG] + '</h3>' +
+            '<p class="news-card__excerpt">' + item.excerpt[D.LANG] + '</p>';
+          newsGrid.appendChild(card);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

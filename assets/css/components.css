@@ -1,0 +1,249 @@
+/* ============================================================
+   components.css — nav, tombol, badge, kartu, footer · IWHM 2026
+   Komponen lintas-halaman. Styling spesifik satu halaman → pages.css.
+   ============================================================ */
+
+/* — Site header / nav — */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding-block: var(--space-xs);
+}
+
+.site-header__logo {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+.site-header__logo img { height: 100%; width: auto; }
+
+.site-nav {
+  display: none;
+}
+@media (min-width: 960px) {
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    list-style: none;
+    padding: 0;
+    font-size: var(--step--1);
+    font-weight: 600;
+  }
+  .site-nav a {
+    text-decoration: none;
+    padding: var(--space-3xs) var(--space-2xs);
+  }
+  .site-nav a:hover { color: var(--violet); }
+}
+
+.site-nav__group { position: relative; }
+.site-nav__group-toggle {
+  background: none; border: none;
+  display: inline-flex; align-items: center; gap: .3em;
+  font: inherit; font-weight: 600;
+}
+.site-nav__submenu {
+  list-style: none;
+  margin: 0; padding: var(--space-2xs);
+  position: absolute;
+  top: 100%; left: 0;
+  min-width: 220px;
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+}
+.site-nav__group:hover .site-nav__submenu,
+.site-nav__group:focus-within .site-nav__submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.site-nav__submenu a {
+  display: block;
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: var(--radius-s);
+  font-weight: 500;
+}
+.site-nav__submenu a:hover { background: var(--violet-06); }
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.lang-switch {
+  display: flex;
+  gap: .25em;
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+.lang-switch a {
+  text-decoration: none;
+  padding: .2em .4em;
+}
+.lang-switch [aria-current="true"] {
+  color: var(--violet);
+  text-decoration: underline;
+}
+
+.nav-toggle {
+  display: inline-flex;
+  background: none;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-s);
+  padding: var(--space-2xs) var(--space-xs);
+}
+@media (min-width: 960px) {
+  .nav-toggle { display: none; }
+}
+
+/* — Tombol — */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--step-0);
+  padding: .85em 1.6em;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: transform var(--transition), background var(--transition), color var(--transition);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn--primary:hover { background: var(--violet); }
+.btn--on-violet {
+  background: var(--paper);
+  color: var(--violet);
+}
+.btn--on-violet:hover { background: var(--citrus); color: var(--ink); }
+.btn--secondary {
+  background: transparent;
+  border-color: currentColor;
+  color: var(--ink);
+}
+.btn--secondary:hover { background: var(--violet-06); }
+.btn--secondary-on-violet {
+  background: transparent;
+  border-color: rgba(255,255,255,.6);
+  color: var(--paper);
+}
+.btn--secondary-on-violet:hover { background: rgba(255,255,255,.12); }
+
+/* — Badge — */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  font-size: var(--step--1);
+  font-weight: 700;
+  padding: .3em .8em;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+.badge--tbc {
+  background: var(--mauve);
+  color: var(--ink);
+}
+
+/* — Kartu dasar — */
+.card {
+  background: var(--paper);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+}
+
+/* — Footer — */
+.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding-block: var(--space-xl) var(--space-l);
+}
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer__grid {
+  display: grid;
+  gap: var(--space-l);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .site-footer__grid { grid-template-columns: 1.3fr repeat(3, 1fr); }
+}
+.site-footer__logo { height: 32px; margin-bottom: var(--space-s); }
+.site-footer__logo img { height: 100%; }
+.site-footer__desc {
+  font-size: var(--step--1);
+  color: rgba(255,255,255,.72);
+  max-width: 32ch;
+}
+.site-footer h3 {
+  font-size: var(--step--1);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,.6);
+  margin-bottom: var(--space-xs);
+}
+.site-footer ul { list-style: none; padding: 0; display: grid; gap: var(--space-2xs); }
+.site-footer__bottom {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--ink-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  justify-content: space-between;
+  font-size: var(--step--1);
+  color: rgba(255,255,255,.6);
+}
+
+/* — Modal (data-register, §8) — */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(30,7,40,.6);
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-m);
+  z-index: 100;
+}
+.modal-overlay[hidden] { display: none; }
+.modal {
+  background: var(--paper);
+  border-radius: var(--radius-l);
+  padding: var(--space-l);
+  max-width: 28rem;
+  width: 100%;
+  position: relative;
+}
+.modal__close {
+  position: absolute;
+  top: var(--space-s); right: var(--space-s);
+  background: none; border: none;
+  font-size: var(--step-1);
+  line-height: 1;
+  padding: .25em .5em;
+}

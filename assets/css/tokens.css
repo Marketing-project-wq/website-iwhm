@@ -1,0 +1,68 @@
+/* ============================================================
+   tokens.css — Design tokens · IWHM 2026 (Jakarta Series)
+   Palet §6.1, dibaca dari sumber vektor logo resmi (BRAND-AUDIT.md).
+   Kontras mengikuti §6.2. Tipografi §6.3.
+   JANGAN pakai nilai warna hardcode di file CSS/HTML lain — selalu var(--x).
+   ============================================================ */
+:root {
+  /* — Palet inti (§6.1) — */
+  --violet:   #8D39E5;
+  --magenta:  #C939E5;
+  --citrus:   #EAFF52;
+  --ink:      #1E0728;
+  --mauve:    #C8A2C9;
+  --paper:    #FFFFFF;
+
+  /* — Gradasi resmi (§6.1) — dipakai apa adanya, jangan dibuat ulang */
+  --gradient-brand:  linear-gradient(90deg, var(--magenta) 0%, #CB45DC 25%, #D16AC1 50%, #E2D075 87%, var(--citrus) 100%);
+  --gradient-violet: linear-gradient(90deg, #F262E5 0%, #AC46E5 25%, #933CE5 50%, var(--violet) 75%);
+
+  /* — Turunan fungsional (bukan warna brand baru, hanya opasitas/mix) — */
+  --paper-2:    #F8F3FC;                 /* panel lembut di latar terang */
+  --ink-2:      #2A0E3A;                 /* blok gelap sekunder */
+  --violet-06:  rgba(141, 57, 229, .06);
+  --violet-12:  rgba(141, 57, 229, .12);
+  --ink-line:   rgba(255, 255, 255, .16);
+  --paper-line: rgba(30, 7, 40, .12);
+
+  /* — Tipografi (§6.3) — Paris2024/Comba tidak dipakai (lisensi, §13 no.24) */
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-body:    'Barlow', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --display-weight: 700;
+  --display-width: 125;
+
+  /* Skala tipe fluid */
+  --step--1: clamp(.83rem, .80rem + .15vw, .92rem);
+  --step-0:  clamp(1rem,   .96rem + .2vw,  1.13rem);
+  --step-1:  clamp(1.2rem, 1.12rem + .4vw, 1.5rem);
+  --step-2:  clamp(1.44rem, 1.3rem + .7vw, 2rem);
+  --step-3:  clamp(1.73rem, 1.5rem + 1.15vw, 2.66rem);
+  --step-4:  clamp(2.07rem, 1.7rem + 1.85vw, 3.55rem);
+  --step-5:  clamp(2.49rem, 1.95rem + 2.7vw, 4.7rem);
+
+  /* — Spasi — */
+  --space-3xs: .25rem;
+  --space-2xs: .5rem;
+  --space-xs:  .75rem;
+  --space-s:   1rem;
+  --space-m:   1.5rem;
+  --space-l:   2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* — Layout — */
+  --container-max:    1280px;
+  --container-narrow: 42rem;   /* ≤70 karakter per baris, §6.2/§12 */
+  --radius-s:  10px;
+  --radius-m:  18px;
+  --radius-l:  28px;
+
+  /* — Efek — */
+  --shadow-card: 0 12px 32px -16px var(--violet-12);
+  --transition:  200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --transition: 0ms; }
+}
