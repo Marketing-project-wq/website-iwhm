@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jadwal — Indonesia Women Half Marathon 2026</title>
-  <meta name="description" content="Rangkaian jadwal Indonesia Women Half Marathon 2026, dari Kick Off hingga Race Day 29 November 2026 di Plaza Barat, GBK Senayan.">
+  <meta name="description" content="Rangkaian jadwal Indonesia Women Half Marathon 2026, dari Kick Off hingga Race Day 22 November 2026 di Plaza Parkir Timur, GBK Senayan.">
   <link rel="icon" type="image/svg+xml" href="/assets/img/logo/logo-mark.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,11 +40,7 @@
   <footer class="site-footer" data-include="footer"></footer>
 
   <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
-    <div class="modal">
-      <button class="modal__close" data-modal-close aria-label="Tutup">&times;</button>
-      <h3 id="register-modal-title">Pendaftaran belum dibuka</h3>
-      <p>Pendaftaran dibuka <span data-bind="REGISTRATION_OPEN_LABEL"></span>. Pantau halaman ini atau ikuti media sosial resmi IWHM untuk info terbaru.</p>
-    </div>
+    <div class="modal" data-include="modal-register"></div>
   </div>
 
   <script src="/assets/js/data.js"></script>
@@ -55,10 +51,13 @@
       var list = document.querySelector('[data-timeline]');
       if (!D || !list) return;
       D.TIMELINE.forEach(function (item) {
+        var dateHtml = item.date
+          ? item.date[D.LANG] + (item.confirmed ? '' : ' <span class="badge badge--tbc">Menunggu konfirmasi</span>')
+          : '<span class="badge badge--tbc">Menunggu konfirmasi</span>';
         var li = document.createElement('li');
         li.className = 'timeline-item';
         li.innerHTML =
-          '<p class="timeline-item__date">' + item.date[D.LANG] + '</p>' +
+          '<p class="timeline-item__date">' + dateHtml + '</p>' +
           '<h3 class="timeline-item__title">' + item.title[D.LANG] + '</h3>' +
           (item.place ? '<p class="timeline-item__place">' + item.place[D.LANG] + '</p>' : '');
         list.appendChild(li);

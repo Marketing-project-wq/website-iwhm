@@ -1,6 +1,6 @@
 # FACT-LEDGER — IWHM 2026
 
-**Sumber:** `SPORTFEST__JHR__IWHM_BRI.pdf` (36 hal., Canva export) + konfirmasi langsung klien 31 Agustus 2026 (lihat 3.10).
+**Sumber:** deck sponsorship IWHM (36 hal., Canva export, nama file diredaksi — §1.4) + konfirmasi langsung klien 31 Agustus 2026 (lihat 3.10).
 **Status legend:** ✅ `CONFIRMED-DECK` · ✅ `CONFIRMED-KLIEN` · 🟡 `TBC` · 🔴 `NOT-IN-DECK`
 
 Ini salinan §3 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, dengan kolom tambahan **Dipakai di halaman** yang memetakan tiap fakta ke halaman `/id/` + `/en/` tempat ia dirender. Kolom ini yang jadi rujukan saat menulis HTML — bukan ingatan.
@@ -25,10 +25,12 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 
 ## 2. Race Day
 
+> ⚠️ **Koreksi:** konfirmasi 31 Agustus 2026 (29 November / Plaza Barat) **TIDAK BERLAKU LAGI**. Klien mengoreksi ulang tanggal & venue — nilai di bawah ini adalah yang final saat ini. Kalau ada perubahan lagi nanti, jangan overwrite diam-diam — cross-check dengan riwayat koreksi ini dulu, dua kali sudah terjadi.
+
 | Fakta | Nilai | Sumber | Status | Dipakai di halaman |
 |---|---|---|---|---|
-| Tanggal race day | Minggu, 29 November 2026 | hal. 9+29, konfirmasi klien 31 Agu 2026 | ✅ | index (hero+countdown), schedule, race-day, faq, JSON-LD `startDate` — **tanpa badge TBC** |
-| Venue race day | Plaza Barat, GBK Senayan, Jakarta | hal. 29, konfirmasi klien | ✅ | index (hero), race-day, schedule, faq, JSON-LD `location` — **tanpa badge TBC** |
+| Tanggal race day | Minggu, 22 November 2026 | Koreksi klien (menggantikan konfirmasi 31 Agu 2026 yang sempat menyebut 29 Nov) | ✅ | index (hero+countdown), schedule, race-day, faq, JSON-LD `startDate` — **tanpa badge TBC** |
+| Venue race day | Plaza Parkir Timur, GBK Senayan, Jakarta | Koreksi klien (menggantikan konfirmasi 31 Agu 2026 yang sempat menyebut Plaza Barat) | ✅ | index (hero), race-day, schedule, faq, JSON-LD `location` — **tanpa badge TBC** |
 | Jam operasional race day | 04.00 – 10.00 WIB | hal. 29 | ✅ | race-day, schedule |
 | Jam start per kategori | — | — | 🔴 | race-day, categories — TBC, §13 no.12 |
 | Kuota peserta | 4.000 female runners | hal. 6 | ✅ | index (strip fakta), about |
@@ -48,13 +50,15 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 
 ## 4. Timeline
 
+> ⚠️ RPC dan Shake Out Run adalah **turunan dari pergeseran race day** (22 Nov) dan **belum dikonfirmasi klien** — render dengan badge TBC, bukan sebagai tanggal final. Tanggal pembukaan registrasi **belum ditentukan sama sekali** — jangan isi tebakan (klien pernah mengoreksi klaim "Agustus 2026" sebagai salah).
+
 | Fase | Tanggal | Sumber | Status | Dipakai di halaman |
 |---|---|---|---|---|
 | Teaser / Kick Off (Press Conference) | Agu 2026 | hal. 9, 10 | ✅ | schedule, news |
-| Open Registration | Agu 2026 | hal. 9 | ✅ | schedule, tickets, news |
-| Race Pack Collection | 27–28 Nov 2026, 10.00–20.00 WIB, Menteng Prada Jakpus | hal. 9, 24 | ✅ | schedule, race-pack |
-| Shake Out Run | 28 Nov 2026, 05.30–08.00 WIB, Menteng Prada | hal. 26 | ✅ | schedule, race-pack |
-| Race Day | Minggu, 29 Nov 2026, 04.00–10.00 WIB, Plaza Barat GBK Senayan | hal. 9, 29 + klien | ✅ | schedule, race-day, index |
+| Open Registration | — | — | 🔴 belum ditentukan, jangan tebak | schedule, tickets, news |
+| Race Pack Collection | 20–21 Nov 2026 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
+| Shake Out Run | 21 Nov 2026 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
+| Race Day | Minggu, 22 Nov 2026, 04.00–10.00 WIB, Plaza Parkir Timur GBK Senayan | Koreksi klien (final) | ✅ | schedule, race-day, index |
 
 > Road to Event **tidak** masuk timeline (§3.6, di luar scope — lihat Lampiran C). Jangan sisipkan fase perantara karangan untuk mengisi jarak Agustus–November.
 
@@ -62,7 +66,7 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 
 | # | Nama fase | Diskon | Target | Sumber | Status | Dipakai di halaman |
 |---|---|---|---|---|---|---|
-| 1 | Partner Exclusive Pre-Sale *(disamarkan dari "BRI Exclusive Pre-Sale", §1.4)* | 40% | — | hal. 15 | 🟡 nama+harga TBC, `hidden:true` sampai klien konfirmasi | tickets (disembunyikan default) |
+| 1 | Partner Exclusive Pre-Sale *(nama sponsor asli diredaksi, §1.4)* | 40% | — | hal. 15 | 🟡 nama+harga TBC, `hidden:true` sampai klien konfirmasi | tickets (disembunyikan default) |
 | 2 | Super Early Bird | 35% | Peserta IWHM 2025 | hal. 15 | 🟡 harga/periode TBC | tickets, index (preview) |
 | 3 | Early Bird | 30% | Publik, periode terbatas | hal. 15 | 🟡 harga/periode TBC | tickets, index (preview) |
 | 4 | General Sales | 0% | Publik, harga normal | hal. 15 | 🟡 harga/periode TBC | tickets |

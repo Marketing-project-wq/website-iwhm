@@ -13,14 +13,16 @@
 
   var LANG = (location.pathname.indexOf('/en/') !== -1) ? 'en' : 'id';
 
-  // ✅ Tanggal & venue DIKONFIRMASI klien 31 Agu 2026 — tanpa badge TBC.
+  // ✅ Tanggal & venue DIKONFIRMASI klien — koreksi terbaru menggantikan
+  // konfirmasi 31 Agu 2026 (yang sempat menyebut 29 Nov/Plaza Barat, kini
+  // TIDAK BERLAKU). Race day final: 22 November 2026, Plaza Parkir Timur.
   var EVENT = {
-    raceDayISO:       '2026-11-29T04:00:00+07:00',
+    raceDayISO:       '2026-11-22T04:00:00+07:00',
     raceDayConfirmed: true,
-    raceDay:  { id: 'Minggu, 29 November 2026', en: 'Sunday, 29 November 2026' },
+    raceDay:  { id: 'Minggu, 22 November 2026', en: 'Sunday, 22 November 2026' },
     hours:    { id: '04.00 – 10.00 WIB',        en: '04:00 – 10:00 WIB' },
-    venue:    { id: 'Plaza Barat, GBK Senayan, Jakarta',
-                en: 'Plaza Barat, GBK Senayan, Jakarta' },
+    venue:    { id: 'Plaza Parkir Timur, GBK Senayan, Jakarta',
+                en: 'Plaza Parkir Timur, GBK Senayan, Jakarta' },
     venueConfirmed: true,
     venueNote: { id: 'Venue dapat berubah.', en: 'Venue is subject to change.' },
     quota: 4000,
@@ -54,8 +56,16 @@
   };
 
   var REGISTRATION_URL  = null;               // TODO: URL pendaftaran resmi (§13 no.2)
-  var REGISTRATION_OPEN = '2026-08';          // "Agu 2026" — tanggal persis belum ada
-  var REGISTRATION_OPEN_LABEL = { id: 'Agustus 2026', en: 'August 2026' };
+  // Tanggal pembukaan registrasi BELUM ditentukan — jangan isi tebakan apa pun
+  // (klien mengoreksi klaim "Agustus 2026" sebelumnya, itu salah).
+
+  // Link unduh aplikasi 20FIT — KANDIDAT, BELUM DIKONFIRMASI klien. Listing
+  // App Store menyebut merek lain, kemungkinan app lama/berbeda dari 20FIT.
+  // JANGAN publikasikan sebagai final tanpa verifikasi klien.
+  var APP_LINKS = {
+    googlePlay: 'https://play.google.com/store/apps/details?id=com.twentyfit.indonesia',
+    appStore: 'https://apps.apple.com/app/id1475504793'
+  };
 
   // distanceKm HM = null sampai dikonfirmasi (§13 no.7). Jangan isi 21.0975.
   // tagline = §9.5 (DRAFT-COPY). desc = deskripsi faktual deck §3.3, diterjemahkan
@@ -106,33 +116,36 @@
   ];
 
   // Timeline race weekend (§3.4). Road to Event TIDAK disertakan (§3.6, luar scope).
+  // confirmed:false → render badge TBC di sebelah tanggal, bukan sebagai fakta pasti.
+  // RPC & Shake Out Run adalah turunan pergeseran race day, BELUM dikonfirmasi klien.
   var TIMELINE = [
-    { key: 'kickoff', date: { id: 'Agustus 2026', en: 'August 2026' },
+    { key: 'kickoff', date: { id: 'Agustus 2026', en: 'August 2026' }, confirmed: true,
       title: { id: 'Kick Off & Press Conference', en: 'Kick Off & Press Conference' } },
-    { key: 'registration', date: { id: 'Agustus 2026', en: 'August 2026' },
+    { key: 'registration', date: null, confirmed: false,
       title: { id: 'Open Registration', en: 'Open Registration' } },
-    { key: 'rpc', date: { id: '27–28 November 2026', en: '27–28 November 2026' },
+    { key: 'rpc', date: { id: '20–21 November 2026', en: '20–21 November 2026' }, confirmed: false,
       title: { id: 'Race Pack Collection', en: 'Race Pack Collection' },
       place: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
-    { key: 'shakeout', date: { id: '28 November 2026', en: '28 November 2026' },
+    { key: 'shakeout', date: { id: '21 November 2026', en: '21 November 2026' }, confirmed: false,
       title: { id: 'Shake Out Run', en: 'Shake Out Run' },
       place: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
-    { key: 'raceday', date: { id: '29 November 2026', en: '29 November 2026' },
+    { key: 'raceday', date: { id: '22 November 2026', en: '22 November 2026' }, confirmed: true,
       title: { id: 'Race Day', en: 'Race Day' },
-      place: { id: 'Plaza Barat, GBK Senayan', en: 'Plaza Barat, GBK Senayan' } }
+      place: { id: 'Plaza Parkir Timur, GBK Senayan', en: 'Plaza Parkir Timur, GBK Senayan' } }
   ];
 
   // Ringkasan race weekend untuk kartu di Beranda (subset dari TIMELINE).
+  // confirmed:false → render badge TBC, jam/tanggal RPC & Shake Out Run belum final.
   var WEEKEND = [
     { key: 'rpc', title: { id: 'Race Pack Collection', en: 'Race Pack Collection' },
-      when: { id: '27–28 Nov · 10.00–20.00 WIB', en: '27–28 Nov · 10:00–20:00 WIB' },
+      when: { id: '20–21 Nov 2026 (jam menyusul)', en: '20–21 Nov 2026 (time TBC)' }, confirmed: false,
       where: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
     { key: 'shakeout', title: { id: 'Shake Out Run', en: 'Shake Out Run' },
-      when: { id: '28 Nov · 05.30–08.00 WIB', en: '28 Nov · 05:30–08:00 WIB' },
+      when: { id: '21 Nov 2026 (jam menyusul)', en: '21 Nov 2026 (time TBC)' }, confirmed: false,
       where: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
     { key: 'raceday', title: { id: 'Race Day', en: 'Race Day' },
-      when: { id: '29 Nov · 04.00–10.00 WIB', en: '29 Nov · 04:00–10:00 WIB' },
-      where: { id: 'Plaza Barat, GBK Senayan', en: 'Plaza Barat, GBK Senayan' } }
+      when: { id: '22 Nov · 04.00–10.00 WIB', en: '22 Nov · 04:00–10:00 WIB' }, confirmed: true,
+      where: { id: 'Plaza Parkir Timur, GBK Senayan', en: 'Plaza Parkir Timur, GBK Senayan' } }
   ];
 
   // Berita — fakta ringkas dari §3.4, bukan narasi panjang (§9.2).
@@ -140,8 +153,8 @@
     { key: 'kickoff-2026', date: '2026-08-01',
       title: { id: 'IWHM 2026 resmi diumumkan lewat Kick Off & Press Conference',
                en: 'IWHM 2026 officially announced at Kick Off & Press Conference' },
-      excerpt: { id: 'Rangkaian Jakarta Series dibuka Agustus 2026, menuju race day 29 November di Plaza Barat GBK Senayan.',
-                 en: 'The Jakarta Series kicks off in August 2026, heading toward race day on 29 November at Plaza Barat, GBK Senayan.' } },
+      excerpt: { id: 'Rangkaian Jakarta Series dibuka Agustus 2026, menuju race day 22 November di Plaza Parkir Timur, GBK Senayan.',
+                 en: 'The Jakarta Series kicks off in August 2026, heading toward race day on 22 November at Plaza Parkir Timur, GBK Senayan.' } },
     { key: 'registration-open', date: '2026-08-15',
       title: { id: 'Pendaftaran IWHM 2026 dibuka', en: 'IWHM 2026 registration opens' },
       excerpt: { id: 'Lima fase harga tersedia mulai Partner Exclusive Pre-Sale hingga General Sales. Detail harga menyusul.',
@@ -206,6 +219,7 @@
   // sponsorship terkonfirmasi (§4). Isi nama/logo lewat PARTNERS, bukan di sini.
   var PARTNER_TIERS = [
     { key: 'presenting', label: { id: 'Presenting Partner', en: 'Presenting Partner' } },
+    { key: 'bank', label: { id: 'Mitra Bank Resmi', en: 'Official Bank Partner' } },
     { key: 'official', label: { id: 'Mitra Resmi', en: 'Official Partner' } },
     { key: 'community', label: { id: 'Mitra Komunitas', en: 'Community Partner' } },
     { key: 'media', label: { id: 'Mitra Media', en: 'Media Partner' } }
@@ -247,7 +261,6 @@
     PODIUM: PODIUM, FACILITIES: FACILITIES, RULES_SECTIONS: RULES_SECTIONS,
     CONTACT: CONTACT, LEGAL_ENTITY_NAME: LEGAL_ENTITY_NAME, FAQ: FAQ,
     PARTNER_TIERS: PARTNER_TIERS, PRIVACY_SECTIONS: PRIVACY_SECTIONS,
-    REGISTRATION_URL: REGISTRATION_URL, REGISTRATION_OPEN: REGISTRATION_OPEN,
-    REGISTRATION_OPEN_LABEL: REGISTRATION_OPEN_LABEL
+    REGISTRATION_URL: REGISTRATION_URL, APP_LINKS: APP_LINKS
   };
 })();

@@ -4,9 +4,15 @@ Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. In
 
 ## ✅ Sudah terjawab (31 Agustus 2026)
 
-- ~~Race day: 22 atau 29 November?~~ → **29 November 2026**
-- ~~Venue: Plaza Parkir Timur atau Plaza Barat?~~ → **Plaza Barat, GBK Senayan**
+- ~~Race day: 22 atau 29 November?~~ → **29 November 2026** — ⚠️ **DIKOREKSI ULANG, lihat di bawah**
+- ~~Venue: Plaza Parkir Timur atau Plaza Barat?~~ → **Plaza Barat, GBK Senayan** — ⚠️ **DIKOREKSI ULANG, lihat di bawah**
 - ~~Road to Event masuk situs atau tidak?~~ → **Tidak, dikeluarkan dari scope**
+
+## ✅ Koreksi terbaru (menggantikan jawaban 31 Agustus di atas)
+
+- **Race day final: 22 November 2026, Plaza Parkir Timur, GBK Senayan.** Konfirmasi 31 Agu sempat menyebut 29 Nov/Plaza Barat — itu sudah tidak berlaku.
+- RPC (20–21 Nov) dan Shake Out Run (21 Nov) adalah turunan dari pergeseran ini dan **belum dikonfirmasi** — masih render badge TBC di `schedule.html`/`race-pack.html` sampai klien memastikan.
+- **Tanggal pembukaan registrasi belum ditentukan sama sekali.** Klaim "Agustus 2026" yang sempat ada di CTA/modal adalah salah dan sudah dihapus dari seluruh situs — jangan diisi tebakan lain.
 
 ## 🔴 Blocking — situs tidak bisa dipublikasikan tanpa ini
 
@@ -41,6 +47,11 @@ Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. In
 18. Konfirmasi bahwa IWHM 2025 boleh dirujuk secara terbuka di halaman Tentang (§9.4 bagian 4).
 19. Apakah disclaimer "venue dapat berubah" masih perlu ditampilkan di halaman Race Day?
 20. Apakah Road to Event akan dimasukkan di rilis berikutnya, atau ditiadakan sepenuhnya? Menentukan apakah Lampiran C dipertahankan.
+
+## 📱 Link aplikasi — perlu verifikasi
+
+33. **Link App Store & Google Play untuk aplikasi 20FIT belum dikonfirmasi.** Kandidat yang ditemukan: Google Play `com.twentyfit.indonesia`, App Store `id1475504793` — listing App Store-nya menyebut merek lain, kemungkinan app lama atau berbeda dari 20FIT. Disimpan sebagai `APP_LINKS` di `data.js` dengan komentar "belum dikonfirmasi" dan sudah dipakai di CTA modal pendaftaran (§8). **Perlu verifikasi sebelum publikasi final** — kalau salah, pengunjung diarahkan ke aplikasi yang salah.
+34. **Mitra bank resmi belum dikonfirmasi/dinamai.** Alur pendaftaran di `tickets.html` sudah menyebut "aplikasi mitra bank resmi IWHM" secara generik (tanpa nama), dan tier "Mitra Bank Resmi" / "Official Bank Partner" sudah ada di `partners.html` (kosong, badge TBC) — sesuai §1.4 yang melarang penyebutan nama bank sampai sponsorship resmi dikonfirmasi.
 
 ## 🟢 Aset yang masih dibutuhkan
 

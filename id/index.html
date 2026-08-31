@@ -47,7 +47,7 @@
           </div>
 
           <div class="hero__cta">
-            <a href="#" class="btn btn--on-violet" data-register data-cta="hero">Daftar Sekarang</a>
+            <a href="#" class="btn btn--on-violet" data-register data-cta="hero">Ikuti Kabarnya</a>
             <a href="/id/schedule.html" class="btn btn--secondary-on-violet">Lihat Jadwal Lengkap</a>
           </div>
         </div>
@@ -147,11 +147,7 @@
 
   <!-- Modal pendaftaran (§8: data-register) -->
   <div id="register-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
-    <div class="modal">
-      <button class="modal__close" data-modal-close aria-label="Tutup">&times;</button>
-      <h3 id="register-modal-title">Pendaftaran belum dibuka</h3>
-      <p>Pendaftaran dibuka <span data-bind="REGISTRATION_OPEN_LABEL"></span>. Pantau halaman ini atau ikuti media sosial resmi IWHM untuk info terbaru.</p>
-    </div>
+    <div class="modal" data-include="modal-register"></div>
   </div>
 
   <script src="/assets/js/data.js"></script>
@@ -196,7 +192,8 @@
           card.className = 'weekend-card';
           card.innerHTML =
             '<h3 class="weekend-card__title">' + item.title[D.LANG] + '</h3>' +
-            '<p class="weekend-card__when">' + item.when[D.LANG] + '</p>' +
+            '<p class="weekend-card__when">' + item.when[D.LANG] +
+              (item.confirmed ? '' : ' <span class="badge badge--tbc">Menunggu konfirmasi</span>') + '</p>' +
             '<p class="weekend-card__where">' + item.where[D.LANG] + '</p>';
           weekendGrid.appendChild(card);
         });

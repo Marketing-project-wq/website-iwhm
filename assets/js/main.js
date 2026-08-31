@@ -48,14 +48,32 @@
     var openers = document.querySelectorAll('[data-register]');
     var closers = modal.querySelectorAll('[data-modal-close]');
     var registrationUrl = window.D && window.D.REGISTRATION_URL;
+    var lastFocused = null;
+
+    function focusableEls() {
+      return Array.prototype.slice.call(
+        modal.querySelectorAll('a[href], button:not([disabled])')
+      );
+    }
+
+    function openModal() {
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      var closeBtn = modal.querySelector('.modal__close');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+      if (modal.hidden) return;
+      modal.hidden = true;
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
 
     openers.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         if (registrationUrl) return; // biarkan link keluar berjalan normal
         e.preventDefault();
-        modal.hidden = false;
-        var closeBtn = modal.querySelector('.modal__close');
-        if (closeBtn) closeBtn.focus();
+        openModal();
       });
       if (registrationUrl) {
         btn.setAttribute('href', registrationUrl);
@@ -64,13 +82,35 @@
       }
     });
     closers.forEach(function (btn) {
-      btn.addEventListener('click', function () { modal.hidden = true; });
+      btn.addEventListener('click', closeModal);
     });
     modal.addEventListener('click', function (e) {
-      if (e.target === modal) modal.hidden = true;
+      if (e.target === modal) closeModal();
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !modal.hidden) modal.hidden = true;
+      if (modal.hidden) return;
+      if (e.key === 'Escape') { closeModal(); return; }
+      if (e.key !== 'Tab') return;
+      // — Jebak fokus di dalam modal selagi terbuka —
+      var items = focusableEls();
+      if (!items.length) return;
+      var first = items[0];
+      var last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
+  function bindAppLinks() {
+    if (!window.D || !window.D.APP_LINKS) return;
+    document.querySelectorAll('[data-app-link]').forEach(function (a) {
+      var url = window.D.APP_LINKS[a.getAttribute('data-app-link')];
+      if (url) a.setAttribute('href', url);
     });
   }
 
@@ -82,6 +122,15 @@
         item.setAttribute('data-open', open ? 'false' : 'true');
         btn.setAttribute('aria-expanded', open ? 'false' : 'true');
       });
+    });
+  }
+
+  /* — Language switch: arahkan ke halaman yang sama di bahasa lain, bukan selalu ke beranda — */
+  function fixLangSwitchLinks() {
+    var currentFile = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.lang-switch a[href]').forEach(function (a) {
+      var targetLang = a.getAttribute('href').indexOf('/en/') === 0 ? 'en' : 'id';
+      a.setAttribute('href', '/' + targetLang + '/' + currentFile);
     });
   }
 
@@ -122,7 +171,9 @@
       initNavToggle();
       initSubmenuToggles();
       initRegisterModal();
+      bindAppLinks();
       initAccordions();
+      fixLangSwitchLinks();
       setFooterYear();
       document.dispatchEvent(new CustomEvent('partials:ready'));
     });
