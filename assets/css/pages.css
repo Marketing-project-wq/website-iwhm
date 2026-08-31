@@ -1,0 +1,332 @@
+/* ============================================================
+   pages.css — styling spesifik halaman · IWHM 2026
+   Tahap 1: hanya Beranda (index.html). Halaman lain menyusul Tahap 2.
+   ============================================================ */
+
+/* — Hero (Beranda) — Opsi A, DESIGN-PLAN.md — */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-violet);
+  color: var(--paper);
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+.hero__corner-loop {
+  position: absolute;
+  left: -8%;
+  bottom: -12%;
+  width: 42%;
+  min-width: 260px;
+  opacity: .5;
+  pointer-events: none;
+}
+.hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .hero__grid { grid-template-columns: 1.1fr .9fr; gap: var(--space-2xl); }
+}
+.hero__eyebrow {
+  display: inline-block;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--citrus);
+  margin-bottom: var(--space-s);
+}
+.hero__title {
+  color: var(--paper);
+  margin-bottom: var(--space-s);
+}
+.hero__sub {
+  max-width: 42ch;
+  font-size: var(--step-1);
+  color: rgba(255,255,255,.9);
+  margin-bottom: var(--space-m);
+}
+.hero__fact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-s);
+  font-weight: 700;
+  font-size: var(--step-0);
+  margin-bottom: var(--space-m);
+}
+.hero__fact-sep { opacity: .5; }
+
+.countdown {
+  display: flex;
+  gap: var(--space-s);
+  margin-bottom: var(--space-l);
+}
+.countdown__unit {
+  background: rgba(255,255,255,.12);
+  border-radius: var(--radius-m);
+  padding: var(--space-xs) var(--space-s);
+  min-width: 4.2rem;
+  text-align: center;
+}
+.countdown__value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-2);
+  color: var(--citrus);
+  line-height: 1;
+}
+.countdown__label {
+  display: block;
+  font-size: var(--step--1);
+  margin-top: .3em;
+  color: rgba(255,255,255,.8);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+.hero__art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero__art img {
+  max-width: 100%;
+}
+.hero__art-loop { width: 100%; max-width: 460px; }
+.hero__art-element {
+  position: absolute;
+  width: 220px;
+  max-width: 45%;
+  right: -4%;
+  top: 8%;
+}
+
+/* — Intro — */
+.intro {
+  padding-block: var(--space-2xl);
+}
+.intro p {
+  font-size: var(--step-1);
+}
+.intro__cta {
+  margin-top: var(--space-m);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+}
+
+/* — Kategori — */
+.section-heading {
+  margin-bottom: var(--space-l);
+  max-width: var(--container-narrow);
+}
+.categories {
+  padding-block: var(--space-2xl);
+  background: var(--paper-2);
+}
+.categories__grid {
+  display: grid;
+  gap: var(--space-m);
+}
+@media (min-width: 768px) {
+  .categories__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-l);
+  padding: var(--space-l) var(--space-m) var(--space-m);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+.category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .12;
+  background: radial-gradient(circle at 85% 15%, var(--glow-color, var(--violet)), transparent 60%);
+}
+.category-card--violet  { --glow-color: var(--violet); }
+.category-card--magenta { --glow-color: var(--magenta); }
+.category-card--citrus  { --glow-color: var(--citrus); }
+.category-card__art {
+  position: relative;
+  z-index: 1;
+  width: 96px;
+  margin-bottom: var(--space-s);
+}
+.category-card__name {
+  position: relative;
+  z-index: 1;
+  font-size: var(--step-3);
+  margin-bottom: .1em;
+}
+.category-card__distance {
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  color: var(--violet);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+.category-card__tagline {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-0);
+  margin-bottom: var(--space-xs);
+}
+.category-card__desc {
+  position: relative;
+  z-index: 1;
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+/* — Strip fakta — */
+.stats {
+  background: var(--ink);
+  color: var(--paper);
+  padding-block: var(--space-xl);
+}
+.stats__grid {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .stats__grid { grid-template-columns: repeat(4, 1fr); }
+}
+.stats__item { position: relative; }
+.stats__value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-4);
+  color: var(--citrus);
+  line-height: 1;
+}
+.stats__label {
+  margin-top: var(--space-2xs);
+  font-size: var(--step--1);
+  color: rgba(255,255,255,.75);
+}
+
+/* — Race weekend — */
+.weekend {
+  padding-block: var(--space-2xl);
+}
+.weekend__grid {
+  display: grid;
+  gap: var(--space-m);
+}
+@media (min-width: 768px) {
+  .weekend__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.weekend-card {
+  border-left: 4px solid var(--violet);
+  padding: var(--space-m);
+  background: var(--paper-2);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+.weekend-card__title { margin-bottom: var(--space-2xs); }
+.weekend-card__when {
+  font-weight: 700;
+  color: var(--violet);
+  font-size: var(--step--1);
+}
+.weekend-card__where {
+  font-size: var(--step--1);
+  color: var(--ink-2);
+}
+
+/* — Tiket preview — */
+.tickets-preview {
+  padding-block: var(--space-2xl);
+  background: var(--paper-2);
+}
+.tickets-preview__list {
+  display: grid;
+  gap: var(--space-xs);
+}
+.ticket-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-m);
+  background: var(--paper);
+  border-radius: var(--radius-m);
+}
+.ticket-row__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.ticket-row__discount {
+  color: var(--paper);
+  background: var(--violet);
+  border-radius: 999px;
+  padding: .15em .7em;
+  font-size: var(--step--1);
+}
+.ticket-row__price {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.tickets-preview__cta { margin-top: var(--space-m); text-align: center; }
+
+/* — Mitra (kosong) — */
+.partners-empty {
+  padding-block: var(--space-2xl);
+  text-align: center;
+}
+.partners-empty p {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  color: var(--ink-2);
+}
+
+/* — Berita — */
+.news {
+  padding-block: var(--space-2xl);
+  background: var(--paper-2);
+}
+.news__grid {
+  display: grid;
+  gap: var(--space-m);
+}
+@media (min-width: 768px) {
+  .news__grid { grid-template-columns: repeat(2, 1fr); }
+}
+.news-card {
+  background: var(--paper);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+}
+.news-card__date {
+  font-size: var(--step--1);
+  color: var(--violet);
+  font-weight: 700;
+}
+.news-card__title { margin-block: var(--space-2xs); }
+.news-card__excerpt { color: var(--ink-2); font-size: var(--step--1); }
