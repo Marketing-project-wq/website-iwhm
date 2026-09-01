@@ -41,9 +41,13 @@
 
     // §9.3 — DRAFT-COPY, menunggu approval klien (opsi utama dipakai; opsi
     // alternatif ada di QUESTIONS.md §13 no.17).
+    // Disimpan sebagai array baris agar pemenggalan baris dikontrol dari data,
+    // bukan dari <br> di HTML. Tiap elemen dirender jadi <span> blok via
+    // textContent (lihat bindData di main.js). Titik potong EN mengikuti alur
+    // kalimat Inggris, bukan meniru posisi potong ID.
     heroHeadline: {
-      id: 'Sebelum matahari terbit, Senayan sudah bergerak.',
-      en: 'Before sunrise, Senayan is already moving.'
+      id: ['Sebelum matahari terbit,', 'Senayan sudah bergerak.'],
+      en: ['Before sunrise,', 'Senayan is already moving.']
     },
     heroSub: {
       id: 'Indonesia Women Half Marathon 2026 — 5K, 10K, dan Half Marathon. Sebuah perayaan kekuatan, ketangguhan, dan kebersamaan.',

@@ -56,6 +56,17 @@
   --container-narrow: 42rem;   /* ≤70 karakter per baris, §6.2/§12 */
   --header-h:         5.5rem;  /* tinggi header sticky (≈88px), diukur di DevTools.
                                   Dipakai hero agar tinggi hero = 1 layar - header. */
+
+  /* — Breakpoint navigasi (SUMBER TUNGGAL) —
+     Ambang tunggal peralihan nav desktop ↔ mobile. Di ATAS nilai ini nav
+     desktop tampil & hamburger sembunyi; di BAWAHnya (≤959px) hamburger
+     tampil & CTA header WAJIB sembunyi (CTA pindah ke panel menu).
+     CATATAN: custom property TIDAK bisa dipakai di dalam kondisi @media,
+     jadi nilai ini didokumentasikan di sini dan literalnya dipakai konsisten:
+       • desktop  : @media (min-width: 960px)
+       • mobile   : @media (max-width: 959px)
+     Semua media query terkait nav HARUS memakai 960/959px, bukan angka lain. */
+  --bp-nav: 960px;   /* referensi/dokumentasi — lihat catatan di atas */
   --radius-s:  10px;
   --radius-m:  18px;
   --radius-l:  28px;

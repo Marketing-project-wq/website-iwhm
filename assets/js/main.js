@@ -273,6 +273,18 @@
       var raw = resolvePath(window.D, el.getAttribute('data-bind'));
       var val = localize(raw);
       if (val === null || val === undefined) return; // biarkan render TBC di tempat lain
+      // Array baris (mis. heroHeadline) → tiap baris jadi <span> blok.
+      // textContent per span: tanpa innerHTML, tanpa <br> di dalam string.
+      if (Array.isArray(val)) {
+        el.textContent = '';
+        val.forEach(function (line) {
+          var span = document.createElement('span');
+          span.className = 'hero__title-line';
+          span.textContent = line;
+          el.appendChild(span);
+        });
+        return;
+      }
       el.textContent = val;
     });
   }

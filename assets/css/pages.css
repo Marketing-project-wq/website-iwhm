@@ -52,6 +52,9 @@
                           headline multi-baris tanpa mengecilkan ukuran font */
   margin-bottom: var(--space-xs);
 }
+/* Tiap baris headline (dari array heroHeadline) jadi blok sendiri:
+   pemenggalan baris terkontrol dari data.js, bukan dari lebar viewport. */
+.hero__title-line { display: block; }
 .hero__sub {
   max-width: 42ch;
   font-size: var(--step-1);

@@ -90,7 +90,9 @@
     font-weight: 600;
     flex: 1 0 auto;   /* dorong CTA ke dasar saat isi pendek */
   }
-  .site-nav.is-open a,
+  /* Reset khusus tautan DAFTAR menu — jangan sentuh .site-nav__cta,
+     supaya tombol CTA tetap memakai styling .btn (bukan teks polos). */
+  .site-nav.is-open .site-nav__list a,
   .site-nav.is-open .site-nav__group-toggle {
     display: flex;
     align-items: center;
@@ -127,16 +129,25 @@
   .site-nav.is-open .site-nav__group-toggle[aria-expanded="true"] .site-nav__chevron {
     transform: rotate(180deg);
   }
-  /* CTA menempel di dasar panel, di atas home indicator iPhone */
+  /* CTA menempel di dasar panel, di atas home indicator iPhone.
+     Latar wajib opak (var(--paper)) supaya konten yang men-scroll di
+     belakangnya lenyap bersih, tidak terpotong separuh huruf. Bayangan
+     halus di sisi atas memisahkan CTA dari konten — bukan garis tegas. */
   .site-nav__cta {
     display: block;
     position: sticky;
     bottom: 0;
     background: var(--paper);
+    box-shadow: 0 -8px 16px -8px rgb(0 0 0 / 0.12);
     padding: var(--space-s) 0 max(var(--space-s), env(safe-area-inset-bottom));
     margin-top: var(--space-xs);
   }
-  .site-nav__cta .btn { width: 100%; }
+  /* CTA satu-satunya di panel mobile → paling menonjol: pil lebar penuh,
+     tinggi minimal 48px (komponen .btn yang sudah ada, tidak bikin baru). */
+  .site-nav__cta .btn {
+    width: 100%;
+    min-height: 48px;
+  }
 }
 
 .site-nav__group { position: relative; }
@@ -213,10 +224,10 @@
   .nav-toggle { display: none; }
 }
 
-/* Layar sangat sempit: sembunyikan tombol CTA header agar tidak memicu
-   horizontal scroll di 320px. CTA tetap ada di hero, halaman tiket, dan
-   daftar menu mobile. */
-@media (max-width: 420px) {
+/* Saat hamburger muncul (≤959px, breakpoint nav tunggal — lihat tokens.css
+   --bp-nav), CTA header WAJIB sembunyi tanpa pengecualian. CTA-nya pindah ke
+   panel menu mobile, jadi tidak ada CTA ganda dan tidak ada horizontal scroll. */
+@media (max-width: 959px) {
   .site-header__actions .btn { display: none; }
 }
 
