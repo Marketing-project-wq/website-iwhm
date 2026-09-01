@@ -202,30 +202,9 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
-  /* — hreflang + canonical (§8) —
-     id<->en saling menunjuk; x-default → EN (bahasa default situs, sejalan
-     dengan redirect root Caddy ke /en/). Canonical tiap halaman menunjuk ke
-     dirinya sendiri (versi bahasanya), bukan ke pasangan bahasa lain. */
-  function addHreflangTags() {
-    if (!window.D || !window.D.SITE_URL) return;
-    var currentFile = location.pathname.split('/').pop() || 'index.html';
-    var base = window.D.SITE_URL;
-    [
-      ['id', base + '/id/' + currentFile],
-      ['en', base + '/en/' + currentFile],
-      ['x-default', base + '/en/' + currentFile]
-    ].forEach(function (pair) {
-      var link = document.createElement('link');
-      link.setAttribute('rel', 'alternate');
-      link.setAttribute('hreflang', pair[0]);
-      link.setAttribute('href', pair[1]);
-      document.head.appendChild(link);
-    });
-    var canonical = document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', base + '/' + window.D.LANG + '/' + currentFile);
-    document.head.appendChild(canonical);
-  }
+  /* hreflang + canonical: sekarang tag STATIS di <head> tiap HTML
+     (lihat scripts/generate-seo-tags.js). Sengaja TIDAK di-inject via JS —
+     crawler non-Google & scraper sosial tidak menjalankan JS. */
 
   /* — JSON-LD SportsEvent, dihitung dari window.D supaya tidak pernah drift
      dari data.js (§10). Domain SITE_URL masih placeholder Railway, §13 no.4. — */
@@ -298,7 +277,6 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     bindData();
-    addHreflangTags();
     addSportsEventJsonLd();
     includePartials().then(function () {
       initNavToggle();
