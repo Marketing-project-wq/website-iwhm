@@ -28,7 +28,10 @@
 
     <section class="section">
       <div class="container">
-        <ul class="timeline-list" data-timeline style="max-width: var(--container-narrow);"></ul>
+        <div class="section-heading">
+          <h2>Race Weekend</h2>
+        </div>
+        <div class="weekend__grid" data-weekend-cards></div>
       </div>
     </section>
   </main>
@@ -44,19 +47,17 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var D = window.D;
-      var list = document.querySelector('[data-timeline]');
-      if (!D || !list) return;
-      D.TIMELINE.forEach(function (item) {
-        var dateHtml = item.date
-          ? item.date[D.LANG] + (item.confirmed ? '' : ' <span class="badge badge--tbc">Pending confirmation</span>')
-          : '<span class="badge badge--tbc">Pending confirmation</span>';
-        var li = document.createElement('li');
-        li.className = 'timeline-item';
-        li.innerHTML =
-          '<p class="timeline-item__date">' + dateHtml + '</p>' +
-          '<h3 class="timeline-item__title">' + item.title[D.LANG] + '</h3>' +
-          (item.place ? '<p class="timeline-item__place">' + item.place[D.LANG] + '</p>' : '');
-        list.appendChild(li);
+      var grid = document.querySelector('[data-weekend-cards]');
+      if (!D || !grid) return;
+      D.WEEKEND.forEach(function (item) {
+        var card = document.createElement('div');
+        card.className = 'weekend-card';
+        card.innerHTML =
+          '<h3 class="weekend-card__title">' + item.title[D.LANG] + '</h3>' +
+          '<p class="weekend-card__when">' + item.when[D.LANG] +
+            (item.confirmed ? '' : ' <span class="badge badge--tbc">Pending confirmation</span>') + '</p>' +
+          '<p class="weekend-card__where">' + item.where[D.LANG] + '</p>';
+        grid.appendChild(card);
       });
     });
   </script>
