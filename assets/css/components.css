@@ -423,25 +423,6 @@
 }
 .podium-table-wrap { overflow-x: auto; }
 
-/* — Timeline vertikal (Jadwal) — */
-.timeline-list { list-style: none; padding: 0; display: grid; gap: 0; }
-.timeline-item {
-  position: relative;
-  padding: 0 0 var(--space-l) var(--space-l);
-  border-left: 2px solid var(--paper-line);
-}
-.timeline-item:last-child { border-color: transparent; padding-bottom: 0; }
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -7px; top: 2px;
-  width: 12px; height: 12px;
-  border-radius: 50%;
-  background: var(--violet);
-}
-.timeline-item__date { font-weight: 700; color: var(--violet); font-size: var(--step--1); }
-.timeline-item__title { margin-block: .2em; }
-.timeline-item__place { color: var(--ink-2); font-size: var(--step--1); }
 
 /* — Daftar fasilitas — */
 .facility-list { list-style: none; padding: 0; display: grid; gap: var(--space-xs); }

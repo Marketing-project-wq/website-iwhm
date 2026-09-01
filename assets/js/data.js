@@ -125,26 +125,15 @@
       audience: { id: 'Komunitas, influencer, media partner', en: 'Communities, influencers, media partners' } }
   ];
 
-  // Timeline race weekend (§3.4). Road to Event TIDAK disertakan (§3.6, luar scope).
-  // confirmed:false → render badge TBC di sebelah tanggal, bukan sebagai fakta pasti.
-  // RPC & Shake Out Run adalah turunan pergeseran race day, BELUM dikonfirmasi klien.
-  var TIMELINE = [
-    { key: 'kickoff', date: { id: 'Agustus 2026', en: 'August 2026' }, confirmed: true,
-      title: { id: 'Kick Off & Press Conference', en: 'Kick Off & Press Conference' } },
-    { key: 'registration', date: null, confirmed: false,
-      title: { id: 'Open Registration', en: 'Open Registration' } },
-    { key: 'rpc', date: { id: '20–21 November 2026', en: '20–21 November 2026' }, confirmed: false,
-      title: { id: 'Race Pack Collection', en: 'Race Pack Collection' },
-      place: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
-    { key: 'shakeout', date: { id: '21 November 2026', en: '21 November 2026' }, confirmed: false,
-      title: { id: 'Shake Out Run', en: 'Shake Out Run' },
-      place: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
-    { key: 'raceday', date: { id: '22 November 2026', en: '22 November 2026' }, confirmed: true,
-      title: { id: 'Race Day', en: 'Race Day' },
-      place: { id: 'Plaza Parkir Timur, GBK Senayan', en: 'Plaza Parkir Timur, GBK Senayan' } }
-  ];
+  // CATATAN — Section "Timeline perjalanan event" DIHAPUS (lihat PR).
+  //  • Entri "Agustus 2026 · Kick Off & Press Conference" adalah kemunculan
+  //    ke-3 klaim tanggal Agustus 2026 (setelah modal CTA & kartu berita).
+  //  • Tanggal buka registrasi BELUM ditentukan — jangan tambahkan entri
+  //    "Open Registration" bertanggal apa pun.
+  // Jadwal race weekend yang nyata/terkonfirmasi ada di WEEKEND di bawah,
+  // dipakai baik di Beranda maupun halaman Jadwal.
 
-  // Ringkasan race weekend untuk kartu di Beranda (subset dari TIMELINE).
+  // Ringkasan race weekend (dipakai di Beranda & halaman Jadwal).
   // confirmed:false → render badge TBC, jam/tanggal RPC & Shake Out Run belum final.
   var WEEKEND = [
     { key: 'rpc', title: { id: 'Race Pack Collection', en: 'Race Pack Collection' },
@@ -261,7 +250,7 @@
 
   window.D = {
     LANG: LANG, EVENT: EVENT, CATEGORIES: CATEGORIES, TICKETS: TICKETS,
-    TIMELINE: TIMELINE, WEEKEND: WEEKEND, NEWS: NEWS, NEWS_EMPTY: NEWS_EMPTY, PARTNERS: PARTNERS,
+    WEEKEND: WEEKEND, NEWS: NEWS, NEWS_EMPTY: NEWS_EMPTY, PARTNERS: PARTNERS,
     PODIUM: PODIUM, FACILITIES: FACILITIES, RULES_SECTIONS: RULES_SECTIONS,
     CONTACT: CONTACT, LEGAL_ENTITY_NAME: LEGAL_ENTITY_NAME, FAQ: FAQ,
     PARTNER_TIERS: PARTNER_TIERS, PRIVACY_SECTIONS: PRIVACY_SECTIONS,
