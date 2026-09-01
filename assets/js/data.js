@@ -71,12 +71,14 @@
     appStore: 'https://apps.apple.com/app/id1475504793'
   };
 
-  // distanceKm HM = null sampai dikonfirmasi (§13 no.7). Jangan isi 21.0975.
+  // distanceKm: Half Marathon = 21 KM menurut definisi (21,0975 km, dibulatkan
+  // "21 KM" untuk konsisten dengan 10K/5K). Yang masih TBC adalah RUTE dan
+  // CUT-OFF TIME, bukan jaraknya (§13 no.7 = cut-off, bukan jarak).
   // tagline = §9.5 (DRAFT-COPY). desc = deskripsi faktual deck §3.3, diterjemahkan
   // apa adanya ke ID untuk paritas bahasa — bukan fakta baru, hanya lokalisasi.
   var CATEGORIES = [
     { key: 'hm', name: 'HM', fullName: { id: 'Half Marathon', en: 'Half Marathon' },
-      distanceKm: null, cot: null, accent: 'violet',
+      distanceKm: 21, cot: null, accent: 'violet',
       tagline: { id: 'Jarak yang menuntut kamu hadir jauh sebelum hari lombanya.',
                  en: 'The distance that asks you to show up months before race day.' },
       desc: {
@@ -152,18 +154,12 @@
       where: { id: 'Plaza Parkir Timur, GBK Senayan', en: 'Plaza Parkir Timur, GBK Senayan' } }
   ];
 
-  // Berita — fakta ringkas dari §3.4, bukan narasi panjang (§9.2).
-  var NEWS = [
-    { key: 'kickoff-2026', date: '2026-08-01',
-      title: { id: 'IWHM 2026 resmi diumumkan lewat Kick Off & Press Conference',
-               en: 'IWHM 2026 officially announced at Kick Off & Press Conference' },
-      excerpt: { id: 'Rangkaian Jakarta Series dibuka Agustus 2026, menuju race day 22 November di Plaza Parkir Timur, GBK Senayan.',
-                 en: 'The Jakarta Series kicks off in August 2026, heading toward race day on 22 November at Plaza Parkir Timur, GBK Senayan.' } },
-    { key: 'registration-open', date: '2026-08-15',
-      title: { id: 'Pendaftaran IWHM 2026 dibuka', en: 'IWHM 2026 registration opens' },
-      excerpt: { id: 'Lima fase harga tersedia mulai Partner Exclusive Pre-Sale hingga General Sales. Detail harga menyusul.',
-                 en: 'Five pricing phases are available, from Partner Exclusive Pre-Sale to General Sales. Pricing details to follow.' } }
-  ];
+  // Berita — KOSONG. Dua kartu sebelumnya adalah placeholder fiktif dengan
+  // tanggal karangan; salah satunya menjanjikan tanggal buka registrasi yang
+  // belum ditentukan. Dihapus, bukan diganti berita fiktif lain.
+  // Isi lagi hanya kalau ada berita resmi yang benar-benar bisa diklaim.
+  var NEWS = [];
+  var NEWS_EMPTY = { id: 'Belum ada berita.', en: 'No news yet.' };
 
   var PARTNERS = [];       // kosong sampai sponsorship dikonfirmasi (§13 no.3)
 
@@ -261,7 +257,7 @@
 
   window.D = {
     LANG: LANG, EVENT: EVENT, CATEGORIES: CATEGORIES, TICKETS: TICKETS,
-    TIMELINE: TIMELINE, WEEKEND: WEEKEND, NEWS: NEWS, PARTNERS: PARTNERS,
+    TIMELINE: TIMELINE, WEEKEND: WEEKEND, NEWS: NEWS, NEWS_EMPTY: NEWS_EMPTY, PARTNERS: PARTNERS,
     PODIUM: PODIUM, FACILITIES: FACILITIES, RULES_SECTIONS: RULES_SECTIONS,
     CONTACT: CONTACT, LEGAL_ENTITY_NAME: LEGAL_ENTITY_NAME, FAQ: FAQ,
     PARTNER_TIERS: PARTNER_TIERS, PRIVACY_SECTIONS: PRIVACY_SECTIONS,

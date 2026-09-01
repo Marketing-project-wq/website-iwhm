@@ -22,30 +22,87 @@
 }
 
 .site-header__logo {
-  display: block;
+  display: flex;
+  align-items: center;
   height: 36px;
-  width: auto;
 }
 .site-header__logo img { height: 100%; width: auto; }
+/* Wordmark penuh di ≥480px; di bawah itu wordmark 4-baris jadi terlalu kecil,
+   jadi tampilkan mark 4-kelopak saja (§P3). */
+.site-header__logo-mark { display: none; }
+@media (max-width: 479px) {
+  .site-header__logo-full { display: none; }
+  .site-header__logo-mark { display: block; }
+}
 
-.site-nav {
-  display: none;
+.site-nav { display: none; }
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 @media (min-width: 960px) {
   .site-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-m);
-    list-style: none;
-    padding: 0;
     font-size: var(--step--1);
     font-weight: 600;
+  }
+  .site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
   }
   .site-nav a {
     text-decoration: none;
     padding: var(--space-3xs) var(--space-2xs);
   }
   .site-nav a:hover { color: var(--violet); }
+}
+
+/* — Nav mobile: panel dropdown saat hamburger ditekan (<960px) — */
+@media (max-width: 959px) {
+  .site-nav.is-open {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--paper-line);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-xs) var(--space-m) var(--space-m);
+    max-height: calc(100svh - var(--header-h));
+    overflow-y: auto;
+  }
+  .site-nav.is-open .site-nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3xs);
+    font-weight: 600;
+  }
+  .site-nav.is-open a,
+  .site-nav.is-open .site-nav__group-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;               /* target sentuh */
+    padding: var(--space-2xs) var(--space-2xs);
+    text-decoration: none;
+    border-radius: var(--radius-s);
+  }
+  .site-nav.is-open .site-nav__group { position: static; }
+  .site-nav.is-open .site-nav__submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    min-width: 0;
+    padding: 0 0 var(--space-2xs) var(--space-s);
+  }
 }
 
 .site-nav__group { position: relative; }
@@ -98,6 +155,9 @@
 .lang-switch a {
   text-decoration: none;
   padding: .2em .4em;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;   /* target sentuh */
 }
 .lang-switch [aria-current="true"] {
   color: var(--violet);
@@ -106,13 +166,24 @@
 
 .nav-toggle {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 1px solid var(--paper-line);
   border-radius: var(--radius-s);
-  padding: var(--space-2xs) var(--space-xs);
+  min-width: 44px;    /* target sentuh 44×44 */
+  min-height: 44px;
+  font-size: var(--step-1);
 }
 @media (min-width: 960px) {
   .nav-toggle { display: none; }
+}
+
+/* Layar sangat sempit: sembunyikan tombol CTA header agar tidak memicu
+   horizontal scroll di 320px. CTA tetap ada di hero, halaman tiket, dan
+   daftar menu mobile. */
+@media (max-width: 420px) {
+  .site-header__actions .btn { display: none; }
 }
 
 /* — Tombol — */
@@ -352,6 +423,18 @@
 }
 .empty-state p { max-width: var(--container-narrow); margin-inline: auto; color: var(--ink-2); }
 
+/* — Catatan kosong inline (mis. berita kosong) — */
+.empty-note {
+  grid-column: 1 / -1;
+  padding: var(--space-l);
+  text-align: center;
+  background: var(--paper-2);
+  border-radius: var(--radius-l);
+  color: var(--ink-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
 /* — Tier mitra (kosong sampai dikonfirmasi) — */
 .tier-block {
   padding: var(--space-m);
@@ -410,11 +493,15 @@
 }
 .modal__close {
   position: absolute;
-  top: var(--space-s); right: var(--space-s);
+  top: var(--space-xs); right: var(--space-xs);
   background: none; border: none;
   font-size: var(--step-1);
   line-height: 1;
-  padding: .25em .5em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;    /* target sentuh 44×44 */
+  min-height: 44px;
 }
 .modal__store-buttons {
   display: flex;

@@ -114,6 +114,19 @@
     });
   }
 
+  /* — Empty-state berita: data-driven, tidak tergantung urutan skrip halaman.
+     Kalau NEWS kosong, tampilkan "Belum ada berita" alih-alih grid kosong. */
+  function renderNewsEmptyState() {
+    if (!window.D || !Array.isArray(window.D.NEWS) || window.D.NEWS.length > 0) return;
+    var label = (window.D.NEWS_EMPTY && window.D.NEWS_EMPTY[LANG]) || 'No news yet.';
+    document.querySelectorAll('[data-news-cards]').forEach(function (grid) {
+      var p = document.createElement('p');
+      p.className = 'empty-note';
+      p.textContent = label;
+      grid.replaceChildren(p);
+    });
+  }
+
   function initAccordions() {
     document.querySelectorAll('.accordion-item__trigger').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -225,6 +238,7 @@
       bindAppLinks();
       initAccordions();
       fixLangSwitchLinks();
+      renderNewsEmptyState();
       setFooterYear();
       document.dispatchEvent(new CustomEvent('partials:ready'));
     });

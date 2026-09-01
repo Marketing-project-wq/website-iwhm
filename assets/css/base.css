@@ -26,6 +26,8 @@ body {
 img, picture, svg, video {
   display: block;
   max-width: 100%;
+  height: auto; /* wajib: tanpa ini, atribut height="…" pada <img> dipakai literal
+                   dan merusak rasio (mis. loop hero jadi 1080px tinggi) */
 }
 
 h1, h2, h3, h4 {

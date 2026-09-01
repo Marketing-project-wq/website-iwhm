@@ -54,6 +54,8 @@
   /* — Layout — */
   --container-max:    1280px;
   --container-narrow: 42rem;   /* ≤70 karakter per baris, §6.2/§12 */
+  --header-h:         5.5rem;  /* tinggi header sticky (≈88px), diukur di DevTools.
+                                  Dipakai hero agar tinggi hero = 1 layar - header. */
   --radius-s:  10px;
   --radius-m:  18px;
   --radius-l:  28px;

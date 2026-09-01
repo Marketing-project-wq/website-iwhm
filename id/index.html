@@ -64,7 +64,7 @@
     <section class="intro">
       <div class="container">
         <p class="prose" data-bind="EVENT.introText" style="font-family: var(--font-display); font-weight: 600;"></p>
-        <a href="/id/about.html" class="intro__cta">Baca cerita lengkapnya →</a>
+        <a href="/id/about.html" class="intro__cta">Baca cerita lengkapnya</a>
       </div>
     </section>
 
@@ -124,10 +124,23 @@
     </section>
 
     <!-- MITRA (kosong sampai dikonfirmasi) -->
-    <section class="partners-empty">
-      <div class="container">
-        <h2>Mitra</h2>
-        <p>Mitra resmi IWHM akan diumumkan menjelang race day. <a href="/id/partners.html">Lihat halaman Mitra</a>.</p>
+    <section class="partners-teaser">
+      <div class="container partners-teaser__inner">
+        <div>
+          <h2>Digerakkan Bersama Komunitas</h2>
+          <p>Lebih dari sekadar lomba — IWHM tumbuh dari jaringan komunitas lari yang bergerak bersama. Mitra resmi akan diumumkan menjelang race day.</p>
+          <a href="/id/partners.html" class="btn btn--secondary">Lihat Halaman Mitra</a>
+        </div>
+        <dl class="partners-teaser__stats">
+          <div>
+            <dd class="partners-teaser__num" data-bind="EVENT.communities"></dd>
+            <dt>Komunitas lari mitra</dt>
+          </div>
+          <div>
+            <dd class="partners-teaser__num" data-bind="EVENT.networkReach"></dd>
+            <dt>Jangkauan jaringan</dt>
+          </div>
+        </dl>
       </div>
     </section>
 
