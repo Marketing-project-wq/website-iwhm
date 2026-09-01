@@ -110,6 +110,13 @@
   flex-wrap: wrap;
   gap: var(--space-s);
 }
+/* Mobile: kedua tombol hero jadi lebar penuh & bertumpuk — lebar konsisten
+   (bukan rata kiri dgn lebar berbeda) dan target sentuh lebih besar.
+   Desktop tetap satu baris berdampingan. */
+@media (max-width: 640px) {
+  .hero__cta { flex-direction: column; align-items: stretch; }
+  .hero__cta .btn { width: 100%; }
+}
 
 .hero__art {
   position: relative;

@@ -4,6 +4,64 @@
    Kontras mengikuti §6.2. Tipografi §6.3.
    JANGAN pakai nilai warna hardcode di file CSS/HTML lain — selalu var(--x).
    ============================================================ */
+
+/* ============================================================
+   Font self-host (§6.3) — WOFF2 subset latin dari Google Fonts,
+   diserve dari /assets/fonts/ supaya:
+   • tidak ada permintaan ke domain pihak ketiga di production
+   • layout stabil & bisa diukur tanpa tergantung CDN font
+   Hanya weight yang dipakai (Fredoka 500/600/700, Barlow 400/500/600/700),
+   tanpa italic. font-display:swap agar teks tampil segera dgn fallback. */
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/fredoka-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/fredoka-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/fredoka-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-700.woff2') format('woff2');
+}
+
 :root {
   /* — Palet inti (§6.1) — */
   --violet:   #8D39E5;
