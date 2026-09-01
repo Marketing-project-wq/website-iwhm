@@ -202,7 +202,10 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
-  /* — hreflang: id<->en saling menunjuk + x-default ke ID (§8) — */
+  /* — hreflang + canonical (§8) —
+     id<->en saling menunjuk; x-default → EN (bahasa default situs, sejalan
+     dengan redirect root Caddy ke /en/). Canonical tiap halaman menunjuk ke
+     dirinya sendiri (versi bahasanya), bukan ke pasangan bahasa lain. */
   function addHreflangTags() {
     if (!window.D || !window.D.SITE_URL) return;
     var currentFile = location.pathname.split('/').pop() || 'index.html';
@@ -210,7 +213,7 @@
     [
       ['id', base + '/id/' + currentFile],
       ['en', base + '/en/' + currentFile],
-      ['x-default', base + '/id/' + currentFile]
+      ['x-default', base + '/en/' + currentFile]
     ].forEach(function (pair) {
       var link = document.createElement('link');
       link.setAttribute('rel', 'alternate');
@@ -218,6 +221,10 @@
       link.setAttribute('href', pair[1]);
       document.head.appendChild(link);
     });
+    var canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    canonical.setAttribute('href', base + '/' + window.D.LANG + '/' + currentFile);
+    document.head.appendChild(canonical);
   }
 
   /* — JSON-LD SportsEvent, dihitung dari window.D supaya tidak pernah drift
