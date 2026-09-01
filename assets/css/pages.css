@@ -87,7 +87,9 @@
   background: rgba(255,255,255,.12);
   border-radius: var(--radius-m);
   padding: var(--space-2xs) var(--space-s);
-  min-width: 4rem;
+  /* Lebar seragam untuk keempat unit — cukup untuk label terpanjang ("Menit")
+     sehingga Hari/Jam/Menit/Detik sejajar, tidak mengikuti panjang label. */
+  min-width: 4.75rem;
   text-align: center;
 }
 .countdown__value {

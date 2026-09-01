@@ -24,7 +24,12 @@
     venue:    { id: 'Plaza Parkir Timur, GBK Senayan, Jakarta',
                 en: 'Plaza Parkir Timur, GBK Senayan, Jakarta' },
     venueConfirmed: true,
+    // Catatan resmi deck — ditampilkan sebagai keterangan kecil di sebelah
+    // field Venue (bukan lagi sebagai subtitle hero Race Day).
     venueNote: { id: 'Venue dapat berubah.', en: 'Venue is subject to change.' },
+    // Subtitle hero halaman Race Day (menggantikan venueNote di posisi itu).
+    raceDayIntro: { id: 'Semua yang perlu kamu tahu tentang hari lomba.',
+                    en: 'Everything you need to know about race day.' },
     quota: 4000,
     quotaLabel: { id: '4.000', en: '4,000' },
     ageRange: '17–45',

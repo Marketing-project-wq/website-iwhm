@@ -22,7 +22,7 @@
       <div class="container">
         <span class="page-hero__eyebrow">Race</span>
         <h1>Race Day</h1>
-        <p data-bind="EVENT.venueNote"></p>
+        <p data-bind="EVENT.raceDayIntro"></p>
       </div>
     </section>
 
@@ -31,7 +31,7 @@
         <dl class="fact-list about-facts">
           <div><dt>Date</dt><dd data-bind="EVENT.raceDay"></dd></div>
           <div><dt>Operating hours</dt><dd data-bind="EVENT.hours"></dd></div>
-          <div><dt>Venue</dt><dd data-bind="EVENT.venue"></dd></div>
+          <div><dt>Venue</dt><dd data-bind="EVENT.venue"></dd><p class="fact-note" data-bind="EVENT.venueNote"></p></div>
         </dl>
       </div>
     </section>
