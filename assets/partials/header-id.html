@@ -1,15 +1,16 @@
 <div class="container site-header__bar">
   <a href="/id/index.html" class="site-header__logo" aria-label="Beranda IWHM 2026">
-    <img src="/assets/img/logo/logo-horizontal.svg" alt="Indonesia Women Half Marathon 2026">
+    <img class="site-header__logo-full" src="/assets/img/logo/logo-horizontal.svg" alt="Indonesia Women Half Marathon 2026">
+    <img class="site-header__logo-mark" src="/assets/img/logo/logo-mark.svg" alt="Indonesia Women Half Marathon" aria-hidden="true">
   </a>
 
   <nav class="site-nav" aria-label="Navigasi utama">
-    <ul style="display:flex; align-items:center; gap:inherit; list-style:none; padding:0; margin:0;">
+    <ul class="site-nav__list">
       <li><a href="/id/index.html">Beranda</a></li>
       <li><a href="/id/about.html">Tentang</a></li>
       <li class="site-nav__group">
-        <button class="site-nav__group-toggle" aria-expanded="false">Lomba <span aria-hidden="true">▾</span></button>
-        <ul class="site-nav__submenu">
+        <button class="site-nav__group-toggle" aria-expanded="false" aria-controls="nav-sub-lomba">Lomba <span class="site-nav__chevron" aria-hidden="true">▾</span></button>
+        <ul class="site-nav__submenu" id="nav-sub-lomba">
           <li><a href="/id/categories.html">Kategori &amp; Podium</a></li>
           <li><a href="/id/schedule.html">Jadwal</a></li>
           <li><a href="/id/race-pack.html">Race Pack Collection</a></li>
@@ -18,8 +19,8 @@
         </ul>
       </li>
       <li class="site-nav__group">
-        <button class="site-nav__group-toggle" aria-expanded="false">Info <span aria-hidden="true">▾</span></button>
-        <ul class="site-nav__submenu">
+        <button class="site-nav__group-toggle" aria-expanded="false" aria-controls="nav-sub-info">Info <span class="site-nav__chevron" aria-hidden="true">▾</span></button>
+        <ul class="site-nav__submenu" id="nav-sub-info">
           <li><a href="/id/faq.html">Tanya Jawab</a></li>
           <li><a href="/id/news.html">Berita</a></li>
           <li><a href="/id/gallery.html">Galeri</a></li>
@@ -28,6 +29,9 @@
       <li><a href="/id/partners.html">Mitra</a></li>
       <li><a href="/id/contact.html">Kontak</a></li>
     </ul>
+    <div class="site-nav__cta">
+      <a href="#" class="btn btn--primary" data-register data-cta="mobile-menu">Ikuti Kabarnya</a>
+    </div>
   </nav>
 
   <div class="site-header__actions">

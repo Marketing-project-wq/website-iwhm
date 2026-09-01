@@ -4,6 +4,64 @@
    Kontras mengikuti §6.2. Tipografi §6.3.
    JANGAN pakai nilai warna hardcode di file CSS/HTML lain — selalu var(--x).
    ============================================================ */
+
+/* ============================================================
+   Font self-host (§6.3) — WOFF2 subset latin dari Google Fonts,
+   diserve dari /assets/fonts/ supaya:
+   • tidak ada permintaan ke domain pihak ketiga di production
+   • layout stabil & bisa diukur tanpa tergantung CDN font
+   Hanya weight yang dipakai (Fredoka 500/600/700, Barlow 400/500/600/700),
+   tanpa italic. font-display:swap agar teks tampil segera dgn fallback. */
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/fredoka-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/fredoka-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/fredoka-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/barlow-700.woff2') format('woff2');
+}
+
 :root {
   /* — Palet inti (§6.1) — */
   --violet:   #8D39E5;
@@ -54,6 +112,19 @@
   /* — Layout — */
   --container-max:    1280px;
   --container-narrow: 42rem;   /* ≤70 karakter per baris, §6.2/§12 */
+  --header-h:         5.5rem;  /* tinggi header sticky (≈88px), diukur di DevTools.
+                                  Dipakai hero agar tinggi hero = 1 layar - header. */
+
+  /* — Breakpoint navigasi (SUMBER TUNGGAL) —
+     Ambang tunggal peralihan nav desktop ↔ mobile. Di ATAS nilai ini nav
+     desktop tampil & hamburger sembunyi; di BAWAHnya (≤959px) hamburger
+     tampil & CTA header WAJIB sembunyi (CTA pindah ke panel menu).
+     CATATAN: custom property TIDAK bisa dipakai di dalam kondisi @media,
+     jadi nilai ini didokumentasikan di sini dan literalnya dipakai konsisten:
+       • desktop  : @media (min-width: 960px)
+       • mobile   : @media (max-width: 959px)
+     Semua media query terkait nav HARUS memakai 960/959px, bukan angka lain. */
+  --bp-nav: 960px;   /* referensi/dokumentasi — lihat catatan di atas */
   --radius-s:  10px;
   --radius-m:  18px;
   --radius-l:  28px;

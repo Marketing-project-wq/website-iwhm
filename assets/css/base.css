@@ -22,10 +22,21 @@ body {
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
 }
+/* Kunci scroll latar saat panel nav mobile terbuka (top di-set inline via JS
+   agar posisi scroll tidak lompat ke atas). */
+body.nav-locked {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+}
 
 img, picture, svg, video {
   display: block;
   max-width: 100%;
+  height: auto; /* wajib: tanpa ini, atribut height="…" pada <img> dipakai literal
+                   dan merusak rasio (mis. loop hero jadi 1080px tinggi) */
 }
 
 h1, h2, h3, h4 {

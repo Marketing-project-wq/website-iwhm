@@ -22,30 +22,132 @@
 }
 
 .site-header__logo {
-  display: block;
+  display: flex;
+  align-items: center;
   height: 36px;
-  width: auto;
 }
 .site-header__logo img { height: 100%; width: auto; }
+/* Wordmark penuh di ≥480px; di bawah itu wordmark 4-baris jadi terlalu kecil,
+   jadi tampilkan mark 4-kelopak saja (§P3). */
+.site-header__logo-mark { display: none; }
+@media (max-width: 479px) {
+  .site-header__logo-full { display: none; }
+  .site-header__logo-mark { display: block; }
+}
 
-.site-nav {
-  display: none;
+.site-nav { display: none; }
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 @media (min-width: 960px) {
   .site-nav {
     display: flex;
     align-items: center;
-    gap: var(--space-m);
-    list-style: none;
-    padding: 0;
     font-size: var(--step--1);
     font-weight: 600;
+  }
+  .site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
   }
   .site-nav a {
     text-decoration: none;
     padding: var(--space-3xs) var(--space-2xs);
   }
   .site-nav a:hover { color: var(--violet); }
+}
+
+/* — Nav mobile: panel layar penuh, scrollable, accordion, CTA sticky (<960px) — */
+.site-nav__cta { display: none; }   /* hanya untuk panel mobile */
+@media (max-width: 959px) {
+  .site-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* 100dvh (bukan vh) supaya bilah alamat browser mobile tidak memotong isi.
+       Panel menutup dari bawah header sampai dasar layar → hero tidak bocor. */
+    height: calc(100dvh - var(--header-h));
+    background: var(--paper);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-s) var(--space-m) 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    z-index: 35;
+  }
+  .site-nav.is-open .site-nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3xs);
+    font-weight: 600;
+    flex: 1 0 auto;   /* dorong CTA ke dasar saat isi pendek */
+  }
+  /* Reset khusus tautan DAFTAR menu — jangan sentuh .site-nav__cta,
+     supaya tombol CTA tetap memakai styling .btn (bukan teks polos). */
+  .site-nav.is-open .site-nav__list a,
+  .site-nav.is-open .site-nav__group-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 44px;               /* target sentuh */
+    padding: var(--space-2xs);
+    text-decoration: none;
+    border-radius: var(--radius-s);
+    font: inherit;
+    font-weight: 600;
+    background: none;
+    border: none;
+    color: inherit;
+    text-align: left;
+  }
+  .site-nav.is-open .site-nav__group { position: static; }
+  /* Accordion: submenu tertutup default; buka hanya saat aria-expanded=true */
+  .site-nav.is-open .site-nav__submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    min-width: 0;
+    display: none;
+    padding: 0 0 var(--space-2xs) var(--space-s);
+  }
+  .site-nav.is-open .site-nav__group-toggle[aria-expanded="true"] + .site-nav__submenu {
+    display: block;
+  }
+  .site-nav__chevron { transition: transform var(--transition); }
+  .site-nav.is-open .site-nav__group-toggle[aria-expanded="true"] .site-nav__chevron {
+    transform: rotate(180deg);
+  }
+  /* CTA menempel di dasar panel, di atas home indicator iPhone.
+     Latar wajib opak (var(--paper)) supaya konten yang men-scroll di
+     belakangnya lenyap bersih, tidak terpotong separuh huruf. Bayangan
+     halus di sisi atas memisahkan CTA dari konten — bukan garis tegas. */
+  .site-nav__cta {
+    display: block;
+    position: sticky;
+    bottom: 0;
+    background: var(--paper);
+    box-shadow: 0 -8px 16px -8px rgb(0 0 0 / 0.12);
+    padding: var(--space-s) 0 max(var(--space-s), env(safe-area-inset-bottom));
+    margin-top: var(--space-xs);
+  }
+  /* CTA satu-satunya di panel mobile → paling menonjol: pil lebar penuh,
+     tinggi minimal 48px (komponen .btn yang sudah ada, tidak bikin baru). */
+  .site-nav__cta .btn {
+    width: 100%;
+    min-height: 48px;
+  }
 }
 
 .site-nav__group { position: relative; }
@@ -98,6 +200,9 @@
 .lang-switch a {
   text-decoration: none;
   padding: .2em .4em;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;   /* target sentuh */
 }
 .lang-switch [aria-current="true"] {
   color: var(--violet);
@@ -106,13 +211,24 @@
 
 .nav-toggle {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 1px solid var(--paper-line);
   border-radius: var(--radius-s);
-  padding: var(--space-2xs) var(--space-xs);
+  min-width: 44px;    /* target sentuh 44×44 */
+  min-height: 44px;
+  font-size: var(--step-1);
 }
 @media (min-width: 960px) {
   .nav-toggle { display: none; }
+}
+
+/* Saat hamburger muncul (≤959px, breakpoint nav tunggal — lihat tokens.css
+   --bp-nav), CTA header WAJIB sembunyi tanpa pengecualian. CTA-nya pindah ke
+   panel menu mobile, jadi tidak ada CTA ganda dan tidak ada horizontal scroll. */
+@media (max-width: 959px) {
+  .site-header__actions .btn { display: none; }
 }
 
 /* — Tombol — */
@@ -352,6 +468,18 @@
 }
 .empty-state p { max-width: var(--container-narrow); margin-inline: auto; color: var(--ink-2); }
 
+/* — Catatan kosong inline (mis. berita kosong) — */
+.empty-note {
+  grid-column: 1 / -1;
+  padding: var(--space-l);
+  text-align: center;
+  background: var(--paper-2);
+  border-radius: var(--radius-l);
+  color: var(--ink-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
 /* — Tier mitra (kosong sampai dikonfirmasi) — */
 .tier-block {
   padding: var(--space-m);
@@ -410,11 +538,15 @@
 }
 .modal__close {
   position: absolute;
-  top: var(--space-s); right: var(--space-s);
+  top: var(--space-xs); right: var(--space-xs);
   background: none; border: none;
   font-size: var(--step-1);
   line-height: 1;
-  padding: .25em .5em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;    /* target sentuh 44×44 */
+  min-height: 44px;
 }
 .modal__store-buttons {
   display: flex;

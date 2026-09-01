@@ -9,7 +9,14 @@
   overflow: hidden;
   background: var(--gradient-violet);
   color: var(--paper);
-  padding-block: var(--space-2xl) var(--space-xl);
+  /* Tinggi hero = satu layar dikurangi header sticky (svh, bukan vh, agar
+     stabil terhadap bilah alamat browser mobile). Konten dipusatkan vertikal;
+     padding memberi sedikit "peek" bahwa masih ada konten di bawah. */
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--space-m) var(--space-s);
 }
 .hero__corner-loop {
   position: absolute;
@@ -37,45 +44,57 @@
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--citrus);
-  margin-bottom: var(--space-s);
+  margin-bottom: var(--space-2xs);
 }
 .hero__title {
   color: var(--paper);
-  margin-bottom: var(--space-s);
+  line-height: 1.03;   /* lebih rapat dari default h1 (1.1) — hemat tinggi pada
+                          headline multi-baris tanpa mengecilkan ukuran font */
+  margin-bottom: var(--space-xs);
+}
+/* Tiap baris headline (dari array heroHeadline) jadi blok sendiri:
+   pemenggalan baris terkontrol dari data.js, bukan dari lebar viewport. */
+.hero__title-line { display: block; }
+/* Di layar sempit (≤480px) turunkan headline satu langkah skala tipe
+   (step-5 → step-4) supaya sub, tanggal, dan countdown naik lebih tinggi.
+   Hanya mobile; desktop tetap memakai h1 = step-5. Disetujui klien. */
+@media (max-width: 480px) {
+  .hero__title { font-size: var(--step-4); }
 }
 .hero__sub {
   max-width: 42ch;
   font-size: var(--step-1);
   color: rgba(255,255,255,.9);
-  margin-bottom: var(--space-m);
+  margin-bottom: var(--space-s);
 }
 .hero__fact {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2xs) var(--space-s);
+  flex-direction: column;   /* tanggal & venue jadi dua baris eksplisit —
+                               tidak ada separator "·" yang menggantung saat wrap */
+  gap: var(--space-3xs);
   font-weight: 700;
   font-size: var(--step-0);
-  margin-bottom: var(--space-m);
+  margin-bottom: var(--space-s);
 }
-.hero__fact-sep { opacity: .5; }
 
 .countdown {
   display: flex;
-  gap: var(--space-s);
-  margin-bottom: var(--space-l);
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-m);
 }
 .countdown__unit {
   background: rgba(255,255,255,.12);
   border-radius: var(--radius-m);
-  padding: var(--space-xs) var(--space-s);
-  min-width: 4.2rem;
+  padding: var(--space-2xs) var(--space-s);
+  min-width: 4rem;
   text-align: center;
 }
 .countdown__value {
   display: block;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--step-2);
+  font-size: var(--step-1);
   color: var(--citrus);
   line-height: 1;
 }
@@ -90,6 +109,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s);
+}
+/* Mobile: kedua tombol hero jadi lebar penuh & bertumpuk — lebar konsisten
+   (bukan rata kiri dgn lebar berbeda) dan target sentuh lebih besar.
+   Desktop tetap satu baris berdampingan. */
+@media (max-width: 640px) {
+  .hero__cta { flex-direction: column; align-items: stretch; }
+  .hero__cta .btn { width: 100%; }
 }
 
 .hero__art {
@@ -108,6 +134,17 @@
   max-width: 45%;
   right: -4%;
   top: 8%;
+}
+
+/* Layar pendek (mis. laptop 1366×768): rapatkan lagi ritme vertikal hero
+   supaya tombol CTA tetap terlihat tanpa scroll. Headline TIDAK dikecilkan. */
+@media (max-height: 820px) {
+  .hero { padding-block: var(--space-s) var(--space-s); }
+  .hero__title { line-height: 1; }
+  .hero__sub { margin-bottom: var(--space-2xs); }
+  .hero__fact { margin-bottom: var(--space-2xs); }
+  .countdown { margin-bottom: var(--space-s); }
+  .countdown__unit { padding: var(--space-3xs) var(--space-xs); }
 }
 
 /* — Intro — */
@@ -291,18 +328,55 @@
   font-weight: 700;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-xs);
+}
+/* Di layar sempit, susun tumpuk (nama di atas, harga+status di bawah) supaya
+   empat elemen tidak berdesakan dalam satu baris (§P3). */
+@media (max-width: 560px) {
+  .ticket-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2xs);
+  }
 }
 .tickets-preview__cta { margin-top: var(--space-m); text-align: center; }
 
 /* — Mitra (kosong) — */
-.partners-empty {
+.partners-teaser {
   padding-block: var(--space-2xl);
-  text-align: center;
+  background: var(--paper-2);
 }
-.partners-empty p {
-  max-width: var(--container-narrow);
-  margin-inline: auto;
+.partners-teaser__inner {
+  display: grid;
+  gap: var(--space-l);
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .partners-teaser__inner { grid-template-columns: 1.2fr .8fr; }
+}
+.partners-teaser p {
+  max-width: 48ch;
+  color: var(--ink-2);
+  margin-block: var(--space-xs) var(--space-m);
+}
+.partners-teaser__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-m);
+  margin: 0;
+}
+.partners-teaser__num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-3);
+  color: var(--violet);
+  line-height: 1;
+  margin: 0;
+}
+.partners-teaser__stats dt {
+  margin-top: var(--space-2xs);
+  font-size: var(--step--1);
   color: var(--ink-2);
 }
 
