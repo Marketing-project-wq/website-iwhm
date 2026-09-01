@@ -55,6 +55,12 @@
 /* Tiap baris headline (dari array heroHeadline) jadi blok sendiri:
    pemenggalan baris terkontrol dari data.js, bukan dari lebar viewport. */
 .hero__title-line { display: block; }
+/* Di layar sempit (≤480px) turunkan headline satu langkah skala tipe
+   (step-5 → step-4) supaya sub, tanggal, dan countdown naik lebih tinggi.
+   Hanya mobile; desktop tetap memakai h1 = step-5. Disetujui klien. */
+@media (max-width: 480px) {
+  .hero__title { font-size: var(--step-4); }
+}
 .hero__sub {
   max-width: 42ch;
   font-size: var(--step-1);
