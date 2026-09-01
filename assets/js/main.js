@@ -27,9 +27,59 @@
     var toggle = document.querySelector('[data-nav-toggle]');
     var nav = document.querySelector('.site-nav');
     if (!toggle || !nav) return;
+    var scrollY = 0;
+
+    function focusableEls() {
+      return Array.prototype.slice.call(
+        nav.querySelectorAll('a[href], button:not([disabled])')
+      ).filter(function (el) { return el.offsetParent !== null; });
+    }
+
+    function openNav() {
+      scrollY = window.scrollY;
+      nav.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      // Kunci scroll body selama panel terbuka
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.classList.add('nav-locked');
+      var first = focusableEls()[0];
+      if (first) first.focus();
+    }
+
+    function closeNav(returnFocus) {
+      if (!nav.classList.contains('is-open')) return;
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-locked');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollY);           // kembalikan posisi scroll
+      if (returnFocus !== false) toggle.focus();
+    }
+
     toggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (nav.classList.contains('is-open')) closeNav(); else openNav();
+    });
+
+    // Tutup panel saat sebuah tautan navigasi diklik (pindah halaman / buka modal)
+    nav.addEventListener('click', function (e) {
+      var link = e.target.closest('a');
+      if (link && !link.closest('.site-nav__cta')) closeNav(false);
+      // CTA (data-register) menutup panel supaya modal tampil bersih
+      var cta = e.target.closest('.site-nav__cta [data-register]');
+      if (cta) closeNav(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!nav.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { closeNav(); return; }
+      if (e.key !== 'Tab') return;
+      // Jebak fokus di dalam panel
+      var items = focusableEls();
+      if (!items.length) return;
+      var first = items[0];
+      var last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
   }
 

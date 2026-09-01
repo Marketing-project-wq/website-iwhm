@@ -22,6 +22,15 @@ body {
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
 }
+/* Kunci scroll latar saat panel nav mobile terbuka (top di-set inline via JS
+   agar posisi scroll tidak lompat ke atas). */
+body.nav-locked {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+}
 
 img, picture, svg, video {
   display: block;
