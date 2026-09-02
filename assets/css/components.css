@@ -316,7 +316,7 @@
   color: rgba(255,255,255,.72);
   max-width: 32ch;
 }
-.site-footer h3 {
+.site-footer h2 {
   font-size: var(--step--1);
   font-family: var(--font-body);
   font-weight: 700;
@@ -491,7 +491,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--mauve);
+  color: var(--violet);
   font-size: var(--step--1);
 }
 
@@ -501,7 +501,7 @@
 .fact-list dd { margin: .1em 0 0; font-family: var(--font-display); font-weight: 600; font-size: var(--step-0); }
 /* Keterangan kecil di bawah sebuah fakta (mis. "Venue dapat berubah") —
    catatan kaki, bukan peringatan menonjol. */
-.fact-note { margin: .2em 0 0; font-size: var(--step--1); color: var(--ink-2); font-style: italic; }
+.fact-note { margin: .2em 0 0; font-family: var(--font-body); font-weight: 400; font-size: var(--step--1); color: var(--ink-2); font-style: italic; }
 
 /* — Modal (data-register, §8) — */
 .modal-overlay {
