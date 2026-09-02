@@ -34,7 +34,7 @@
     quotaLabel: { id: '4.000', en: '4,000' },
     ageRange: '17–45',
     communities: '45++',
-    networkReach: { id: '6.000++ orang', en: '6,000++ people' }, // §3.8, halaman partner saja
+    networkReach: { id: '6.000++', en: '6,000++' }, // §3.8, halaman partner saja. Satuan (orang/people) dihilangkan dari nilai supaya angka tidak pecah baris; "Jangkauan komunitas / Community reach" sudah menyiratkannya
     theme:    { id: null, en: 'Continuing the Movement, Redefining the Journey' },
     hashtag:  '#UnstoppableHerJourney',
 
@@ -104,7 +104,7 @@
       } },
     { key: '5k', name: '5K', fullName: { id: '5K', en: '5K' },
       distanceKm: 5, cot: null, accent: 'citrus',
-      tagline: { id: 'Jarak pertama, atau jarak yang paling ramai.',
+      tagline: { id: 'Jarak pertama untuk sebagian, yang paling meriah untuk semua.',
                  en: 'The first distance — or the loudest one.' },
       desc: {
         id: 'Titik awal yang pas untuk pelari baru, atau siapa pun yang ingin berlari bersama teman. Yang penting bergerak, percaya diri, dan menikmati kebersamaan — bukan kecepatan.',
