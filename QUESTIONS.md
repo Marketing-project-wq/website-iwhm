@@ -2,6 +2,8 @@
 
 Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. Ini daftar pertanyaan ke klien/desainer, bukan sesuatu yang dijawab sendiri oleh Claude Code.
 
+> **Versi siap kirim ke 20FIT:** lihat `docs/DATA-REQUEST-WA-2026-09.md` — daftar ini dipadatkan jadi pesan WhatsApp yang dikelompokkan per mendesaknya (bukan per halaman).
+
 ## ✅ Sudah terjawab (31 Agustus 2026)
 
 - ~~Race day: 22 atau 29 November?~~ → **29 November 2026** — ⚠️ **DIKOREKSI ULANG, lihat di bawah**
@@ -10,9 +12,16 @@ Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. In
 
 ## ✅ Koreksi terbaru (menggantikan jawaban 31 Agustus di atas)
 
-- **Race day final: 22 November 2026, Plaza Parkir Timur, GBK Senayan.** Konfirmasi 31 Agu sempat menyebut 29 Nov/Plaza Barat — itu sudah tidak berlaku.
+- **Race day final: 22 November 2026, Plaza Parkir Timur, GBK Senayan.** Konfirmasi 31 Agu sempat menyebut 29 Nov/Plaza Barat — itu sudah tidak berlaku. **Masih perlu satu konfirmasi final dari klien** (venue/tanggal sempat bergeser dua kali) — masuk daftar kirim `docs/DATA-REQUEST-WA-2026-09.md` no. 1.
 - RPC (20–21 Nov) dan Shake Out Run (21 Nov) adalah turunan dari pergeseran ini dan **belum dikonfirmasi** — masih render badge TBC di `schedule.html`/`race-pack.html` sampai klien memastikan.
 - **Tanggal pembukaan registrasi belum ditentukan sama sekali.** Klaim "Agustus 2026" yang sempat ada di CTA/modal adalah salah dan sudah dihapus dari seluruh situs — jangan diisi tebakan lain.
+
+## ✅ Terjawab / tuntas per 2 September 2026
+
+- **#7 Jarak resmi HM → 21 km.** Sudah dipakai di kartu kategori & halaman kategori.
+- **#17 (bagian headline) → headline hero sudah dipilih & terpasang** (`EVENT.heroHeadline` di `data.js`). Approval naskah storytelling §9.3–9.5 selebihnya masih menunggu klien.
+- **#19 disclaimer "venue dapat berubah" → selesai.** Subtitle dihapus dari halaman Race Day; catatan dipindah menjadi `fact-note` di sebelah field Venue.
+- **#20 Road to Event → ditiadakan sepenuhnya** (section Timeline juga sudah dihapus; `schedule.html` dibangun ulang dengan Race Weekend nyata).
 
 ## 🔴 Blocking — situs tidak bisa dipublikasikan tanpa ini
 
@@ -33,7 +42,7 @@ Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. In
 
 ## 🟡 Penting — bisa diisi TBC di rilis awal
 
-7. Jarak resmi HM dalam angka.
+7. ~~Jarak resmi HM dalam angka.~~ → **21 km** (terjawab, lihat di atas).
 8. Cut-off time per kategori.
 9. Batas usia kategori Master.
 10. Nilai hadiah podium.
@@ -43,10 +52,10 @@ Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. In
 14. Isi race pack & syarat pengambilan.
 15. Peta rute.
 16. Nama final fase pre-sale 40% (§3.5).
-17. Approval naskah storytelling §9.3–9.5 — termasuk memilih antara dua opsi headline hero.
+17. Approval naskah storytelling §9.3–9.5. ~~Memilih antara dua opsi headline hero~~ → headline sudah dipilih & terpasang; sisa naskah masih menunggu.
 18. Konfirmasi bahwa IWHM 2025 boleh dirujuk secara terbuka di halaman Tentang (§9.4 bagian 4).
-19. Apakah disclaimer "venue dapat berubah" masih perlu ditampilkan di halaman Race Day?
-20. Apakah Road to Event akan dimasukkan di rilis berikutnya, atau ditiadakan sepenuhnya? Menentukan apakah Lampiran C dipertahankan.
+19. ~~Apakah disclaimer "venue dapat berubah" masih perlu ditampilkan di halaman Race Day?~~ → **Selesai** (subtitle dihapus; catatan dipindah ke sebelah field Venue).
+20. ~~Apakah Road to Event akan dimasukkan di rilis berikutnya, atau ditiadakan sepenuhnya?~~ → **Ditiadakan** (section Timeline dihapus).
 
 ## 📱 Link aplikasi — perlu verifikasi
 
