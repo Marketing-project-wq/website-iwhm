@@ -388,17 +388,40 @@
   font-weight: 600;
   font-size: var(--step-0);
 }
+/* Ikon status digambar via CSS: dua bilah membentuk "+" saat tertutup; saat
+   terbuka bilah vertikal memudar → "−". "−" berarti "klik untuk menutup",
+   bukan "×" (yang universal berarti tutup/batal). Span ikon dibiarkan kosong
+   di markup; bentuk sepenuhnya dari pseudo-element. */
 .accordion-item__icon {
   flex-shrink: 0;
-  transition: transform var(--transition);
+  position: relative;
+  width: 1em;
+  height: 1em;
 }
-.accordion-item[data-open="true"] .accordion-item__icon { transform: rotate(45deg); }
+.accordion-item__icon::before,
+.accordion-item__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: .72em;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+  transition: opacity var(--transition), transform var(--transition);
+}
+.accordion-item__icon::after { transform: translate(-50%, -50%) rotate(90deg); } /* bilah vertikal */
+.accordion-item[data-open="true"] .accordion-item__icon::after {
+  opacity: 0;                                        /* "+" → "−" */
+  transform: translate(-50%, -50%) rotate(0deg);
+}
 .accordion-item__panel {
   padding: 0 var(--space-m);
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--transition), padding var(--transition);
-  color: var(--ink-2);
+  color: var(--ink);
 }
 .accordion-item[data-open="true"] .accordion-item__panel {
   padding: 0 var(--space-m) var(--space-m);
