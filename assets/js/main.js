@@ -231,7 +231,7 @@
         name: D.EVENT.venue ? D.EVENT.venue[D.LANG] : undefined,
         address: { '@type': 'PostalAddress', addressLocality: 'Jakarta', addressCountry: 'ID' }
       },
-      organizer: { '@type': 'Organization', name: '20FIT | EVENT' },
+      organizer: { '@type': 'Organization', name: '20FIT EVENT' },
       description: D.EVENT.description ? D.EVENT.description[D.LANG] : undefined,
       inLanguage: D.LANG,
       url: D.SITE_URL ? (D.SITE_URL + '/' + D.LANG + '/' + currentFile) : undefined
