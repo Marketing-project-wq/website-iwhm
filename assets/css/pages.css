@@ -202,8 +202,20 @@
 .category-card__art {
   position: relative;
   z-index: 1;
+  display: block;
   width: 96px;
+  height: 96px;
   margin-bottom: var(--space-s);
+  /* Kelopak dari logo mark, ditrace jadi SVG (petal-i/w/h). Warnanya diambil
+     dari token --violet via mask, bukan di-bake ke file — mask-image (kelopak)
+     hanya berperan sebagai bentuk; aksen kartu tetap hidup di corner glow. */
+  background: var(--violet);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
 }
 .category-card__name {
   position: relative;

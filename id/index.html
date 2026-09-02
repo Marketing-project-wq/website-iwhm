@@ -168,20 +168,20 @@
       var D = window.D;
       if (!D) return;
 
-      var elementArt = { hm: 'element-01.webp', '10k': 'element-04.webp', '5k': 'element-06.webp' };
+      var elementArt = { hm: 'petal-i.svg', '10k': 'petal-w.svg', '5k': 'petal-h.svg' };
 
       // — Kartu kategori (§8 data-category-cards) —
       var catGrid = document.querySelector('[data-category-cards]');
       if (catGrid) {
         D.CATEGORIES.forEach(function (cat) {
-          var art = elementArt[cat.key] || 'element-01.webp';
+          var art = elementArt[cat.key] || 'petal-i.svg';
           var distance = cat.distanceKm
             ? '<span>' + cat.distanceKm + ' KM</span>'
             : '<span class="badge badge--tbc">Jarak TBC</span>';
           var card = document.createElement('article');
           card.className = 'category-card category-card--' + cat.accent;
           card.innerHTML =
-            '<img class="category-card__art" src="/assets/img/graphics/' + art + '" width="96" height="96" alt="" loading="lazy">' +
+            '<span class="category-card__art" aria-hidden="true" style="-webkit-mask-image:url(/assets/img/graphics/' + art + ');mask-image:url(/assets/img/graphics/' + art + ')"></span>' +
             '<h3 class="category-card__name">' + cat.name + '</h3>' +
             '<div class="category-card__distance">' + distance + '</div>' +
             '<p class="category-card__tagline">' + cat.tagline[D.LANG] + '</p>' +
