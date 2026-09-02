@@ -165,11 +165,16 @@
   }
 
   /* — Empty-state berita: data-driven, tidak tergantung urutan skrip halaman.
-     Kalau NEWS kosong, tampilkan "Belum ada berita" alih-alih grid kosong. */
+     Di Beranda (teaser), kalau NEWS kosong seluruh section disembunyikan —
+     ruang kosong besar hanya untuk satu kalimat tidak sepadan. Di halaman
+     Berita khusus, tetap tampilkan "Belum ada berita" (itu memang isinya). */
   function renderNewsEmptyState() {
     if (!window.D || !Array.isArray(window.D.NEWS) || window.D.NEWS.length > 0) return;
+    var isHome = /(^|\/)index\.html$/.test(location.pathname) || location.pathname.endsWith('/');
     var label = (window.D.NEWS_EMPTY && window.D.NEWS_EMPTY[LANG]) || 'No news yet.';
     document.querySelectorAll('[data-news-cards]').forEach(function (grid) {
+      var section = grid.closest('section');
+      if (isHome && section) { section.hidden = true; return; }
       var p = document.createElement('p');
       p.className = 'empty-note';
       p.textContent = label;

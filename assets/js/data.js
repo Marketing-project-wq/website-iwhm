@@ -34,7 +34,7 @@
     quotaLabel: { id: '4.000', en: '4,000' },
     ageRange: '17–45',
     communities: '45++',
-    networkReach: { id: '6.000++ orang', en: '6,000++ people' }, // §3.8, halaman partner saja
+    networkReach: { id: '6.000++', en: '6,000++' }, // §3.8, halaman partner saja. Satuan (orang/people) dihilangkan dari nilai supaya angka tidak pecah baris; "Jangkauan komunitas / Community reach" sudah menyiratkannya
     theme:    { id: null, en: 'Continuing the Movement, Redefining the Journey' },
     hashtag:  '#UnstoppableHerJourney',
 
@@ -55,7 +55,7 @@
       en: ['Before sunrise,', 'Senayan is already moving.']
     },
     heroSub: {
-      id: 'Indonesia Women Half Marathon 2026 — 5K, 10K, dan Half Marathon. Sebuah perayaan kekuatan, ketangguhan, dan kebersamaan.',
+      id: 'Indonesia Women Half Marathon 2026 — 5K, 10K, dan Half Marathon. Tempat perempuan berlari, saling menguatkan, dan tumbuh bersama.',
       en: 'Indonesia Women Half Marathon 2026 — 5K, 10K, and Half Marathon. A celebration of strength, resilience, and unity.'
     },
     introText: {
@@ -88,10 +88,10 @@
   var CATEGORIES = [
     { key: 'hm', name: 'HM', fullName: { id: 'Half Marathon', en: 'Half Marathon' },
       distanceKm: 21, cot: null, accent: 'violet',
-      tagline: { id: 'Jarak yang menuntut kamu hadir jauh sebelum hari lombanya.',
+      tagline: { id: 'Jarak yang menuntut kamu siap jauh sebelum race day.',
                  en: 'The distance that asks you to show up months before race day.' },
       desc: {
-        id: 'Dirancang untuk pelari yang siap menempuh jarak penuh. Rasakan perjalanan lengkap dari kekuatan, fokus, dan pencapaian di rute yang terukur secara profesional.',
+        id: 'Untuk kamu yang siap menempuh jarak penuh. Butuh kekuatan, fokus, dan persiapan panjang — di rute yang tersertifikasi.',
         en: 'Designed for committed runners ready to go the distance. Experience the full journey of strength, focus, and accomplishment on a professionally measured route.'
       } },
     { key: '10k', name: '10K', fullName: { id: '10K', en: '10K' },
@@ -99,15 +99,15 @@
       tagline: { id: 'Cukup jauh untuk terasa, cukup dekat untuk dikejar.',
                  en: 'Far enough to feel it. Close enough to chase.' },
       desc: {
-        id: 'Untuk pelari yang mencari perpaduan seimbang antara daya tahan dan kecepatan. Uji batasmu dan rasakan sensasi kemajuan pribadi di rute yang hidup dan menginspirasi.',
+        id: 'Untuk kamu yang mencari keseimbangan antara daya tahan dan kecepatan. Dorong batasmu dan nikmati setiap kemajuan, di rute yang ramai dan hidup.',
         en: 'For runners seeking a balanced mix of endurance and speed. Push your limits and feel the thrill of personal progress on a vibrant and inspiring course.'
       } },
     { key: '5k', name: '5K', fullName: { id: '5K', en: '5K' },
       distanceKm: 5, cot: null, accent: 'citrus',
-      tagline: { id: 'Jarak pertama, atau jarak yang paling ramai.',
+      tagline: { id: 'Jarak pertama untuk sebagian, yang paling meriah untuk semua.',
                  en: 'The first distance — or the loudest one.' },
       desc: {
-        id: 'Awal yang pas untuk pelari pemula atau siapa pun yang ingin menikmati lari penuh semangat bersama teman. Rayakan gerak, kepercayaan diri, dan kebersamaan dalam suasana yang suportif.',
+        id: 'Titik awal yang pas untuk pelari baru, atau siapa pun yang ingin berlari bersama teman. Yang penting bergerak, percaya diri, dan menikmati kebersamaan — bukan kecepatan.',
         en: 'A perfect start for first-time runners or those looking to enjoy a spirited run with friends. Celebrate movement, confidence, and community in a supportive environment.'
       } }
   ];
