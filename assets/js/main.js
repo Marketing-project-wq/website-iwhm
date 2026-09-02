@@ -182,14 +182,22 @@
     });
   }
 
+  /* Accordion toggle via event delegation — satu listener di document, bukan
+     per-tombol. Ini tahan terhadap urutan skrip: item FAQ dibangun oleh skrip
+     inline halaman, jadi mengikat per-tombol berisiko terlewat atau (kalau
+     halaman juga mengikat sendiri) terikat ganda sehingga toggle saling
+     membatalkan. Delegasi menghindari keduanya — jangan tambahkan listener
+     accordion lain di manapun. Tombol <button> menangani Enter/Spasi secara
+     native (memicu 'click'), jadi keyboard otomatis berfungsi. */
   function initAccordions() {
-    document.querySelectorAll('.accordion-item__trigger').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var item = btn.closest('.accordion-item');
-        var open = item.getAttribute('data-open') === 'true';
-        item.setAttribute('data-open', open ? 'false' : 'true');
-        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      });
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.accordion-item__trigger');
+      if (!btn) return;
+      var item = btn.closest('.accordion-item');
+      if (!item) return;
+      var open = item.getAttribute('data-open') === 'true';
+      item.setAttribute('data-open', open ? 'false' : 'true');
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
     });
   }
 
