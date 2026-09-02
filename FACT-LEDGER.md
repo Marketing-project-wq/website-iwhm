@@ -33,9 +33,9 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 | Venue race day | Plaza Parkir Timur, GBK Senayan, Jakarta | Koreksi klien (menggantikan konfirmasi 31 Agu 2026 yang sempat menyebut Plaza Barat) | ✅ | index (hero), race-day, schedule, faq, JSON-LD `location` — **tanpa badge TBC** |
 | Jam operasional race day | 04.00 – 10.00 WIB | hal. 29 | ✅ | race-day, schedule |
 | Jam start per kategori | — | — | 🔴 | race-day, categories — TBC, §13 no.12 |
-| Kuota peserta | 4.000 female runners | hal. 6 | ✅ | index (strip fakta), about |
+| Kuota peserta | 4.000 female runners | hal. 6 | ✅ | — (fakta deck; bar statistik homepage dihapus atas permintaan klien, jadi angka ini tidak lagi dirender di situs — tetap dicatat di sini) |
 | Segmen peserta | Female athletes, runners, running community, student | hal. 6 | ✅ | about, faq |
-| Rentang usia | 17 – 45 tahun | hal. 6 | ✅ | index (strip fakta), about, faq |
+| Rentang usia | 17 – 45 tahun | hal. 6 | ✅ | about, faq (bar statistik homepage dihapus) |
 | Catatan venue | "Venue is subject to change" | hal. 6 | ✅ | race-day (disclaimer kecil) — **konfirmasi masih perlu tidaknya, §13 no.19** |
 
 ## 3. Kategori Lomba

@@ -79,24 +79,6 @@
       </div>
     </section>
 
-    <!-- STATS STRIP -->
-    <section class="stats">
-      <div class="container stats__grid">
-        <div class="stats__item">
-          <div class="stats__value" data-bind="EVENT.quotaLabel"></div>
-          <div class="stats__label">Female runners</div>
-        </div>
-        <div class="stats__item">
-          <div class="stats__value" data-stat="categories-count"></div>
-          <div class="stats__label">Race categories</div>
-        </div>
-        <div class="stats__item">
-          <div class="stats__value" data-bind="EVENT.ageRange"></div>
-          <div class="stats__label">Age range</div>
-        </div>
-      </div>
-    </section>
-
     <!-- RACE WEEKEND -->
     <section class="weekend">
       <div class="container">
@@ -117,27 +99,6 @@
         <div class="tickets-preview__cta">
           <a href="/en/tickets.html" class="btn btn--secondary">See All Phases &amp; How to Register</a>
         </div>
-      </div>
-    </section>
-
-    <!-- PARTNERS teaser — diberi bobot lewat fakta komunitas (real) -->
-    <section class="partners-teaser">
-      <div class="container partners-teaser__inner">
-        <div>
-          <h2>Powered by Community</h2>
-          <p>More than a race — IWHM grows from a network of running communities moving together. Official partners will be announced closer to race day.</p>
-          <a href="/en/partners.html" class="btn btn--secondary">See the Partners Page</a>
-        </div>
-        <dl class="partners-teaser__stats">
-          <div>
-            <dd class="partners-teaser__num" data-bind="EVENT.communities"></dd>
-            <dt>Partner running communities</dt>
-          </div>
-          <div>
-            <dd class="partners-teaser__num" data-bind="EVENT.networkReach"></dd>
-            <dt>Community reach</dt>
-          </div>
-        </dl>
       </div>
     </section>
 
@@ -187,9 +148,6 @@
           catGrid.appendChild(card);
         });
       }
-
-      var catCountEl = document.querySelector('[data-stat="categories-count"]');
-      if (catCountEl) catCountEl.textContent = D.CATEGORIES.length;
 
       var weekendGrid = document.querySelector('[data-weekend-cards]');
       if (weekendGrid) {

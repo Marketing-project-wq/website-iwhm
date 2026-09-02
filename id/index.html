@@ -79,24 +79,6 @@
       </div>
     </section>
 
-    <!-- STRIP FAKTA -->
-    <section class="stats">
-      <div class="container stats__grid">
-        <div class="stats__item">
-          <div class="stats__value" data-bind="EVENT.quotaLabel"></div>
-          <div class="stats__label">Pelari perempuan</div>
-        </div>
-        <div class="stats__item">
-          <div class="stats__value" data-stat="categories-count"></div>
-          <div class="stats__label">Kategori race</div>
-        </div>
-        <div class="stats__item">
-          <div class="stats__value" data-bind="EVENT.ageRange"></div>
-          <div class="stats__label">Rentang usia</div>
-        </div>
-      </div>
-    </section>
-
     <!-- RACE WEEKEND -->
     <section class="weekend">
       <div class="container">
@@ -117,27 +99,6 @@
         <div class="tickets-preview__cta">
           <a href="/id/tickets.html" class="btn btn--secondary">Lihat Semua Fase &amp; Cara Daftar</a>
         </div>
-      </div>
-    </section>
-
-    <!-- MITRA (kosong sampai dikonfirmasi) -->
-    <section class="partners-teaser">
-      <div class="container partners-teaser__inner">
-        <div>
-          <h2>Tumbuh Bersama Komunitas</h2>
-          <p>Lebih dari sekadar race — IWHM tumbuh dari komunitas lari yang bergerak bersama. Mitra resmi akan diumumkan menjelang race day.</p>
-          <a href="/id/partners.html" class="btn btn--secondary">Lihat Halaman Mitra</a>
-        </div>
-        <dl class="partners-teaser__stats">
-          <div>
-            <dd class="partners-teaser__num" data-bind="EVENT.communities"></dd>
-            <dt>Komunitas lari mitra</dt>
-          </div>
-          <div>
-            <dd class="partners-teaser__num" data-bind="EVENT.networkReach"></dd>
-            <dt>Jangkauan komunitas</dt>
-          </div>
-        </dl>
       </div>
     </section>
 
@@ -189,10 +150,6 @@
           catGrid.appendChild(card);
         });
       }
-
-      // — Jumlah kategori untuk strip fakta —
-      var catCountEl = document.querySelector('[data-stat="categories-count"]');
-      if (catCountEl) catCountEl.textContent = D.CATEGORIES.length;
 
       // — Kartu race weekend —
       var weekendGrid = document.querySelector('[data-weekend-cards]');

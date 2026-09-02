@@ -30,8 +30,9 @@
     // Subtitle hero halaman Race Day (menggantikan venueNote di posisi itu).
     raceDayIntro: { id: 'Semua yang perlu kamu tahu tentang hari lomba.',
                     en: 'Everything you need to know about race day.' },
-    quota: 4000,
-    quotaLabel: { id: '4.000', en: '4,000' },
+    // Kuota 4.000 female runners (deck hal.6) tercatat di FACT-LEDGER.md.
+    // Bar statistik homepage dihapus atas permintaan klien, jadi angka ini
+    // tidak lagi dirender di situs; field-nya dihapus agar tidak jadi yatim.
     ageRange: '17–45',
     communities: '45++',
     networkReach: { id: '6.000++', en: '6,000++' }, // §3.8, halaman partner saja. Satuan (orang/people) dihilangkan dari nilai supaya angka tidak pecah baris; "Jangkauan komunitas / Community reach" sudah menyiratkannya
@@ -124,10 +125,7 @@
       audience: { id: 'Publik, periode terbatas', en: 'Public, limited period' } },
     { key: 'general', name: { id: 'General Sales', en: 'General Sales' },
       discount: 0, price: null, period: null,
-      audience: { id: 'Publik', en: 'Public' } },
-    { key: 'partnership', name: { id: 'Partnership Program', en: 'Partnership Program' },
-      discount: 20, price: null, period: null,
-      audience: { id: 'Komunitas, influencer, media partner', en: 'Communities, influencers, media partners' } }
+      audience: { id: 'Publik', en: 'Public' } }
   ];
 
   // CATATAN — Section "Timeline perjalanan event" DIHAPUS (lihat PR).
