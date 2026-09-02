@@ -171,21 +171,24 @@
   };
 
   // Race Pack Collection & Race Village (§3.7, hal.25/31).
+  // ID: istilah deck dilokalkan — pertahankan kata serapan yang memang dipakai
+  // lisan (tenant, booth, pop-up, photo spot), terjemahkan yang tidak pernah
+  // diucapkan (culinary, recovery, interactive, sports/beauty treatment).
   var FACILITIES = {
     rpc: [
-      { id: 'Sports apparel & equipment pop-up store', en: 'Sports apparel & equipment pop-up store' },
-      { id: 'Culinary tenant', en: 'Culinary tenant' },
-      { id: 'Sports treatment', en: 'Sports treatment' },
-      { id: 'Beauty treatment', en: 'Beauty treatment' },
+      { id: 'Pop-up store perlengkapan olahraga', en: 'Sports apparel & equipment pop-up store' },
+      { id: 'Tenant kuliner', en: 'Culinary tenant' },
+      { id: 'Perawatan olahraga', en: 'Sports treatment' },
+      { id: 'Perawatan kecantikan', en: 'Beauty treatment' },
       { id: 'Photo spot', en: 'Photo spot' },
-      { id: 'Beauty pop-up corner', en: 'Beauty pop-up corner' }
+      { id: 'Pop-up corner kecantikan', en: 'Beauty pop-up corner' }
     ],
     village: [
-      { id: 'Sports apparel & equipment pop-up store', en: 'Sports apparel & equipment pop-up store' },
-      { id: 'Culinary tenant', en: 'Culinary tenant' },
-      { id: 'Entertainment', en: 'Entertainment' },
-      { id: 'Recovery area', en: 'Recovery area' },
-      { id: 'Interactive booth', en: 'Interactive booth' },
+      { id: 'Pop-up store perlengkapan olahraga', en: 'Sports apparel & equipment pop-up store' },
+      { id: 'Tenant kuliner', en: 'Culinary tenant' },
+      { id: 'Hiburan', en: 'Entertainment' },
+      { id: 'Area pemulihan', en: 'Recovery area' },
+      { id: 'Booth interaktif', en: 'Interactive booth' },
       { id: 'Photo spot', en: 'Photo spot' }
     ]
   };
