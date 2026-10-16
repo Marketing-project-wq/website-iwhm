@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* ============================================================
    generate-seo-tags.js — sisipkan tag SEO STATIS ke <head> tiap
-   halaman /id/ dan /en/ · IWHM 2026
+   halaman /id/ dan /en/ · IWHM 2027
    ------------------------------------------------------------
    Kenapa statis (bukan di-inject JS): crawler non-Google (Bingbot)
    dan scraper Facebook/WhatsApp/Twitter TIDAK menjalankan JS —

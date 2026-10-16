@@ -1,4 +1,4 @@
-# ASSET-REQUEST — IWHM 2026
+# ASSET-REQUEST — IWHM 2027
 
 Status per 2 September 2026. Aset yang **sudah ada** ada di `assets/img/{logo,graphics,bg}/` (lihat `docs/BRAND-AUDIT.md`) — tidak diulang di sini. Daftar di bawah adalah yang **belum ada** dan dibutuhkan untuk build.
 

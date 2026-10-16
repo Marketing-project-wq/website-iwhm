@@ -1,4 +1,4 @@
-# DESIGN-PLAN — IWHM 2026
+# DESIGN-PLAN — IWHM 2027
 
 ## Palet (§6.1, dari sumber vektor logo — sub-sistem A)
 

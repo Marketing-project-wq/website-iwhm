@@ -1,6 +1,6 @@
 /* ============================================================
    main.js — inject header/footer, nav toggle, language switch,
-   register modal · IWHM 2026
+   register modal · IWHM 2027
    ============================================================ */
 (function () {
   'use strict';
@@ -229,7 +229,7 @@
     var data = {
       '@context': 'https://schema.org',
       '@type': 'SportsEvent',
-      name: 'Indonesia Women Half Marathon 2026',
+      name: 'Indonesia Women Half Marathon 2027',
       startDate: D.EVENT.raceDayISO,
       endDate: raceDayEnd,
       eventStatus: 'https://schema.org/EventScheduled',

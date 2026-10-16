@@ -1,5 +1,5 @@
 /* ============================================================
-   countdown.js — hitung mundur ke race day · IWHM 2026
+   countdown.js — hitung mundur ke race day · IWHM 2027
    Tanpa animasi angka berputar (§6.6). Update tiap detik, statis.
    ============================================================ */
 (function () {
