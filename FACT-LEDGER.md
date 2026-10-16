@@ -25,11 +25,11 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 
 ## 2. Race Day
 
-> ⚠️ **Koreksi:** konfirmasi 31 Agustus 2026 (29 November / Plaza Barat) **TIDAK BERLAKU LAGI**. Klien mengoreksi ulang tanggal & venue — nilai di bawah ini adalah yang final saat ini. Kalau ada perubahan lagi nanti, jangan overwrite diam-diam — cross-check dengan riwayat koreksi ini dulu, dua kali sudah terjadi.
+> ⚠️ **Koreksi:** konfirmasi 31 Agustus 2026 (29 November / Plaza Barat) **TIDAK BERLAKU LAGI**. Tanggal race day juga dikoreksi lagi dari **22 November 2026** menjadi **17 Januari 2027** (venue tetap Plaza Parkir Timur). Nilai di bawah ini adalah yang final saat ini. Kalau ada perubahan lagi nanti, jangan overwrite diam-diam — cross-check dengan riwayat koreksi ini dulu, sudah terjadi beberapa kali.
 
 | Fakta | Nilai | Sumber | Status | Dipakai di halaman |
 |---|---|---|---|---|
-| Tanggal race day | Minggu, 22 November 2026 | Koreksi klien (menggantikan konfirmasi 31 Agu 2026 yang sempat menyebut 29 Nov) | ✅ | index (hero+countdown), schedule, race-day, faq, JSON-LD `startDate` — **tanpa badge TBC** |
+| Tanggal race day | Minggu, 17 Januari 2027 | Koreksi klien (menggantikan 22 Nov 2026, yang sebelumnya menggantikan konfirmasi 31 Agu 2026 yang sempat menyebut 29 Nov) | ✅ | index (hero+countdown), schedule, race-day, faq, JSON-LD `startDate` — **tanpa badge TBC** |
 | Venue race day | Plaza Parkir Timur, GBK Senayan, Jakarta | Koreksi klien (menggantikan konfirmasi 31 Agu 2026 yang sempat menyebut Plaza Barat) | ✅ | index (hero), race-day, schedule, faq, JSON-LD `location` — **tanpa badge TBC** |
 | Jam operasional race day | 04.00 – 10.00 WIB | hal. 29 | ✅ | race-day, schedule |
 | Jam start per kategori | — | — | 🔴 | race-day, categories — TBC, §13 no.12 |
@@ -50,7 +50,7 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 
 ## 4. Timeline
 
-> ⚠️ RPC dan Shake Out Run adalah **turunan dari pergeseran race day** (22 Nov) dan **belum dikonfirmasi klien** — render dengan badge TBC, bukan sebagai tanggal final. Tanggal pembukaan registrasi **belum ditentukan sama sekali** — jangan isi tebakan (klien pernah mengoreksi klaim "Agustus 2026" sebagai salah).
+> ⚠️ RPC dan Shake Out Run adalah **turunan dari pergeseran race day** (17 Jan 2027) dan **belum dikonfirmasi klien** — render dengan badge TBC, bukan sebagai tanggal final. Tanggal pembukaan registrasi **belum ditentukan sama sekali** — jangan isi tebakan (klien pernah mengoreksi klaim "Agustus 2026" sebagai salah).
 
 > ⚠️ **Section "Timeline perjalanan event" DIHAPUS dari situs.** Halaman `schedule.html` sekarang hanya menampilkan **Race Weekend** yang nyata (data `WEEKEND`: RPC + Shake Out Run bertanda TBC, dan Race Day). Dua fase paling awal dikeluarkan: **Kick Off "Agu 2026"** (lihat koreksi di bawah) dan **Open Registration** (tanggal belum ada). Klaim "Agustus 2026" sudah muncul **tiga kali** (modal CTA → kartu berita → timeline); semuanya kini dihapus dari kode.
 
@@ -58,9 +58,9 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 |---|---|---|---|---|
 | Teaser / Kick Off (Press Conference) | ~~Agu 2026~~ | hal. 9, 10 | ⚠️ **ditarik** — "Agu 2026" dari deck terbukti tidak andal (kemunculan ke-3 klaim Agustus 2026); tanggal kick off resmi belum dikonfirmasi klien, jangan tampilkan tanggal apa pun | — (tidak dirender) |
 | Open Registration | — | — | 🔴 belum ditentukan, jangan tebak | — (tidak dirender; copy bersyarat di tickets/modal, tanpa tanggal) |
-| Race Pack Collection | 20–21 Nov 2026 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
-| Shake Out Run | 21 Nov 2026 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
-| Race Day | Minggu, 22 Nov 2026, 04.00–10.00 WIB, Plaza Parkir Timur GBK Senayan | Koreksi klien (final) | ✅ | schedule, race-day, index |
+| Race Pack Collection | 15–16 Jan 2027 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
+| Shake Out Run | 16 Jan 2027 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
+| Race Day | Minggu, 17 Jan 2027, 04.00–10.00 WIB, Plaza Parkir Timur GBK Senayan | Koreksi klien (final) | ✅ | schedule, race-day, index |
 
 > Road to Event **tidak** masuk timeline (§3.6, di luar scope — lihat Lampiran C). Jangan sisipkan fase perantara karangan untuk mengisi jarak Agustus–November.
 

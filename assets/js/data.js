@@ -15,11 +15,11 @@
 
   // ✅ Tanggal & venue DIKONFIRMASI klien — koreksi terbaru menggantikan
   // konfirmasi 31 Agu 2026 (yang sempat menyebut 29 Nov/Plaza Barat, kini
-  // TIDAK BERLAKU). Race day final: 22 November 2026, Plaza Parkir Timur.
+  // TIDAK BERLAKU). Race day final: 17 Januari 2027, Plaza Parkir Timur.
   var EVENT = {
-    raceDayISO:       '2026-11-22T04:00:00+07:00',
+    raceDayISO:       '2027-01-17T04:00:00+07:00',
     raceDayConfirmed: true,
-    raceDay:  { id: 'Minggu, 22 November 2026', en: 'Sunday, 22 November 2026' },
+    raceDay:  { id: 'Minggu, 17 Januari 2027', en: 'Sunday, 17 January 2027' },
     hours:    { id: '04.00 – 10.00 WIB',        en: '04:00 – 10:00 WIB' },
     venue:    { id: 'Plaza Parkir Timur, GBK Senayan, Jakarta',
                 en: 'Plaza Parkir Timur, GBK Senayan, Jakarta' },
@@ -140,13 +140,13 @@
   // confirmed:false → render badge TBC, jam/tanggal RPC & Shake Out Run belum final.
   var WEEKEND = [
     { key: 'rpc', title: { id: 'Race Pack Collection', en: 'Race Pack Collection' },
-      when: { id: '20–21 Nov 2026 (jam menyusul)', en: '20–21 Nov 2026 (time TBC)' }, confirmed: false,
+      when: { id: '15–16 Jan 2027 (jam menyusul)', en: '15–16 Jan 2027 (time TBC)' }, confirmed: false,
       where: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
     { key: 'shakeout', title: { id: 'Shake Out Run', en: 'Shake Out Run' },
-      when: { id: '21 Nov 2026 (jam menyusul)', en: '21 Nov 2026 (time TBC)' }, confirmed: false,
+      when: { id: '16 Jan 2027 (jam menyusul)', en: '16 Jan 2027 (time TBC)' }, confirmed: false,
       where: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
     { key: 'raceday', title: { id: 'Race Day', en: 'Race Day' },
-      when: { id: '22 Nov · 04.00–10.00 WIB', en: '22 Nov · 04:00–10:00 WIB' }, confirmed: true,
+      when: { id: '17 Jan · 04.00–10.00 WIB', en: '17 Jan · 04:00–10:00 WIB' }, confirmed: true,
       where: { id: 'Plaza Parkir Timur, GBK Senayan', en: 'Plaza Parkir Timur, GBK Senayan' } }
   ];
 
