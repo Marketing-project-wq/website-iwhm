@@ -58,7 +58,7 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 |---|---|---|---|---|
 | Teaser / Kick Off (Press Conference) | ~~Agu 2026~~ | hal. 9, 10 | ⚠️ **ditarik** — "Agu 2026" dari deck terbukti tidak andal (kemunculan ke-3 klaim Agustus 2026); tanggal kick off resmi belum dikonfirmasi klien, jangan tampilkan tanggal apa pun | — (tidak dirender) |
 | Open Registration | — | — | 🔴 belum ditentukan, jangan tebak | — (tidak dirender; copy bersyarat di tickets/modal, tanpa tanggal) |
-| Race Pack Collection | 15–16 Jan 2027 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
+| Race Pack Collection | 15–16 Jan 2027 (jam menyusul), Menteng Prada, Jakarta Pusat | konfirmasi klien | ✅ tanggal+venue (jam masih TBC) | schedule, race-pack |
 | Shake Out Run | 16 Jan 2027 (jam menyusul) | turunan pergeseran race day | 🟡 belum dikonfirmasi klien | schedule, race-pack |
 | Race Day | Minggu, 17 Jan 2027, 04.00–10.00 WIB, Plaza Parkir Timur GBK Senayan | Koreksi klien (final) | ✅ | schedule, race-day, index |
 

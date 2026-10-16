@@ -13,7 +13,7 @@ Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. In
 ## ✅ Koreksi terbaru (menggantikan jawaban 31 Agustus di atas)
 
 - **Race day final: 17 Januari 2027, Plaza Parkir Timur, GBK Senayan.** Sebelumnya 22 November 2026 (dan konfirmasi 31 Agu sempat menyebut 29 Nov/Plaza Barat) — keduanya sudah tidak berlaku. Tanggal digeser lagi ke 17 Jan 2027 (venue tetap). **Masih perlu konfirmasi final dari klien** (tanggal sudah bergeser beberapa kali) — masuk daftar kirim `docs/DATA-REQUEST-WA-2026-09.md` no. 1.
-- RPC (15–16 Jan 2027) dan Shake Out Run (16 Jan 2027) adalah turunan dari pergeseran ini dan **belum dikonfirmasi** — masih render badge TBC di `schedule.html`/`race-pack.html` sampai klien memastikan.
+- **RPC sudah dikonfirmasi klien: 15–16 Januari 2027 di Menteng Prada, Jakarta Pusat** (jam masih menyusul). Badge TBC di `schedule.html` sudah dilepas; jam RPC & seluruh detail Shake Out Run (16 Jan 2027) masih belum dikonfirmasi.
 - **Tanggal pembukaan registrasi belum ditentukan sama sekali.** Klaim "Agustus 2026" yang sempat ada di CTA/modal adalah salah dan sudah dihapus dari seluruh situs — jangan diisi tebakan lain.
 
 ## ✅ Terjawab / tuntas per 2 September 2026
