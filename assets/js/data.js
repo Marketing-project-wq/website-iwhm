@@ -137,10 +137,11 @@
   // dipakai baik di Beranda maupun halaman Jadwal.
 
   // Ringkasan race weekend (dipakai di Beranda & halaman Jadwal).
-  // confirmed:false → render badge TBC, jam/tanggal RPC & Shake Out Run belum final.
+  // confirmed:false → render badge TBC. RPC tanggal+venue sudah dikonfirmasi
+  // klien (15–16 Jan 2027, Menteng Prada), jamnya belum. Shake Out Run masih TBC.
   var WEEKEND = [
     { key: 'rpc', title: { id: 'Race Pack Collection', en: 'Race Pack Collection' },
-      when: { id: '15–16 Jan 2027 (jam menyusul)', en: '15–16 Jan 2027 (time TBC)' }, confirmed: false,
+      when: { id: '15–16 Januari 2027 (jam menyusul)', en: '15–16 January 2027 (time TBC)' }, confirmed: true,
       where: { id: 'Menteng Prada, Jakarta Pusat', en: 'Menteng Prada, Central Jakarta' } },
     { key: 'shakeout', title: { id: 'Shake Out Run', en: 'Shake Out Run' },
       when: { id: '16 Jan 2027 (jam menyusul)', en: '16 Jan 2027 (time TBC)' }, confirmed: false,
