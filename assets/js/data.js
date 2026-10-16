@@ -1,5 +1,5 @@
 /* ============================================================
-   data.js — SINGLE SOURCE OF TRUTH · IWHM 2026 (Jakarta Series)
+   data.js — SINGLE SOURCE OF TRUTH · IWHM 2027 (Jakarta Series)
    Semua angka event (tanggal, harga, kuota, hadiah) hidup di sini.
    JANGAN hardcode nilai-nilai ini di file HTML manapun (§1.7).
 
@@ -56,8 +56,8 @@
       en: ['Before sunrise,', 'Senayan is already moving.']
     },
     heroSub: {
-      id: 'Indonesia Women Half Marathon 2026 — 5K, 10K, dan Half Marathon. Tempat perempuan berlari, saling menguatkan, dan tumbuh bersama.',
-      en: 'Indonesia Women Half Marathon 2026 — 5K, 10K, and Half Marathon. A celebration of strength, resilience, and unity.'
+      id: 'Indonesia Women Half Marathon 2027 — 5K, 10K, dan Half Marathon. Tempat perempuan berlari, saling menguatkan, dan tumbuh bersama.',
+      en: 'Indonesia Women Half Marathon 2027 — 5K, 10K, and Half Marathon. A celebration of strength, resilience, and unity.'
     },
     introText: {
       id: 'IWHM adalah event lari perempuan dengan tiga kategori — 5K, 10K, dan Half Marathon. Ketiganya berangkat dari premis yang sama: perjalanan seorang pelari dimulai jauh sebelum garis start, dan tidak pernah benar-benar ditempuh sendirian.',
@@ -238,14 +238,14 @@
   // Jangan tambah pertanyaan Road to Event / sesi latihan mingguan (§3.6).
   var FAQ = [
     { key: 'categories',
-      q: { id: 'Kategori apa saja yang tersedia di IWHM 2026?', en: 'What categories are available at IWHM 2026?' },
+      q: { id: 'Kategori apa saja yang tersedia di IWHM 2027?', en: 'What categories are available at IWHM 2027?' },
       a: { id: 'Ada tiga kategori: Half Marathon, 10K, dan 5K.', en: 'There are three categories: Half Marathon, 10K, and 5K.' } },
     { key: 'when-where',
       q: { id: 'Kapan dan di mana race day berlangsung?', en: 'When and where does race day take place?' },
       a: { id: 'Race day berlangsung ' + EVENT.raceDay.id + ', pukul ' + EVENT.hours.id + ', di ' + EVENT.venue.id + '.',
            en: 'Race day takes place on ' + EVENT.raceDay.en + ', ' + EVENT.hours.en + ', at ' + EVENT.venue.en + '.' } },
     { key: 'who',
-      q: { id: 'Siapa saja yang boleh mengikuti IWHM 2026?', en: 'Who can join IWHM 2026?' },
+      q: { id: 'Siapa saja yang boleh mengikuti IWHM 2027?', en: 'Who can join IWHM 2027?' },
       a: { id: 'IWHM terbuka untuk perempuan berusia ' + EVENT.ageRange + ' tahun — mulai dari atlet, pelari, komunitas lari, hingga mahasiswi.',
            en: 'IWHM is open to women aged ' + EVENT.ageRange + ' — from athletes and runners to running communities and students.' } },
     { key: 'rpc',

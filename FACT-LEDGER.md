@@ -1,4 +1,4 @@
-# FACT-LEDGER — IWHM 2026
+# FACT-LEDGER — IWHM 2027
 
 **Sumber:** deck sponsorship IWHM (36 hal., Canva export, nama file diredaksi — §1.4) + konfirmasi langsung klien 31 Agustus 2026 (lihat 3.10).
 **Status legend:** ✅ `CONFIRMED-DECK` · ✅ `CONFIRMED-KLIEN` · 🟡 `TBC` · 🔴 `NOT-IN-DECK`
@@ -15,7 +15,7 @@ Per §1.3 (hard constraint): setiap baris berstatus 🟡/🔴 **wajib** dirender
 |---|---|---|---|---|
 | Nama resmi | Indonesia Women Half Marathon | hal. 1 | ✅ | Semua halaman (title, header, footer, JSON-LD) |
 | Singkatan | IWHM | hal. 1 | ✅ | Semua halaman |
-| Tahun/edisi | 2026 | hal. 6 | ✅ | Semua halaman |
+| Tahun/edisi | 2027 (branding diubah dari "2026" atas permintaan klien; deck hal. 6 menyebut 2026) | keputusan klien (menggantikan deck hal. 6) | ✅ | Semua halaman |
 | Series | Jakarta Series | hal. 9 | ✅ | index, about, footer |
 | Penyelenggara | 20FIT \| EVENT | semua hal. | ✅ | footer, contact, privacy, JSON-LD `organizer` |
 | Tema | "Continuing the Movement, Redefining the Journey" | hal. 5 | ✅ | index (hero/intro), about (bagian 4 judul) |

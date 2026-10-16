@@ -1,4 +1,4 @@
-# QUESTIONS — IWHM 2026
+# QUESTIONS — IWHM 2027
 
 Salinan §13 dari `PROMPT-CLAUDE-CODE-IWHM-2026.md`, diurutkan blocking dulu. Ini daftar pertanyaan ke klien/desainer, bukan sesuatu yang dijawab sendiri oleh Claude Code.
 
