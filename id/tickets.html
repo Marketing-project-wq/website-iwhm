@@ -86,8 +86,6 @@
           : '<span class="badge badge--tbc">Menunggu konfirmasi</span>';
         var discountHtml = tier.discount > 0
           ? '<span class="ticket-row__discount">-' + tier.discount + '%</span>' : '';
-        var audienceRow = tier.audience
-          ? '<div><dt>Target</dt><dd>' + tier.audience[D.LANG] + '</dd></div>' : '';
         var row = document.createElement('div');
         row.className = 'ticket-row';
         row.style.flexDirection = 'column';
@@ -98,7 +96,6 @@
           '<dl class="fact-list" style="grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); display: grid; gap: var(--space-m);">' +
             '<div><dt>Harga</dt><dd style="font-size:var(--step-0);">' + priceHtml + '</dd></div>' +
             '<div><dt>Periode</dt><dd style="font-size:var(--step-0);">' + periodHtml + '</dd></div>' +
-            audienceRow +
           '</dl>';
         list.appendChild(row);
       });
